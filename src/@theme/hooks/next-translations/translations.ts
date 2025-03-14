@@ -1,4 +1,5 @@
 import type {
+  IGetLocales,
   IGetMetadata,
   IGetMetadataReturn,
   IIsLocale,
@@ -32,4 +33,8 @@ function isLocale({ locale }: IIsLocale): boolean {
   return routing.locales.includes(locale as any);
 }
 
-export { getMetadata, isLocale, useMessages };
+function getLocales(): IGetLocales {
+  return routing.locales.map(locale => ({ locale }));
+}
+
+export { getLocales, getMetadata, isLocale, useMessages };
