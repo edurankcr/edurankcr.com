@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+@source './sanity.txt';
+
+:root {
+  --background: #15171e;
+  --foreground: #ffffff;
+  --primary: #0070f3;
+  --white: #ffffff;
+  --white-6: #ffffff0f;
+  --white-12: #ffffff1f;
+  --white-48: #ffffff7a;
+  --gray-500: #1a1c23;
+  --height-header: 72px;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-white: var(--white);
+  --color-secondary: var(--white-48);
+  --color-white-6: var(--white-6);
+  --color-white-12: var(--white-12);
+  --color-white-48: var(--white-48);
+  --color-gray-500: var(--gray-500);
+  --color-menu-background: var(--popover);
+  --color-menu-border: var(--white-12);
+  --color-menu-color: var(--popover-foreground);
+  --color-menu-color-secondary: var(--white-48);
+  --spacing-header: var(--height-header);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  header {
+    @apply h-header px-4;
+  }
+
+  *:where([data-grow='true']) > * {
+    @apply grow;
+    max-width: var(--group-child-width);
+  }
+
+  button {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap focus-visible:outline-none;
+  }
+}
