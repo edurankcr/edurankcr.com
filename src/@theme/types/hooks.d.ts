@@ -23,8 +23,10 @@ type IUseMessages = {
 
 type IUseMessagesReturn = {} & Promise<AbstractIntlMessages>;
 
+type IGetLocales = { locale: Locale }[];
+
 type IIsLocale = {
   locale: Locale;
 };
 
-export { IGetMetadata, IGetMetadataReturn, IIsLocale, IUseMessages, IUseMessagesReturn };
+export { IGetLocales, IGetMetadata, IGetMetadataReturn, IIsLocale, IUseMessages, IUseMessagesReturn };

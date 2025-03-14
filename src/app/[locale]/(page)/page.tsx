@@ -1,6 +1,6 @@
-import { Stack } from '@theme/components';
 import { getMetadata } from '@theme/hooks';
 import type { IMeta } from '@theme/types';
+import { Home } from '@theme-ui/pages';
 
 export async function generateMetadata({ params }: IMeta) {
   const { locale } = await params;
@@ -8,12 +8,5 @@ export async function generateMetadata({ params }: IMeta) {
 }
 
 export default async function Page() {
-  return (
-    <Stack>
-      <b>hello world!</b>
-      <span>
-        xd
-      </span>
-    </Stack>
-  );
+  return <Home />;
 }

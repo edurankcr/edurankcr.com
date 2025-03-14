@@ -1,11 +1,12 @@
 import '@theme/styles/globals.css';
 
 import { fontMono, fontSans } from '@theme/fonts';
+import { Providers } from '@theme/hocs';
+import { getLocales, isLocale } from '@theme/hooks';
 import type { IRootLayout } from '@theme/types';
 import { clsx } from 'clsx';
 import type { Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 export const metadata: Metadata = {
   icons: [
@@ -16,17 +17,23 @@ export const metadata: Metadata = {
   ],
 };
 
+export function generateStaticParams() {
+  return getLocales();
+}
+
 export default async function RootLayout({ children, params }: Readonly<IRootLayout>) {
   const { locale } = await params;
 
-  const messages = await getMessages();
+  if (!isLocale({ locale })) {
+    return notFound();
+  }
 
   return (
     <html lang={locale} className={clsx(fontSans.variable, fontMono.variable)}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <Providers>
           {children}
-        </NextIntlClientProvider>
+        </Providers>
       </body>
     </html>
   );
