@@ -8,7 +8,8 @@
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"],
-      "@theme/*": ["./src/@theme/*"]
+      "@theme/*": ["./src/@theme/*"],
+      "@theme-ui/*": ["./src/@theme-ui/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
