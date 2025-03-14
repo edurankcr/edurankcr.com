@@ -1,3 +1,4 @@
+import type { getTranslations } from 'next-intl/server';
 import type { ReactNode } from 'react';
 
 import type en from '../../messages/en.json';
@@ -27,4 +28,20 @@ type IRootLayout = {
 
 type IMeta = {} & ILayoutParams;
 
-export { IMeta, IRootLayout, Locale, Messages };
+type IProviders = {
+  children: Children;
+};
+
+type IPageLayout = {
+  children: Children;
+} & ILayoutParams;
+
+type ILayout = {
+  children: Children;
+} & ILayoutParams;
+
+type IDictionary = {
+  dictionary: Awaited<ReturnType<typeof getTranslations>>;
+};
+
+export { IDictionary, ILayout, IMeta, IPageLayout, IProviders, IRootLayout, Locale, Messages };
