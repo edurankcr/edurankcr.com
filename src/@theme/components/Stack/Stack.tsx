@@ -5,14 +5,14 @@ import { Box } from '../Box';
 type StackProps = {} & ComponentProps<typeof Box>;
 
 const Stack: FC<StackProps> = ({ align = 'stretch', justify = 'center', gap = 'md', ...props }) => {
-  const boxProps = {
+  const stackProps = {
     align,
     justify,
     gap,
     ...props,
   };
 
-  return <Box display="flex" direction="column" {...boxProps} />;
+  return <Box display="flex" direction="column" {...stackProps} />;
 };
 
 Stack.displayName = 'Stack';
