@@ -1,17 +1,16 @@
+import { Slot } from '@radix-ui/react-slot';
 import type { VariantProps } from 'class-variance-authority';
 import { cva, cx } from 'class-variance-authority';
-import type { ComponentProps, FC, ReactNode } from 'react';
-
-import {Slot} from "@radix-ui/react-slot";
+import type { ComponentProps, FC } from 'react';
 
 const textVariants = cva('', {
   variants: {
     color: {
-      'inherit': 'text-inherit',
-      'primary': 'text-primary',
-      'white': 'text-white',
-      'black': 'text-black',
-      'foreground': 'text-foreground',
+      inherit: 'text-inherit',
+      primary: 'text-primary',
+      white: 'text-white',
+      black: 'text-black',
+      foreground: 'text-foreground',
     },
     size: {
       xs: 'text-xs',
@@ -47,11 +46,14 @@ const Text: FC<TextProps> = ({
     ...props,
   };
   return (
-    <Comp className={cx(textVariants({
-      className,
-      color,
-      size,
-    }), className)} {...buttonProps}>
+    <Comp
+      className={cx(textVariants({
+        className,
+        color,
+        size,
+      }), className)}
+      {...buttonProps}
+    >
       {children}
     </Comp>
   );

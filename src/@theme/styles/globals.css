@@ -18,7 +18,7 @@
 
 @layer base {
   .hero {
-    transition: all .5s ease;
+    transition: all 0.5s ease;
   }
 
   body {
@@ -29,7 +29,8 @@
     @apply px-4 h-header absolute top-0 inset-x-0;
   }
 
-  header .main-header {}
+  header .main-header {
+  }
 
   main {
     @apply flex-1;

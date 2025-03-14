@@ -103,19 +103,22 @@ const Button: FC<ButtonProps> = ({
     ...props,
   };
   return (
-    <button className={cx(buttonVariants({
-      className,
-      color,
-      disabled,
-      fontColor,
-      fontSize,
-      fontWeight,
-      fullWidth,
-      justify,
-      radius,
-      size,
-      borderWidth,
-    }), className)} {...buttonProps}>
+    <button
+      className={cx(buttonVariants({
+        className,
+        color,
+        disabled,
+        fontColor,
+        fontSize,
+        fontWeight,
+        fullWidth,
+        justify,
+        radius,
+        size,
+        borderWidth,
+      }), className)}
+      {...buttonProps}
+    >
       {leftSection
         && (
           <Box
