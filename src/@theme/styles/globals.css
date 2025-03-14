@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+@source './sanity.txt';
+
+:root {
+  --background: var(--white);
+  --foreground: var(--text-primary);
+  --text-primary: #333;
+  --height-header: 4rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --spacing-header: var(--height-header);
+}
+
+@layer base {
+  .hero {
+    transition: all 0.5s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans h-dvh min-h-dvh h-auto;
+  }
+
+  header {
+    @apply px-4 h-header absolute top-0 inset-x-0;
+  }
+
+  header .main-header {
+  }
+
+  main {
+    @apply flex-1;
+  }
+
+  section {
+    @apply w-full;
+  }
+
+  *:where([data-grow='true']) > * {
+    @apply grow;
+    max-width: var(--group-child-width);
+  }
+
+  button {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap focus-visible:outline-none;
+  }
+
+  button span {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  nav.navigation-menu ul li:first-child button {
+    @apply rounded-l-md;
+  }
+}

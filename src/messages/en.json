@@ -1,0 +1,27 @@
+{
+  "Meta": {
+    "Home": {
+      "title": "Homepage",
+      "description": "This is the homepage of the application."
+    }
+  },
+  "UI": {
+    "Navigation": {
+      "Explore": {
+        "label": "Explore",
+        "Items": {}
+      },
+      "Saved": {
+        "label": "Saved",
+        "Items": {}
+      },
+      "Recommendations": {
+        "label": "Recommendations",
+        "Items": {}
+      }
+    },
+    "Buttons": {
+      "log_in": "Log In"
+    }
+  }
+}
