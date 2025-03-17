@@ -30,7 +30,7 @@ type IMeta = {} & ILayoutParams;
 
 type IProviders = {
   children: Children;
-};
+} & ILayoutParams;
 
 type IPageLayout = {
   children: Children;

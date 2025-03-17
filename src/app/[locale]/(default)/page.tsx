@@ -1,4 +1,4 @@
-import { getMetadata } from '@theme/hooks';
+import { getMetadata } from '@theme/functions';
 import type { IMeta } from '@theme/types';
 import { Home } from '@theme-ui/pages';
 

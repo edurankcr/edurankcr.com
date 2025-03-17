@@ -1,31 +1,23 @@
-// noinspection HtmlRequiredAltAttribute
-
+import { Link as RouterLink } from '@theme/components/Navigation/Navigation';
 import type { VariantProps } from 'class-variance-authority';
 import { cva, cx } from 'class-variance-authority';
 import type { ComponentProps, FC } from 'react';
-
-import { Link as RouterLink } from '../Navigation/Navigation';
+import { memo } from 'react';
 
 const linkVariants = cva('', {
   variants: {
-    cursor: {
-      pointer: 'cursor-pointer',
-    },
-    select: {
-      none: 'select-none',
-    },
+    userCursor: { pointer: 'cursor-pointer' },
+    userSelect: { none: 'select-none' },
   },
-  defaultVariants: {
-    cursor: 'pointer',
-  },
+  defaultVariants: { userCursor: 'pointer' },
 });
 
-type LinkProps = {
-} & ComponentProps<typeof RouterLink> & VariantProps<typeof linkVariants>;
+type LinkProps = ComponentProps<typeof RouterLink> & VariantProps<typeof linkVariants>;
 
-const Link: FC<LinkProps> = ({
+const Link: FC<LinkProps> = memo(({
   className,
-  cursor,
+  userCursor,
+  userSelect,
   href,
   target,
   rel,
@@ -33,18 +25,20 @@ const Link: FC<LinkProps> = ({
   id,
   ...props
 }) => {
-  const linkProps = {
-    href,
-    target,
-    rel,
-    title,
-    id,
-    ...props,
-  };
+  const computedRel = target === '_blank' ? 'noopener noreferrer' : rel;
+
   return (
-    <RouterLink className={cx(linkVariants({ cursor }), className)} {...linkProps} />
+    <RouterLink
+      className={cx(linkVariants({ userCursor, userSelect }), className)}
+      href={href}
+      target={target}
+      rel={computedRel}
+      title={title}
+      id={id}
+      {...props}
+    />
   );
-};
+});
 
 Link.displayName = 'Link';
 
