@@ -1,3 +1,0 @@
-export {
-  PageLayout,
-} from './PageLayout';
