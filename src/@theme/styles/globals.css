@@ -2,8 +2,12 @@
 @source './sanity.txt';
 
 :root {
+  --white: #fff;
+  --black: #000;
+  --color-neutral-300: #c2c2b8;
   --background: var(--white);
   --foreground: var(--text-primary);
+  --border-interactive: var(--color-neutral-300);
   --text-primary: #333;
   --height-header: 4rem;
 }
@@ -13,31 +17,17 @@
   --font-mono: var(--font-geist-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-border-interactive: var(--border-interactive);
   --spacing-header: var(--height-header);
 }
 
 @layer base {
-  .hero {
-    transition: all 0.5s ease;
-  }
-
   body {
-    @apply bg-background text-foreground font-sans h-dvh min-h-dvh h-auto;
+    @apply bg-background text-foreground font-sans min-h-dvh h-full;
   }
 
   header {
-    @apply px-4 h-header absolute top-0 inset-x-0;
-  }
-
-  header .main-header {
-  }
-
-  main {
-    @apply flex-1;
-  }
-
-  section {
-    @apply w-full;
+    @apply px-4 md:px-0 h-header absolute top-0 inset-x-0;
   }
 
   *:where([data-grow='true']) > * {
@@ -46,14 +36,10 @@
   }
 
   button {
-    @apply overflow-hidden text-ellipsis whitespace-nowrap focus-visible:outline-none;
+    @apply focus-visible:outline-none;
   }
 
   button span {
     @apply overflow-hidden text-ellipsis whitespace-nowrap;
-  }
-
-  nav.navigation-menu ul li:first-child button {
-    @apply rounded-l-md;
   }
 }
