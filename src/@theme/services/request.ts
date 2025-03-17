@@ -1,4 +1,4 @@
-import { isLocale } from '@theme/hooks';
+import { isLocale } from '@theme/functions';
 import { getRequestConfig } from 'next-intl/server';
 
 import { routing } from './routing';
