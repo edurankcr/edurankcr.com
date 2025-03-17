@@ -12,9 +12,23 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'icon',
-      url: '/favicon.ico',
+      url: '/favicon.svg',
     },
   ],
+  openGraph: {
+    url: 'https://www.edurankcr.com/',
+    siteName: 'EduRankCR',
+    images: [
+      {
+        url: '/social/og.jpg',
+        width: 1200,
+        height: 628,
+        alt: 'EduRankCR - Trusted Reviews of Universities & Teachers in Costa Rica',
+      },
+    ],
+    type: 'website',
+    locale: 'es_CR',
+  },
 };
 
 export function generateStaticParams() {
