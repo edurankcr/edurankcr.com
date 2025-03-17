@@ -1,72 +1,50 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cva, cx } from 'class-variance-authority';
-import type { ComponentProps, FC, ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
+import { memo } from 'react';
 
-import { Box } from '../Box';
-
-const buttonVariants = cva('transition-colors duration-300 ease-in-out no-select inline-flex items-center group border-transparent', {
+const buttonVariants = cva('', {
   variants: {
-    color: {
-      'primary': 'bg-primary',
-      'white': 'bg-transparent border-white',
-      'inverse-muted': 'bg-transparent data-[state=open]:bg-white-6 hover:bg-white-6 [&>span]:text-secondary hover:[&>span]:text-white [&[data-state=open]>span]:text-white',
+    borderColor: {
+      transparent: 'border-transparent',
+      white: 'border-white',
+      black: 'border-black',
+      interactive: 'border-border-interactive',
     },
-    disabled: {
-      true: 'cursor-not-allowed opacity-50',
-      false: '',
+    borderWidth: {
+      0: 'border-0',
+      1: 'border',
+      2: 'border-2',
     },
-    fullWidth: {
-      true: 'w-full',
-      false: 'w-auto',
-    },
-    radius: {
-      none: 'rounded-none',
-      default: 'rounded-md',
+    borderRadius: {
+      sm: 'rounded-sm',
+      md: 'rounded-md',
+      lg: 'rounded-lg',
       full: 'rounded-full',
-    },
-    size: {
-      sm: 'h-[2.25rem] px-4',
-      md: '',
-      lg: 'h-12 px-4',
-      xl: 'h-14 px-4',
-    },
-    justify: {
-      start: 'justify-start',
-      center: 'justify-center',
-      between: 'justify-between',
-      end: 'justify-end',
     },
     fontWeight: {
       normal: 'font-normal',
-      semibold: 'font-semibold',
+      medium: 'font-medium',
       bold: 'font-bold',
     },
-    fontColor: {
-      white: 'text-white',
-      secondary: 'text-secondary hover:text-white',
-      muted: 'text-muted hover:text-white',
+    height: {
+      sm: 'h-9',
+      md: 'h-10',
+      lg: 'h-12',
     },
-    fontSize: {
-      xs: 'text-xs',
-      sm: 'text-sm',
-      md: 'text-base',
-      lg: 'text-lg',
-    },
-    borderWidth: {
-      none: 'border-0',
-      default: 'border',
-      lg: 'border-2',
+    paddingX: {
+      sm: 'px-4',
+      md: 'px-6',
+      lg: 'px-8',
     },
   },
   defaultVariants: {
-    color: 'primary',
-    radius: 'full',
-    size: 'md',
-    justify: 'center',
+    borderColor: 'transparent',
+    borderWidth: 1,
     fontWeight: 'bold',
-    fontColor: 'white',
-    fontSize: 'md',
-    borderWidth: 'default',
+    height: 'md',
+    paddingX: 'md',
+    borderRadius: 'full',
   },
 });
 
@@ -75,74 +53,38 @@ type ButtonProps = {
   rightSection?: ReactNode;
 } & ComponentProps<'button'> & VariantProps<typeof buttonVariants>;
 
-const Button: FC<ButtonProps> = ({
+const Button = memo<ButtonProps>(({
   className,
-  color,
-  disabled,
-  fullWidth,
-  radius,
-  size,
-  justify,
-  fontWeight,
-  fontColor,
-  fontSize,
-  borderWidth,
-  type = 'button',
-  name,
-  id,
-  children,
   leftSection,
   rightSection,
+  type = 'button',
+  borderColor,
+  borderRadius,
+  borderWidth,
+  fontWeight,
+  height,
+  paddingX,
   ...props
 }) => {
-  const buttonProps = {
-    type,
-    name,
-    id,
-    disabled,
-    ...props,
-  };
   return (
     <button
+      type={type}
       className={cx(buttonVariants({
-        className,
-        color,
-        disabled,
-        fontColor,
-        fontSize,
-        fontWeight,
-        fullWidth,
-        justify,
-        radius,
-        size,
+        borderColor,
+        borderRadius,
         borderWidth,
+        fontWeight,
+        height,
+        paddingX,
       }), className)}
-      {...buttonProps}
+      {...props}
     >
-      {leftSection
-        && (
-          <Box
-            as="span"
-            className="relative me-3 transition duration-300"
-            color="inherit"
-          >
-            {leftSection}
-          </Box>
-        )}
-      {children}
-      {rightSection
-        && (
-          <Box
-            as="span"
-            className="relative ms-3 transition duration-300 group-data-[state=open]:rotate-180"
-            aria-hidden="true"
-          >
-            {rightSection}
-          </Box>
-        )}
+      {leftSection && <span className="me-3">{leftSection}</span>}
+      {props.children}
+      {rightSection && <span className="ms-3">{rightSection}</span>}
     </button>
   );
-};
+});
 
 Button.displayName = 'Button';
 
