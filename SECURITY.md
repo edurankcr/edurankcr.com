@@ -1,6 +1,6 @@
 # Security
 
-**Contact:** [security@edurankcr.com](mailto:security@edurankcr.com)
+**Contact:** [edurankcr@gmail.com](mailto:edurankcr@gmail.com)
 
 Inspired by [https://supabase.com/.well-known/security.txt](https://supabase.com/.well-known/security.txt)
 
@@ -30,7 +30,7 @@ The following vulnerabilities **are not considered** within the scope of our sec
 
 If you find a security vulnerability on EduRankCR, please follow these steps:
 
-1. **Email your findings** to [security@edurankcr.com](mailto:security@edurankcr.com) with detailed information.
+1. **Email your findings** to [edurankcr@gmail.com](mailto:edurankcr@gmail.com) with detailed information.
 2. **Do not run automated scans** on our infrastructure or dashboard without prior approval. If you want to conduct tests, contact us, and we will set up a sandbox environment.
 3. **Do not exploit the vulnerability** to gain access to more data than necessary for verification. Do not modify or delete others’ data.
 4. **Keep your findings confidential** until we have resolved the issue.
