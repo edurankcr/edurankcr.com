@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: 'EduRankCR',
     images: [
       {
-        url: '/social/og.jpg',
+        url: '/assets/social/og.jpg',
         width: 1200,
         height: 628,
         alt: 'EduRankCR - Trusted Reviews of Universities & Teachers in Costa Rica',
