@@ -12,21 +12,31 @@ type IGetMetadata = {
   variables?: Record<string, string>;
 };
 
-type IGetMetadataReturn = {
+type IGetMetadataResponse = {
   title: string;
   description: string;
 };
 
-type IUseMessages = {
+type IGetMessagesForLocale = {
   locale: Locale;
 };
 
-type IUseMessagesReturn = {} & Promise<AbstractIntlMessages>;
+type IGetMessagesForLocaleResponse = {} & Promise<AbstractIntlMessages>;
 
-type IGetLocales = { locale: Locale }[];
+type IGetLocalesResponse = { locale: Locale }[];
 
 type IIsLocale = {
   locale: Locale;
 };
 
-export { IGetLocales, IGetMetadata, IGetMetadataReturn, IIsLocale, IUseMessages, IUseMessagesReturn };
+type IIsLocaleResponse = boolean;
+
+export {
+  IGetLocalesResponse,
+  IGetMessagesForLocale,
+  IGetMessagesForLocaleResponse,
+  IGetMetadata,
+  IGetMetadataResponse,
+  IIsLocale,
+  IIsLocaleResponse,
+};
