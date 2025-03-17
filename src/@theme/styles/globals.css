@@ -27,7 +27,7 @@
   }
 
   header {
-    @apply px-4 md:px-0 h-header absolute top-0 inset-x-0;
+    @apply h-header absolute top-0 inset-x-0;
   }
 
   *:where([data-grow='true']) > * {

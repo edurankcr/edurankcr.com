@@ -10,6 +10,7 @@ const Section: FC<SectionProps> = memo(({
   <Box
     width="full"
     paddingY="section"
+    paddingX="section"
     as="section"
     {...props}
   />

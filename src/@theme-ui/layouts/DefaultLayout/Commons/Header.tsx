@@ -20,6 +20,7 @@ const Header: FC<HeaderProps> = ({
     <Stack
       as="header"
       container
+      paddingX="section"
       zIndex={50}
       {...headerProps}
     >
