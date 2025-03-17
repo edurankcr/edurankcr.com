@@ -1,30 +1,38 @@
+import { Box } from '@theme/components';
+import { getPreventGrowOverflow } from '@theme/functions';
 import type { ComponentProps, FC } from 'react';
+import { memo } from 'react';
 
-import { Box, usePreventGrowOverflow } from '../Box';
+type GroupProps = {
+  preventGrowOverflow?: boolean;
+} & ComponentProps<typeof Box>;
 
-type GroupProps = {} & ComponentProps<typeof Box>;
-
-const Group: FC<GroupProps> = ({
-  align = 'center',
+const Group: FC<GroupProps> = memo(({
+  alignItems = 'center',
+  display = 'flex',
+  flexDirection = 'row',
   gap = 'md',
-  grow = false,
-  justify = 'center',
+  flexGrow = false,
+  justifyContent = 'center',
   preventGrowOverflow = true,
-  wrap = 'wrap',
+  flexWrap = 'wrap',
   ...props
 }) => {
-  const groupProps = {
-    align,
-    gap,
-    grow,
-    justify,
+  return getPreventGrowOverflow(
+    <Box
+      alignItems={alignItems}
+      display={display}
+      flexDirection={flexDirection}
+      gap={gap}
+      flexGrow={flexGrow}
+      justifyContent={justifyContent}
+      overflow={preventGrowOverflow ? 'hidden' : undefined}
+      flexWrap={flexWrap}
+      {...props}
+    />,
     preventGrowOverflow,
-    wrap,
-    ...props,
-  };
-
-  return usePreventGrowOverflow(<Box display="flex" direction="row" {...groupProps} />, preventGrowOverflow);
-};
+  );
+});
 
 Group.displayName = 'Group';
 
