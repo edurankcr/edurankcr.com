@@ -1,5 +1,6 @@
 export * from './Box';
 export * from './Button';
+export * from './Carousel';
 export * from './Group';
 export * from './Image';
 export * from './Link';
