@@ -42,4 +42,8 @@
   button span {
     @apply overflow-hidden text-ellipsis whitespace-nowrap;
   }
+
+  .background-linear {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent);
+  }
 }

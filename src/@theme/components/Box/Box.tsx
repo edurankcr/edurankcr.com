@@ -79,6 +79,7 @@ const boxVariants = cva('', {
       auto: 'h-auto',
       dvh: 'h-dvh',
       full: 'h-full',
+      carouselLinear: 'h-4/5',
       carousel: 'h-[476px] md:h-[540px] lg:h-[36vw]',
     },
     justifyContent: {
@@ -115,6 +116,9 @@ const boxVariants = cva('', {
       'section': 'py-4 md:py-6 lg:py-8',
       'sm': 'py-2',
       'xl': 'py-5',
+    },
+    pointerEvents: {
+      none: 'pointer-events-none',
     },
     transition: {
       true: 'transition-all',
@@ -182,6 +186,7 @@ const Box = memo<BoxProps>(({
   overflow,
   paddingX,
   paddingY,
+  pointerEvents,
   transition,
   transitionDuration,
   transitionTimingFunction,
@@ -214,6 +219,7 @@ const Box = memo<BoxProps>(({
         overflow,
         paddingX,
         paddingY,
+        pointerEvents,
         transition,
         transitionDuration,
         transitionTimingFunction,
