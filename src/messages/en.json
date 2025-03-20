@@ -20,8 +20,17 @@
         "Items": {}
       }
     },
-    "Buttons": {
-      "log_in": "Log In"
+    "Heading": {
+      "hero_cta": "Find Trusted Educational Reviews in Costa Rica"
+    },
+    "Input": {
+      "Search": {
+        "placeholder": "Search for teachers, universities or institutes..."
+      }
+    },
+    "Button": {
+      "log_in": "Log In",
+      "link_hero_cta": "Explore Rankings"
     }
   }
 }
