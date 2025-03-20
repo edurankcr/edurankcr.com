@@ -1,6 +1,6 @@
 import '@theme/styles/globals.css';
 
-import { getLocales, isLocale } from '@theme/functions';
+import { getBaseUrl, getLocales, isLocale } from '@theme/functions';
 import { Providers } from '@theme/providers';
 import { fontMono, fontSans } from '@theme/styles';
 import type { IRootLayout } from '@theme/types';
@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getBaseUrl()),
   icons: [
     {
       rel: 'icon',
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    url: 'https://www.edurankcr.com/',
+    url: new URL(getBaseUrl()),
     siteName: 'EduRankCR',
     images: [
       {
