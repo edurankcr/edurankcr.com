@@ -1,3 +1,4 @@
+import { Text } from '@theme/components';
 import { Link as RouterLink } from '@theme/components/Navigation/Navigation';
 import type { VariantProps } from 'class-variance-authority';
 import { cva, cx } from 'class-variance-authority';
@@ -12,7 +13,9 @@ const linkVariants = cva('', {
   defaultVariants: { userCursor: 'pointer' },
 });
 
-type LinkProps = ComponentProps<typeof RouterLink> & VariantProps<typeof linkVariants>;
+type LinkProps = {
+  text?: ComponentProps<typeof Text>;
+} & ComponentProps<typeof RouterLink> & VariantProps<typeof linkVariants>;
 
 const Link: FC<LinkProps> = memo(({
   className,
@@ -29,14 +32,23 @@ const Link: FC<LinkProps> = memo(({
 
   return (
     <RouterLink
-      className={cx(linkVariants({ userCursor, userSelect }), className)}
+      className={cx(linkVariants({
+        userCursor,
+        userSelect,
+      }), className)}
       href={href}
       target={target}
       rel={computedRel}
       title={title}
       id={id}
       {...props}
-    />
+    >
+      <Text
+        {...props.text}
+      >
+        {props.children}
+      </Text>
+    </RouterLink>
   );
 });
 
