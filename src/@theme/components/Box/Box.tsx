@@ -120,6 +120,12 @@ const boxVariants = cva('', {
     pointerEvents: {
       none: 'pointer-events-none',
     },
+    position: {
+      absolute: 'absolute',
+      fixed: 'fixed',
+      relative: 'relative',
+      sticky: 'sticky',
+    },
     transition: {
       true: 'transition-all',
     },
@@ -187,6 +193,7 @@ const Box = memo<BoxProps>(({
   paddingX,
   paddingY,
   pointerEvents,
+  position,
   transition,
   transitionDuration,
   transitionTimingFunction,
@@ -220,6 +227,7 @@ const Box = memo<BoxProps>(({
         paddingX,
         paddingY,
         pointerEvents,
+        position,
         transition,
         transitionDuration,
         transitionTimingFunction,
