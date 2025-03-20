@@ -6,6 +6,9 @@ import { memo } from 'react';
 
 const textVariants = cva('', {
   variants: {
+    align: {
+      center: 'text-center',
+    },
     color: {
       black: 'text-black',
       foreground: 'text-foreground',
@@ -14,11 +17,23 @@ const textVariants = cva('', {
       white: 'text-white',
     },
     size: {
+      'inherit': '',
+      'lg': 'text-lg',
+      'md': 'text-base',
+      'sm': 'text-sm',
+      'xs': 'text-xs',
+      '300': 'text-300',
+      '300-res': 'text-200 md:text-300',
+      '700-res': 'text-600 md:text-700-responsive',
+    },
+    underline: {
+      true: 'underline',
+    },
+    weight: {
       inherit: '',
-      lg: 'text-lg',
-      md: 'text-base',
-      sm: 'text-sm',
-      xs: 'text-xs',
+      bold: 'font-bold',
+      medium: 'font-medium',
+      normal: 'font-normal',
     },
   },
   defaultVariants: {
@@ -36,15 +51,27 @@ const Text: FC<TextProps> = memo(({
   asChild,
   as: Tag = 'p',
   className,
+  align,
   color,
   size,
+  underline,
+  weight,
   children,
   ...props
 }) => {
   const Comp = asChild ? Slot : Tag;
 
   return (
-    <Comp className={cx(textVariants({ color, size }), className)} {...props}>
+    <Comp
+      className={cx(textVariants({
+        align,
+        color,
+        size,
+        underline,
+        weight,
+      }), className)}
+      {...props}
+    >
       {children}
     </Comp>
   );
