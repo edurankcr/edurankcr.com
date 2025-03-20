@@ -5,20 +5,72 @@
   --white: #fff;
   --black: #000;
   --color-neutral-300: #c2c2b8;
+  --color-neutral-600: #656e5e;
   --background: var(--white);
   --foreground: var(--text-primary);
   --border-interactive: var(--color-neutral-300);
   --text-primary: #333;
   --height-header: 4rem;
+  --height-18: 4.5rem;
+  --shadow-200: 0px 4px 8px 0px rgba(0, 0, 0, 0.18), 0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+  --font-letterspacing-400-responsive: -0.03125rem;
+  --font-letterspacing-500-responsive: -0.03125rem;
+  --font-letterspacing-600-responsive: -0.0625rem;
+  --font-letterspacing-700-responsive: -0.0625rem;
+  --font-letterspacing-700: -0.0625rem;
+  --font-letterspacing-600: -0.03125rem;
+  --font-letterspacing-500: -0.03125rem;
+  --font-letterspacing-400: -0.015625rem;
+  --font-size-700-responsive: 3.75rem;
+  --font-size-600-responsive: 2.25rem;
+  --font-size-500-responsive: 2rem;
+  --font-size-400-responsive: 1.75rem;
+  --font-size-700: 2.75rem;
+  --font-size-600: 2rem;
+  --font-size-500: 1.75rem;
+  --font-size-400: 1.5rem;
+  --font-size-300: 1.25rem;
+  --font-size-200: 1rem;
+  --font-size-100: 0.8125rem;
+  --font-size-50: 0.6875rem;
+  --font-lineheight-loose: 1.7;
+  --font-lineheight-default: 1.5;
+  --font-lineheight-400-responsive: 1.2;
+  --font-lineheight-500-responsive: 1.15;
+  --font-lineheight-600-responsive: 1.1;
+  --font-lineheight-700-responsive: 1.06;
+  --font-lineheight-700: 1.1;
+  --font-lineheight-600: 1.15;
+  --font-lineheight-500: 1.18;
+  --font-lineheight-400: 1.2;
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border-interactive: var(--border-interactive);
+  --color-neutral-600: var(--color-neutral-600);
+
   --spacing-header: var(--height-header);
+  --spacing-18: var(--height-18);
+
+  --shadow-200: var(--shadow-200);
+
+  --text-200: var(--font-size-200);
+  --text-200--line-height: var(--font-lineheight-200);
+  --text-200--letter-spacing: var(--font-letterspacing-200);
+  --text-300: var(--font-size-300);
+  --text-300--line-height: var(--font-lineheight-300);
+  --text-300--letter-spacing: var(--font-letterspacing-300);
+  --text-600: var(--font-size-600);
+  --text-600--line-height: var(--font-lineheight-600);
+  --text-600--letter-spacing: var(--font-letterspacing-600);
+  --text-700-responsive: var(--font-size-700-responsive);
+  --text-700-responsive--line-height: var(--font-lineheight-700-responsive);
+  --text-700-responsive--letter-spacing: var(--font-letterspacing-700-responsive);
 }
 
 @layer base {
