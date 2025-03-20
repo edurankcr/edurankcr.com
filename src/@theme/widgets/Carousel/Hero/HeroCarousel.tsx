@@ -11,11 +11,11 @@ type IHeroCarousel = {
 const HeroCarousel = ({ children }: IHeroCarousel) => {
   return (
     <Carousel
-      className="pointer-events-none select-none h-[476px] md:h-[540px] xl:h-[36vw]"
+      className="pointer-events-none select-none h-[476px] md:h-[540px] lg:h-[36vw]"
       plugins={[
         Autoplay({
-          delay: 6000,
-          stopOnInteraction: true,
+          delay: 8000,
+          stopOnInteraction: false,
         }),
       ]}
     >
@@ -24,7 +24,8 @@ const HeroCarousel = ({ children }: IHeroCarousel) => {
         height="carouselLinear"
         zIndex={10}
         pointerEvents="none"
-        className="absolute top-0 left-0 background-linear"
+        position="absolute"
+        className="top-0 left-0 background-linear"
       />
       <CarouselContent>{children}</CarouselContent>
     </Carousel>
