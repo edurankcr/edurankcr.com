@@ -20,6 +20,7 @@ export const Home = ({ dictionary }: HomeProps) => {
                     type="image/jpg"
                   />
                   <Image
+                    loading="eager"
                     className="w-full md:h-full md:object-cover object-center"
                     src={`/assets/images/hero/${i}.jpg`}
                   />
