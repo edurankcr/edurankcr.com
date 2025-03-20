@@ -3,6 +3,7 @@ export * from './Button';
 export * from './Carousel';
 export * from './Group';
 export * from './Image';
+export * from './Input';
 export * from './Link';
 export * from './Link';
 export * from './Navigation';

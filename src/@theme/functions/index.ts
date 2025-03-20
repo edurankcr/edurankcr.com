@@ -1,2 +1,3 @@
 export * from './domHelpers';
-export * from './intl';
+export * from './intlHelpers';
+export * from './navigationHelpers';
