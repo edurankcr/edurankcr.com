@@ -60,7 +60,7 @@ const Header: FC<HeaderProps> = ({
           </Group>
           <Button height="sm" paddingX="sm" borderColor="interactive" borderWidth={2}>
             <Text as="span">
-              {dictionary('Buttons.log_in')}
+              {dictionary('Button.log_in')}
             </Text>
           </Button>
         </Group>
