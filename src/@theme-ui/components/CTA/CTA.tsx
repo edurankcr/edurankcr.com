@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 
 type CtaRankingProps = {} & ComponentProps<typeof Link>;
 
-const CtaRanking = ({ ...props }: CtaRankingProps) => {
+const CTAHero = ({ ...props }: CtaRankingProps) => {
   return (
     <Link
       text={{ size: '300-res', color: 'white', weight: 'bold', underline: true, align: 'center' }}
@@ -12,4 +12,4 @@ const CtaRanking = ({ ...props }: CtaRankingProps) => {
   );
 };
 
-export { CtaRanking };
+export { CTAHero };
