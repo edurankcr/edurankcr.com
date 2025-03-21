@@ -26,6 +26,7 @@ const Link: FC<LinkProps> = memo(({
   rel,
   title,
   id,
+  text,
   ...props
 }) => {
   const computedRel = target === '_blank' ? 'noopener noreferrer' : rel;
@@ -44,7 +45,7 @@ const Link: FC<LinkProps> = memo(({
       {...props}
     >
       <Text
-        {...props.text}
+        {...text}
       >
         {props.children}
       </Text>
