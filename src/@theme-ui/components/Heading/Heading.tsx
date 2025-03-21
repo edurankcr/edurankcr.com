@@ -17,4 +17,18 @@ const HeadingHero = ({ children }: HeadingProps) => {
   );
 };
 
-export { HeadingHero };
+const Heading = ({ children }: HeadingProps) => {
+  return (
+    <Text
+      as="h2"
+      color="black"
+      size="400-res"
+      weight="semibold"
+      align="center"
+    >
+      {children}
+    </Text>
+  );
+};
+
+export { Heading, HeadingHero };
