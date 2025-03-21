@@ -29,16 +29,16 @@ const ReviewCard = ({ User, Review, dictionary, formater }: ReviewCardProps) => 
     return formater.relativeTime(date);
   };
   return (
-    <Stack boxShadow={200} padding="md" rounded="lg" width="full" className="review-card">
+    <Stack boxShadow="card" padding="md" rounded="lg" width="full" className="review-card">
       <Group flexWrap="nowrap" justifyContent="start" preventGrowOverflow={false} overflow="hidden">
         <Avatar User={User} />
         <Stack gap="none" overflow="hidden">
           <Text truncate>
-            <b>{getName()}</b>
+            <Text as="span" weight="semibold">{getName()}</Text>
             {' '}
             {dictionary('Helpers.User.action_review')}
           </Text>
-          <Text color="muted" size="sm">
+          <Text color="secondary" size="sm">
             {getRelativeTime()}
           </Text>
         </Stack>
