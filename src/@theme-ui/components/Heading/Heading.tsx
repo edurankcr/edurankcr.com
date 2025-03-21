@@ -21,7 +21,7 @@ const Heading = ({ children }: HeadingProps) => {
   return (
     <Text
       as="h2"
-      color="black"
+      color="primary"
       size="400-res"
       weight="semibold"
       align="center"
