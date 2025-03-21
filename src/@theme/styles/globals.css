@@ -65,6 +65,15 @@
   --text-300: var(--font-size-300);
   --text-300--line-height: var(--font-lineheight-300);
   --text-300--letter-spacing: var(--font-letterspacing-300);
+  --text-300-responsive: var(--font-size-300-responsive);
+  --text-300-responsive--line-height: var(--font-lineheight-300-responsive);
+  --text-300-responsive--letter-spacing: var(--font-letterspacing-300-responsive);
+  --text-400: var(--font-size-400);
+  --text-400--line-height: var(--font-lineheight-400);
+  --text-400--letter-spacing: var(--font-letterspacing-400);
+  --text-400-responsive: var(--font-size-400-responsive);
+  --text-400-responsive--line-height: var(--font-lineheight-400-responsive);
+  --text-400-responsive--letter-spacing: var(--font-letterspacing-400-responsive);
   --text-600: var(--font-size-600);
   --text-600--line-height: var(--font-lineheight-600);
   --text-600--letter-spacing: var(--font-letterspacing-600);
@@ -97,5 +106,16 @@
 
   .background-linear {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent);
+  }
+
+  .grid-reviews {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    width: 100%;
+  }
+
+  .review-card {
+    @apply col-span-12 md:col-span-4;
   }
 }
