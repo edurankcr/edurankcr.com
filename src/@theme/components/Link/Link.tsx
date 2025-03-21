@@ -5,7 +5,7 @@ import { cva, cx } from 'class-variance-authority';
 import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
 
-const linkVariants = cva('', {
+const linkVariants = cva('w-fit', {
   variants: {
     userCursor: { pointer: 'cursor-pointer' },
     userSelect: { none: 'select-none' },
