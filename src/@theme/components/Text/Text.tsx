@@ -10,12 +10,11 @@ const textVariants = cva('', {
       center: 'text-center',
     },
     color: {
-      black: 'text-black',
-      foreground: 'text-foreground',
       inherit: 'text-inherit',
-      primary: 'text-primary',
+      black: 'text-black',
       white: 'text-white',
-      muted: 'text-neutral-600',
+      primary: 'text-text-primary',
+      secondary: 'text-text-secondary',
     },
     size: {
       'inherit': '',
