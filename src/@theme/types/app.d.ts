@@ -44,4 +44,9 @@ type IDictionary = {
   dictionary: Awaited<ReturnType<typeof getTranslations>>;
 };
 
-export { IDictionary, ILayout, IMeta, IPageLayout, IProviders, IRootLayout, Locale, Messages };
+type IComponent = {
+  children: Children;
+  dictionary?: Awaited<ReturnType<typeof getTranslations>>;
+};
+
+export { IComponent, IDictionary, ILayout, IMeta, IPageLayout, IProviders, IRootLayout, Locale, Messages };
