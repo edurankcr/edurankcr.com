@@ -6,25 +6,9 @@
     }
   },
   "UI": {
-    "Helpers": {
-      "User": {
-        "action_review": "wrote a review",
-        "action_read_more": "Read more"
-      }
-    },
-    "Navigation": {
-      "Explore": {
-        "label": "Explore",
-        "Items": {}
-      },
-      "Saved": {
-        "label": "Saved",
-        "Items": {}
-      },
-      "Recommendations": {
-        "label": "Recommendations",
-        "Items": {}
-      }
+    "Button": {
+      "log_in": "Log In",
+      "link_hero_cta": "Explore Rankings"
     },
     "Heading": {
       "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
@@ -35,9 +19,118 @@
         "placeholder": "Search for teachers, universities or institutes..."
       }
     },
-    "Button": {
-      "log_in": "Log In",
-      "link_hero_cta": "Explore Rankings"
+    "Helpers": {
+      "User": {
+        "action_review": "wrote a review",
+        "action_read_more": "Read more"
+      },
+      "Footer": {
+        "copyright_brand": "© {year} EduRankCR, www.edurankcr.com.",
+        "copyright_text": " All rights reserved.",
+        "privacy_policy": "Privacy Policy",
+        "terms_of_service": "Terms of Service",
+        "cookie_policy": "Cookie Policy"
+      },
+      "Navigation": {
+        "Explore": {
+          "label": "Explore",
+          "label_emoji": "\uD83E\uDDED Explore",
+          "Items": {
+            "Institutions": {
+              "label": "Institutions"
+            },
+            "Professors": {
+              "label": "Professors"
+            },
+            "Reviews": {
+              "label": "Reviews"
+            },
+            "Compare": {
+              "label": "Compare"
+            },
+            "Tags": {
+              "label": "Tags"
+            },
+            "ProvincesAndCantons": {
+              "label": "Provinces & Cantons"
+            }
+          }
+        },
+        "Saved": {
+          "label": "\uD83D\uDCCC Saved",
+          "Items": {
+            "MyFavorites": {
+              "label": "My Favorites"
+            },
+            "MyReviews": {
+              "label": "My Reviews"
+            },
+            "MyInstitutions": {
+              "label": "My Institutions"
+            },
+            "Bookmarks": {
+              "label": "Bookmarks"
+            }
+          }
+        },
+        "MyAccount": {
+          "label": "My Account",
+          "Items": {
+            "Profile": {
+              "label": "Profile"
+            },
+            "Favorites": {
+              "label": "Favorites"
+            },
+            "MyReviews": {
+              "label": "My Reviews"
+            },
+            "SupportTickets": {
+              "label": "Support Tickets"
+            },
+            "Settings": {
+              "label": "Settings"
+            }
+          }
+        },
+        "About": {
+          "label": "About",
+          "Items": {
+            "WhatIsEduRankCR": {
+              "label": "What is EduRankCR?"
+            },
+            "OurMission": {
+              "label": "Our Mission"
+            },
+            "TheTeam": {
+              "label": "The Team"
+            },
+            "Press": {
+              "label": "Press"
+            },
+            "Partners": {
+              "label": "Partners"
+            }
+          }
+        },
+        "Community": {
+          "label": "Community",
+          "Items": {
+            "HelpCenter": {
+              "label": "Help Center"
+            },
+            "BecomeModerator": {
+              "label": "Become a Moderator"
+            },
+            "JoinAmbassadors": {
+              "label": "Join the Ambassadors"
+            },
+            "ContactUs": {
+              "label": "Contact Us"
+            }
+          }
+        }
+      }
     }
   }
 }
