@@ -45,17 +45,14 @@ const Header: FC<HeaderProps> = ({
           fontColor="white"
           fontSize="sm"
           fontWeight="medium"
-          gap="xl"
+          gap="4xl"
         >
-          <Group flexGrow justifyContent="end" preventGrowOverflow={false}>
+          <Group flexGrow justifyContent="end" preventGrowOverflow={false} gap="2xl">
             <Text>
-              {dictionary('Navigation.Explore.label')}
+              {dictionary('Helpers.Navigation.Explore.label_emoji')}
             </Text>
             <Text>
-              {dictionary('Navigation.Saved.label')}
-            </Text>
-            <Text>
-              {dictionary('Navigation.Recommendations.label')}
+              {dictionary('Helpers.Navigation.Saved.label')}
             </Text>
           </Group>
           <Button height="sm" paddingX="sm" borderColor="interactive" borderWidth={2}>
