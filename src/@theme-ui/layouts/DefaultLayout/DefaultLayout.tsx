@@ -1,8 +1,8 @@
-import { Box, Section, Stack, Text } from '@theme/components';
+import { Box, Stack } from '@theme/components';
 import type { IPageLayout } from '@theme/types';
 import { getTranslations } from 'next-intl/server';
 
-import { Header } from './Commons';
+import { Footer, Header } from './Commons';
 
 const DefaultLayout = async ({ children, params }: IPageLayout) => {
   const { locale } = await params;
@@ -20,13 +20,7 @@ const DefaultLayout = async ({ children, params }: IPageLayout) => {
       >
         {children}
       </Box>
-      <Box as="footer" container>
-        <Section>
-          <Text>
-            © 2025 - All rights reserved.
-          </Text>
-        </Section>
-      </Box>
+      <Footer dictionary={dictionary} />
     </Stack>
   );
 };
