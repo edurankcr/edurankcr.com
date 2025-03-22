@@ -53,7 +53,7 @@ const ReviewCard = ({ User, Review, dictionary, formater }: ReviewCardProps) => 
           <Link href="#" text={{ underline: true, weight: 'semibold', size: 'sm' }}>
             {dictionary('Helpers.User.action_read_more')}
           </Link>
-          <Stars rate={5} />
+          <Stars rate={Review.Rating} />
         </Group>
       </Stack>
     </Stack>
