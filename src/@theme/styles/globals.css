@@ -35,21 +35,21 @@
   --color-map-activity-outline: #24505e;
   --color-map-activity: #219ad8;
   --color-interactive-primary: #264311;
-  --color-interactive-accent: #142800;
+  --color-interactive-accent: #000d28;
   --color-shadow: rgba(0, 0, 0, 0.3);
   --color-border-focus-default: rgba(101, 110, 94, 0.7);
   --color-border-focus-primary: rgba(110, 221, 127, 0.7);
-  --color-border-interactive-accent: #142800;
+  --color-border-interactive-accent: #000d28;
   --color-background-primary-inverse-overlay: rgba(18, 18, 18, 0.85);
   --color-background-primary-overlay: rgba(255, 255, 255, 0.8);
   --color-background-tinted-inverse: rgba(25, 32, 19, 0.08);
   --color-background-tinted: rgba(255, 255, 255, 0.7);
-  --color-background-inverse: #142800;
-  --color-background-accent-strong: #142800;
+  --color-background-inverse: #000d28;
+  --color-background-accent-strong: #000d28;
   --color-background-accent-base: #2c5601;
   --color-background-accent-weak: #f7f4ed;
   --color-background-accent-hover: #4ade61;
-  --color-text-dark: #142800;
+  --color-text-dark: #000d28;
   --color-text-light-secondary: rgba(255, 255, 255, 0.7);
   --color-text-primary: #000a28;
   --color-ui-highlight-hover: #4ade61;
@@ -122,8 +122,8 @@
   --color-brand-pine: #1b2818;
   --color-brand-onyx: #161f13;
   --color-brand-cream: #f7f4ed;
-  --color-brand-neon: #64f67b;
-  --color-brand-dark: #142800;
+  --color-brand-neon: #6466f6;
+  --color-brand-dark: #000d28;
   --color-brand-primary: #2c5601;
   --guide-midnight-blockquote: var(--color-blue-100);
   --guide-midnight-background: var(--color-blue-900);
@@ -254,6 +254,7 @@
   --color-interactive-primary: var(--color-interactive-primary);
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
+  --color-background-inverse: var(--color-background-inverse);
 
   --color-border-interactive: var(--border-interactive);
   --color-neutral-600: var(--color-neutral-600);

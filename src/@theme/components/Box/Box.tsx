@@ -20,6 +20,7 @@ const boxVariants = cva('', {
     bgBackground: {
       black: 'bg-black',
       white: 'bg-white',
+      inverse: 'bg-background-inverse',
     },
     boxShadow: {
       default: 'shadow',
@@ -75,14 +76,16 @@ const boxVariants = cva('', {
       normal: 'font-normal',
     },
     gap: {
-      '2xl': 'gap-6',
+      'none': 'gap-none',
       'auto': 'gap-auto',
+      '4xl': 'gap-10',
+      '2xl': 'gap-6',
       'lg': 'gap-4',
       'md': 'gap-3',
-      'none': 'gap-none',
       'sm': 'gap-2',
       'xl': 'gap-5',
       'xs': 'gap-1',
+      'section': 'gap-4 md:gap-6',
     },
     height: {
       auto: 'h-auto',
@@ -115,6 +118,7 @@ const boxVariants = cva('', {
       'lg': 'p-4',
       'xl': 'p-5',
       '2xl': 'p-6',
+      'section': 'p-4 md:p-6 lg:p-16',
     },
     paddingX: {
       '2xl': 'px-6',
