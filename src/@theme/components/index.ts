@@ -9,6 +9,7 @@ export * from './Link';
 export * from './Link';
 export * from './Navigation';
 export * from './Section';
+export * from './Separator';
 export * from './Stack';
 export * from './Stars';
 export * from './Text';
