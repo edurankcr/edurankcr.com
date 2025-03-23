@@ -20,6 +20,7 @@ const boxVariants = cva('', {
     bgBackground: {
       black: 'bg-black',
       white: 'bg-white',
+      secondary: 'bg-background-secondary',
       inverse: 'bg-background-inverse',
     },
     boxShadow: {
@@ -60,10 +61,12 @@ const boxVariants = cva('', {
       right: 'text-right',
     },
     fontColor: {
+      primary: 'text-primary',
       black: 'text-black',
       white: 'text-white',
     },
     fontSize: {
+      300: 'text-300',
       lg: 'text-lg',
       md: 'text-base',
       sm: 'text-sm',
@@ -72,6 +75,7 @@ const boxVariants = cva('', {
     },
     fontWeight: {
       bold: 'font-bold',
+      semibold: 'font-semibold',
       medium: 'font-medium',
       normal: 'font-normal',
     },
@@ -85,12 +89,14 @@ const boxVariants = cva('', {
       'sm': 'gap-2',
       'xl': 'gap-5',
       'xs': 'gap-1',
-      'section': 'gap-4 md:gap-6',
+      'section': 'gap-4 md:gap-8',
     },
     height: {
       auto: 'h-auto',
       dvh: 'h-dvh',
       full: 'h-full',
+      md: 'h-12',
+      lg: 'h-18',
       carouselLinear: 'h-4/5',
       carousel: 'h-[476px] md:h-[540px] lg:h-[36vw]',
     },
