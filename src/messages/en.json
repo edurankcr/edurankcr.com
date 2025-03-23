@@ -3,6 +3,10 @@
     "Home": {
       "title": "Trusted Reviews of Teachers, Universities & Institutes in Costa Rica | EduRankCR",
       "description": "Find and compare the best universities, institutes, and teachers in Costa Rica with EduRankCR. ⭐ Read real student reviews, explore top-rated educators, and choose the best learning experience. 🔍"
+    },
+    "Login": {
+      "title": "Login to EduRankCR | Rate Teachers & Schools in Costa Rica",
+      "description": "Sign in to review and explore teachers and institutions in Costa Rica. Join EduRankCR to make informed academic choices."
     }
   },
   "UI": {
@@ -16,7 +20,8 @@
     },
     "Input": {
       "Search": {
-        "placeholder": "Search for teachers, universities or institutes..."
+        "placeholder": "Search for teachers, universities or institutes...",
+        "placeholder_sm": "Search..."
       }
     },
     "Helpers": {
