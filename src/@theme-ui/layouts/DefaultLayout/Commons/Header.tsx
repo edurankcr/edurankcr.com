@@ -3,6 +3,8 @@ import { Button, Group, Image, Link, Stack, Text } from '@theme/components';
 import type { IDictionary } from '@theme/types';
 import type { ComponentProps, FC } from 'react';
 
+import { GuestRoutes } from '@/routes';
+
 type HeaderProps = {
   urlHomepage?: string;
 } & IDictionary & ComponentProps<typeof Box>;
@@ -21,6 +23,8 @@ const Header: FC<HeaderProps> = ({
       as="header"
       container
       paddingX="section"
+      position="absolute"
+      className="inset-0"
       zIndex={50}
       {...headerProps}
     >
@@ -44,7 +48,7 @@ const Header: FC<HeaderProps> = ({
           visibleFrom="md"
           fontColor="white"
           fontSize="sm"
-          fontWeight="medium"
+          fontWeight="semibold"
           gap="4xl"
         >
           <Group flexGrow justifyContent="end" preventGrowOverflow={false} gap="2xl">
@@ -55,10 +59,8 @@ const Header: FC<HeaderProps> = ({
               {dictionary('Helpers.Navigation.Saved.label')}
             </Text>
           </Group>
-          <Button height="sm" paddingX="sm" borderColor="interactive" borderWidth={2}>
-            <Text as="span">
-              {dictionary('Button.log_in')}
-            </Text>
+          <Button height="sm" paddingX="sm" borderColor="interactive" borderWidth={2} href={GuestRoutes.Login}>
+            {dictionary('Button.log_in')}
           </Button>
         </Group>
       </Group>
