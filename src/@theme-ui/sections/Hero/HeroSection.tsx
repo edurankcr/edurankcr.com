@@ -13,7 +13,7 @@ const HeroSection = ({ dictionary }: HeroSectionProps) => {
         <HeadingHero>
           {dictionary('Heading.hero_cta')}
         </HeadingHero>
-        <Search placeholder={dictionary('Input.Search.placeholder')} />
+        <Search variant="hero" placeholder={dictionary('Input.Search.placeholder')} />
         <CTAHero href="#">
           {dictionary('Button.link_hero_cta')}
         </CTAHero>

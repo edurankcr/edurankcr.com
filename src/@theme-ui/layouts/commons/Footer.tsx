@@ -163,7 +163,7 @@ const Footer: FC<FooterProps> = ({
         </Group>
         <Separator className="max-sm:hidden md:block" />
         <Stack>
-          <Text color="white" size="sm">
+          <Text color="white">
             <Text as="span" weight="semibold">
               {dictionary('Helpers.Footer.copyright_brand', { year: new Date().getFullYear() })}
             </Text>
@@ -171,9 +171,9 @@ const Footer: FC<FooterProps> = ({
           </Text>
           <Group
             fontColor="white"
-            fontSize="sm"
             justifyContent="start"
             preventGrowOverflow={false}
+            className="gap-1 md:gap-2 gap-y-0"
           >
             <Link href="#">
               {dictionary('Helpers.Footer.terms_of_service')}

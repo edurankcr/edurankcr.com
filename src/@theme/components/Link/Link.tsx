@@ -32,24 +32,25 @@ const Link: FC<LinkProps> = memo(({
   const computedRel = target === '_blank' ? 'noopener noreferrer' : rel;
 
   return (
-    <RouterLink
-      className={cx(linkVariants({
-        userCursor,
-        userSelect,
-      }), className)}
-      href={href}
-      target={target}
-      rel={computedRel}
-      title={title}
-      id={id}
-      {...props}
+    <Text
+      {...text}
+      asChild
     >
-      <Text
-        {...text}
+      <RouterLink
+        className={cx(linkVariants({
+          userCursor,
+          userSelect,
+        }), className)}
+        href={href}
+        target={target}
+        rel={computedRel}
+        title={title}
+        id={id}
+        {...props}
       >
         {props.children}
-      </Text>
-    </RouterLink>
+      </RouterLink>
+    </Text>
   );
 });
 
