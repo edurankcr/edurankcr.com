@@ -2,7 +2,8 @@ import { Box, Stack } from '@theme/components';
 import type { IPageLayout } from '@theme/types';
 import { getTranslations } from 'next-intl/server';
 
-import { Footer, Header } from './Commons';
+import { Footer } from '../commons/Footer';
+import { Header } from './Commons';
 
 const DefaultLayout = async ({ children, params }: IPageLayout) => {
   const { locale } = await params;
