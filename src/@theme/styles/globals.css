@@ -253,11 +253,11 @@
   --color-background-primary: var(--color-background-primary);
   --color-background-secondary: var(--color-background-secondary);
   --color-interactive-primary: var(--color-interactive-primary);
+  --color-interactive-hover: var(--color-interactive-primary-hover);
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
   --color-background-inverse: var(--color-background-inverse);
-
-  --color-border-interactive: var(--border-interactive);
+  --color-border-interactive-hover: var(--color-border-interactive-hover);
   --color-neutral-600: var(--color-neutral-600);
 
   --spacing-header: var(--height-header);
@@ -310,6 +310,14 @@
 
   button {
     @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .search--input-default:hover {
+    box-shadow: inset 0 0 0 1px var(--color-border-interactive-hover);
+  }
+
+  .search--input-default:focus-within {
+    box-shadow: inset 0 0 0 2px var(--color-border-interactive-hover);
   }
 
   .background-linear {

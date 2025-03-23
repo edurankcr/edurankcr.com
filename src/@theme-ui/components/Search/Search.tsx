@@ -23,7 +23,7 @@ const Search = ({
   return (
     <Input
       leftSection={<IconSearch size={18} />}
-      boxSettings={{ bgBackground: 'secondary', paddingX: 'lg', height: 'md' }}
+      boxSettings={{ bgBackground: 'secondary', paddingX: 'lg', height: 'md', className: 'search--input-default' }}
       {...props}
     />
   );

@@ -1,10 +1,10 @@
 import type { ILayout } from '@theme/types';
-import { GuestLayout } from '@theme-ui/layouts';
+import { BaseLayout } from '@theme-ui/layouts';
 
 export default async function Layout({ children, params }: ILayout) {
   return (
-    <GuestLayout params={params}>
+    <BaseLayout params={params}>
       {children}
-    </GuestLayout>
+    </BaseLayout>
   );
 }
