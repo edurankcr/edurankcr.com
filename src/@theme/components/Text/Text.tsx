@@ -34,6 +34,13 @@ const textVariants = cva('', {
     underline: {
       true: 'underline',
     },
+    wrap: {
+      'base': 'text-wrap',
+      'nowrap': 'text-nowrap',
+      'balance': 'text-balance',
+      'pretty': 'text-pretty',
+      'balance-res': 'text-pretty md:text-balance',
+    },
     weight: {
       inherit: '',
       bold: 'font-bold',
@@ -57,13 +64,14 @@ const Text: FC<TextProps> = memo(({
   asChild,
   as: Tag = 'p',
   className,
+  children,
   align,
   color,
   size,
   truncate,
   underline,
   weight,
-  children,
+  wrap,
   ...props
 }) => {
   const Comp = asChild ? Slot : Tag;
@@ -77,6 +85,7 @@ const Text: FC<TextProps> = memo(({
         truncate,
         underline,
         weight,
+        wrap,
       }), className)}
       {...props}
     >
