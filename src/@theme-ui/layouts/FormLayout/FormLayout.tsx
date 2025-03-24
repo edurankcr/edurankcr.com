@@ -1,9 +1,9 @@
-import { Box, Stack } from '@theme/components';
+import { Stack } from '@theme/components';
 import type { IPageLayout } from '@theme/types';
-import { Footer } from '@theme-ui/layouts/Commons/Footer';
 import { getTranslations } from 'next-intl/server';
 
-import { Header } from './Commons';
+import { Footer } from '../Commons';
+import { Header, Main } from './Commons';
 
 const FormLayout = async ({ children, params }: IPageLayout) => {
   const { locale } = await params;
@@ -14,13 +14,9 @@ const FormLayout = async ({ children, params }: IPageLayout) => {
   return (
     <Stack height="auto" minHeight="dvh" gap="none">
       <Header dictionary={dictionary} />
-      <Box
-        as="main"
-        height="full"
-        flexGrow
-      >
+      <Main>
         {children}
-      </Box>
+      </Main>
       <Footer dictionary={dictionary} />
     </Stack>
   );
