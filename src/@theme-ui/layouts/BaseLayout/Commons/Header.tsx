@@ -3,7 +3,7 @@ import { Button, Group, Image, Link, Stack, Text } from '@theme/components';
 import type { IDictionary } from '@theme/types';
 import type { ComponentProps, FC } from 'react';
 
-import { GuestRoutes } from '@/routes';
+import { Routes } from '@/routes';
 
 type HeaderProps = {
   urlHomepage?: string;
@@ -59,7 +59,7 @@ const Header: FC<HeaderProps> = ({
               {dictionary('Helpers.Navigation.Saved.label')}
             </Text>
           </Group>
-          <Button height="sm" paddingX="sm" borderColor="interactive" borderWidth={2} href={GuestRoutes.Login}>
+          <Button height="sm" paddingX="sm" borderColor="interactive" borderWidth={2} href={Routes.Guest.Login}>
             {dictionary('Button.log_in')}
           </Button>
         </Group>
