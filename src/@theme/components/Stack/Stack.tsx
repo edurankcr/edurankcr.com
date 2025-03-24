@@ -9,7 +9,7 @@ const Stack: FC<StackProps> = memo(({
   flexDirection = 'column',
   alignItems = 'stretch',
   justifyContent = 'center',
-  gap = 'md',
+  gap = 'lg',
   ...props
 }) => (
   <Box
