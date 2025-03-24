@@ -4,7 +4,7 @@ import type { IDictionary } from '@theme/types';
 import { Search } from '@theme-ui/components';
 import type { ComponentProps, FC } from 'react';
 
-import { GuestRoutes } from '@/routes';
+import { Routes } from '@/routes';
 
 type HeaderProps = {
   urlHomepage?: string;
@@ -61,7 +61,7 @@ const Header: FC<HeaderProps> = ({
               {dictionary('Helpers.Navigation.Saved.label')}
             </Text>
           </Group>
-          <Button bgColor="interactivePrimary" height="sm" paddingX="sm" href={GuestRoutes.Login}>
+          <Button bgColor="interactivePrimary" height="sm" paddingX="sm" href={Routes.Guest.Login}>
             {dictionary('Button.log_in')}
           </Button>
         </Group>
