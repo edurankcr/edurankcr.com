@@ -1,6 +1,6 @@
 const allowedEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'icloud.com', 'outlook.com'];
 
-const isValidEmailFormat = (email: string) => /^[\w.%+-]+@([a-z0-9-]+\.)+[a-z]{2,}$/i.test(email);
+const isValidEmailFormat = (email: string) => /^[\w.%+-]+@(?:[a-z0-9-]+\.)+[a-z]{2,}$/i.test(email);
 
 const isValidEmailDomain = (email: string) => {
   const domain = email.split('@').pop()?.toLowerCase();
