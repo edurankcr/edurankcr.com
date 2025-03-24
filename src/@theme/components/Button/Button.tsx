@@ -1,3 +1,4 @@
+import { IconLoader2 } from '@tabler/icons-react';
 import { Link as RouterLink } from '@theme/components/Navigation/Navigation';
 import type { VariantProps } from 'class-variance-authority';
 import { cva, cx } from 'class-variance-authority';
@@ -10,6 +11,7 @@ const buttonVariants = cva('inline-flex justify-center items-center', {
       transparent: 'bg-transparent',
       white: 'bg-white',
       interactivePrimary: 'bg-interactive-primary text-white',
+      ghostInteractiveSecondary: 'text-text-primary hover:bg-background-secondary',
     },
     borderColor: {
       transparent: 'border-transparent',
@@ -43,6 +45,10 @@ const buttonVariants = cva('inline-flex justify-center items-center', {
       md: 'px-6',
       lg: 'px-8',
     },
+    isLoading: {
+      true: 'opacity-85 pointer-events-none cursor-progress',
+      false: 'cursor-pointer',
+    },
   },
   defaultVariants: {
     borderColor: 'transparent',
@@ -57,6 +63,7 @@ const buttonVariants = cva('inline-flex justify-center items-center', {
 type CommonProps = {
   leftSection?: ReactNode;
   rightSection?: ReactNode;
+  isLoading?: boolean;
   className?: string;
   href?: string;
 } & VariantProps<typeof buttonVariants>;
@@ -71,6 +78,7 @@ const Button = memo<ButtonProps>(({
   leftSection,
   rightSection,
   className,
+  isLoading,
   bgColor,
   borderColor,
   borderRadius,
@@ -82,8 +90,14 @@ const Button = memo<ButtonProps>(({
   ...props
 }) => {
   const classes = cx(
-    buttonVariants({ bgColor, borderColor, borderRadius, borderWidth, fontWeight, height, paddingX }),
+    buttonVariants({ isLoading, bgColor, borderColor, borderRadius, borderWidth, fontWeight, height, paddingX }),
     className,
+  );
+
+  const contentLoading = (
+    <>
+      <IconLoader2 className="spinner animate-spin" />
+    </>
   );
 
   const content = (
@@ -112,7 +126,7 @@ const Button = memo<ButtonProps>(({
       className={classes}
       {...(props as ComponentProps<'button'>)}
     >
-      {content}
+      {isLoading ? contentLoading : content}
     </button>
   );
 });
