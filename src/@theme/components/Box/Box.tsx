@@ -106,6 +106,17 @@ const boxVariants = cva('', {
       between: 'justify-between',
       start: 'justify-start',
     },
+    marginX: {
+      auto: 'mx-auto',
+    },
+    marginY: {
+      section: 'my-4 md:my-6 lg:my-16',
+    },
+    maxWidth: {
+      auto: 'max-w-auto',
+      full: 'max-w-full',
+      form: 'max-w-[524px]',
+    },
     minHeight: {
       auto: 'min-h-auto',
       full: 'min-h-full',
@@ -124,6 +135,8 @@ const boxVariants = cva('', {
       'lg': 'p-4',
       'xl': 'p-5',
       '2xl': 'p-6',
+      '3xl': 'p-8',
+      '4xl': 'p-10',
       'section': 'p-4 md:p-6 lg:p-16',
     },
     paddingX: {
@@ -134,6 +147,7 @@ const boxVariants = cva('', {
       'section': 'px-4 md:px-6 lg:px-0',
       'sm': 'px-2',
       'xl': 'px-5',
+      '3xl': 'px-8',
     },
     paddingY: {
       '2xl': 'py-6',
@@ -223,6 +237,9 @@ const Box = memo<BoxProps>(({
   gap,
   height,
   justifyContent,
+  marginX,
+  marginY,
+  maxWidth,
   minHeight,
   overflow,
   padding,
@@ -260,6 +277,9 @@ const Box = memo<BoxProps>(({
         gap,
         height,
         justifyContent,
+        marginX,
+        marginY,
+        maxWidth,
         minHeight,
         overflow,
         padding,

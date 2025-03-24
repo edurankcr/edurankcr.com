@@ -12,19 +12,38 @@
   "UI": {
     "Button": {
       "log_in": "Log In",
-      "link_hero_cta": "Explore Rankings"
+      "link_hero_cta": "Explore Rankings",
+      "forgot_password": "Forgot Password?",
+      "sign_up_free": "Sign up for free"
     },
     "Heading": {
       "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
-      "last_activity": "Last Activity on EduRankCR"
+      "last_activity": "Last Activity on EduRankCR",
+      "form_login": "Welcome back.",
+      "form_login_two": "Log in and start exploring."
+    },
+    "Paragraph": {
+      "dont_have_account": "Don't have an account?"
     },
     "Input": {
       "Search": {
         "placeholder": "Search for teachers, universities or institutes...",
         "placeholder_sm": "Search..."
+      },
+      "Identifier": {
+        "placeholder": "Enter your email or username"
+      },
+      "Password": {
+        "placeholder": "Enter your password"
       }
     },
     "Helpers": {
+      "Form": {
+        "by_continuing": "By continuing to use EduRankCR, you agree to our",
+        "terms_of_service": "Terms of Service",
+        "and": "and",
+        "privacy_policy": "Privacy Policy"
+      },
       "User": {
         "action_review": "wrote a review",
         "action_read_more": "Read more"

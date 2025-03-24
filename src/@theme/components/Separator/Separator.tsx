@@ -1,16 +1,35 @@
 'use client';
 
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
-import { cx } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
+import { cva, cx } from 'class-variance-authority';
 import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
 import * as React from 'react';
 
-type SeparatorProps = ComponentProps<typeof SeparatorPrimitive.Root>;
+const separatorVariants = cva('shrink-0', {
+  variants: {
+    bgColor: {
+      white: 'bg-white',
+      interactive: 'bg-border-interactive',
+    },
+    orientation: {
+      horizontal: 'h-[1px] w-full',
+      vertical: 'h-full w-[1px]',
+    },
+  },
+  defaultVariants: {
+    bgColor: 'white',
+    orientation: 'horizontal',
+  },
+});
+
+type SeparatorProps = ComponentProps<typeof SeparatorPrimitive.Root> & VariantProps<typeof separatorVariants>;
 
 const Separator: FC<SeparatorProps> = memo(({
   ref,
   className,
+  bgColor,
   orientation = 'horizontal',
   decorative = true,
   ...props
@@ -20,8 +39,7 @@ const Separator: FC<SeparatorProps> = memo(({
     decorative={decorative}
     orientation={orientation}
     className={cx(
-      'shrink-0 bg-white',
-      orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]',
+      separatorVariants({ bgColor, orientation }),
       className,
     )}
     {...props}
