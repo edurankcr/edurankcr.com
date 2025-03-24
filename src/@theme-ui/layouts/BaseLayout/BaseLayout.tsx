@@ -1,8 +1,8 @@
 import { Box, Stack } from '@theme/components';
 import type { IPageLayout } from '@theme/types';
-import { Footer } from '@theme-ui/layouts/Commons/Footer';
 import { getTranslations } from 'next-intl/server';
 
+import { Footer } from '../Commons';
 import { Header } from './Commons';
 
 const BaseLayout = async ({ children, params }: IPageLayout) => {
