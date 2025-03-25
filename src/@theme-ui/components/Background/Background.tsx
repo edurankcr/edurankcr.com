@@ -1,5 +1,5 @@
 import { CarouselItem, Image } from '@theme/components';
-import { HeroCarousel } from '@theme/widgets';
+import { HeroCarousel } from '@theme-ui/components';
 import React from 'react';
 
 const BackgroundHero = () => {

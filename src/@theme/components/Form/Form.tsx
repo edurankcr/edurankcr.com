@@ -5,6 +5,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { IconExclamationCircleFilled } from '@tabler/icons-react';
 import { cx } from 'class-variance-authority';
 import * as React from 'react';
+import { useMemo } from 'react';
 import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 
@@ -29,8 +30,10 @@ const FormField = <
 >({
   ...props
 }: ControllerProps<TFieldValues, TName>) => {
+  const contextValue = useMemo(() => ({ name: props.name }), [props.name]);
+
   return (
-    <FormFieldContext value={{ name: props.name }}>
+    <FormFieldContext value={contextValue}>
       <Controller {...props} />
     </FormFieldContext>
   );
@@ -42,9 +45,9 @@ export type FormItemContextValue = {
 
 const FormItem = ({ ref, className, ...props }: React.HTMLAttributes<HTMLDivElement> & { ref?: any }) => {
   const id = React.useId();
-
+  const contextValue = useMemo(() => ({ id }), [id]);
   return (
-    <FormItemContext value={{ id }}>
+    <FormItemContext value={contextValue}>
       <div ref={ref} className={cx('space-y-2', className)} {...props} />
     </FormItemContext>
   );
