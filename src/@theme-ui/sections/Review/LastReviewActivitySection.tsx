@@ -1,7 +1,6 @@
 import { Box, Section, Stack } from '@theme/components';
 import type { IDictionary, IFormatter } from '@theme/types';
-import { ReviewCard } from '@theme/widgets';
-import { Heading } from '@theme-ui/components';
+import { Heading, ReviewCard } from '@theme-ui/components';
 
 type LastReviewActivitySectionProps = {
 } & IDictionary & IFormatter;
