@@ -14,10 +14,9 @@ import {
   Stack,
   Text,
 } from '@theme/components';
-import { ApiError, postAuthentication } from '@theme/services';
+import { postAuthentication } from '@theme/services';
 import { LoginValidation } from '@theme/validations';
 import { HeadingForm } from '@theme-ui/components';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from 'use-intl';
 import type { z } from 'zod';
@@ -25,7 +24,6 @@ import type { z } from 'zod';
 import { Routes } from '@/routes';
 
 export const Login = () => {
-  const [errors, setErrors] = useState<string[]>([]);
   const dictionary = useTranslations('UI');
 
   const form = useForm<z.infer<typeof LoginValidation>>({
@@ -40,28 +38,11 @@ export const Login = () => {
 
   async function onSubmit(values: z.infer<typeof LoginValidation>) {
     const { Identifier, Password } = values;
-
-    try {
-      const response = await postAuthentication(Identifier, Password);
-      console.log(response);
-    } catch (error: ApiError | Error | any) {
-      if (error instanceof ApiError) {
-        setErrors([error.message]);
-      }
-    }
+    await postAuthentication(Identifier, Password);
   }
 
   return (
     <>
-      {errors.length > 0 && (
-        <div>
-          {errors.map((error, index) => (
-            <Text key={index}>
-              {error}
-            </Text>
-          ))}
-        </div>
-      )}
       <HeadingForm>
         {dictionary('Heading.form_login')}
         <br />
