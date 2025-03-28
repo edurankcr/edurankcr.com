@@ -7,16 +7,22 @@
     "Login": {
       "title": "Login to EduRankCR | Rate Teachers & Schools in Costa Rica",
       "description": "Sign in to review and explore teachers and institutions in Costa Rica. Join EduRankCR to make informed academic choices."
+    },
+    "Register": {
+      "title": "Register on EduRankCR | Rate Teachers & Schools in Costa Rica",
+      "description": "Create an account on EduRankCR to review and explore teachers and institutions in Costa Rica. Join us to make informed academic choices."
     }
   },
   "UI": {
     "Errors": {
       "Auth": {
-        "InvalidCred": "Invalid credentials. Please try again."
+        "InvalidCred": "The identifier or password you entered is incorrect. Please try again."
       },
       "User": {
-        "404": "The credentials you provided do not match our records. Please try again.",
-        "401": "Your session has expired. Please log in again."
+        "404": "We couldn’t find an account matching the information you provided. Please check your details and try again.",
+        "403": "Your email address hasn’t been verified yet. Please check your inbox and verify it to proceed.",
+        "EmailTaken": "Email already taken. Please use a different email address or log in.",
+        "UserNameTaken": "Username already taken. Please choose a different username."
       },
       "General": {
         "404": "The page you are looking for does not exist.",
@@ -34,9 +40,11 @@
       "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
       "last_activity": "Last Activity on EduRankCR",
       "form_login": "Welcome back.",
-      "form_login_two": "Log in and start exploring."
+      "form_login_two": "Log in and start exploring.",
+      "form_register": "Sign up today and start exploring your educational options"
     },
     "Paragraph": {
+      "already_have_an_account": "Already have an account?",
       "dont_have_account": "Don't have an account?"
     },
     "Input": {
@@ -45,10 +53,25 @@
         "placeholder_sm": "Search..."
       },
       "Identifier": {
-        "placeholder": "Enter your email or username"
+        "placeholder": "Email address or username"
       },
       "Password": {
-        "placeholder": "Enter your password"
+        "placeholder": "Password"
+      },
+      "Email": {
+        "placeholder": "Email address"
+      },
+      "UserName": {
+        "placeholder": "Username"
+      },
+      "Name": {
+        "placeholder": "First name"
+      },
+      "LastName": {
+        "placeholder": "Last name"
+      },
+      "BirthDate": {
+        "placeholder": "Date of birth"
       }
     },
     "Helpers": {
