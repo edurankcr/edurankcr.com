@@ -51,10 +51,16 @@ export const Login = () => {
             message: dictionary('Errors.User.404'),
           });
           break;
+        case 403:
+          form.setError('Identifier', {
+            type: 'manual',
+            message: dictionary('Errors.User.403'),
+          });
+          break;
         case 401:
           switch (response.data.code) {
             case 'Auth.InvalidCred':
-              form.setError('Password', {
+              form.setError('Identifier', {
                 type: 'manual',
                 message: dictionary('Errors.Auth.InvalidCred'),
               });
@@ -105,6 +111,7 @@ export const Login = () => {
                     <ModernInput
                       placeholder={dictionary('Input.Password.placeholder')}
                       type="password"
+                      autoComplete="current-password"
                       {...field}
                     />
                   </FormControl>
