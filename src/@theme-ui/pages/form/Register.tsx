@@ -76,7 +76,7 @@ export const Register = () => {
   return (
     <>
       <Stack alignItems="center">
-        <Logotype variant="black" type="icon" className="h-[48px]" />
+        <Logotype variant="black" type="icon" className="h-[48px] hidden md:block" />
         <HeadingForm>
           {dictionary('Heading.form_register')}
         </HeadingForm>
