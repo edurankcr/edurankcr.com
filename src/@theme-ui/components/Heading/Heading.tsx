@@ -25,6 +25,7 @@ const HeadingForm = ({ children }: HeadingProps) => {
       size="400-res"
       weight="medium"
       align="center"
+      wrap="balance"
     >
       {children}
     </Text>
