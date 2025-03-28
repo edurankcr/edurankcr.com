@@ -109,7 +109,7 @@ const FormMessage = ({ ref, className, children, ...props }: React.HTMLAttribute
   }
 
   return (
-    <Group preventGrowOverflow={false} justifyContent="start" gap="sm" className="text-text-error">
+    <Group preventGrowOverflow={false} justifyContent="start" alignItems="start" gap="sm" className="text-text-error" flexWrap="nowrap">
       <IconExclamationCircleFilled size={14} className="min-h-[14px] min-w-[14px]" />
       <p
         ref={ref}
