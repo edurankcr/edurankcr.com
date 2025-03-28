@@ -77,6 +77,6 @@ export const RegisterValidation = z.object({
     .string()
     .nonempty({ message: 'Birth date is required.' })
     .refine(isValidAge, {
-      message: 'You must be at least 18 years old to register.',
+      message: 'You must be at least 18 years old and at most 100 years old.',
     }),
 });
