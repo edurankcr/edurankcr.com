@@ -10,6 +10,20 @@
     }
   },
   "UI": {
+    "Errors": {
+      "Auth": {
+        "InvalidCred": "Invalid credentials. Please try again."
+      },
+      "User": {
+        "404": "The credentials you provided do not match our records. Please try again.",
+        "401": "Your session has expired. Please log in again."
+      },
+      "General": {
+        "404": "The page you are looking for does not exist.",
+        "500": "An unexpected error occurred. Please try again later or contact support.",
+        "403": "You do not have permission to access this page."
+      }
+    },
     "Button": {
       "log_in": "Log In",
       "link_hero_cta": "Explore Rankings",
