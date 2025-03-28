@@ -1,5 +1,5 @@
 import type { Box } from '@theme/components';
-import { Group, Image, Link, Separator, Stack, Text } from '@theme/components';
+import { Group, Link, Logotype, Separator, Stack, Text } from '@theme/components';
 import type { IDictionary } from '@theme/types';
 import type { ComponentProps, FC } from 'react';
 
@@ -130,15 +130,7 @@ const Footer: FC<FooterProps> = ({
       {...headerProps}
     >
       <Stack paddingX="section" paddingY="section" gap="section" container className="md:gap-12">
-        <Link href={urlHomepage} title="Go to homepage">
-          <Image
-            src="/assets/branding/logo-white-s.svg"
-            alt="Logo"
-            title="Logo"
-            width={131}
-            height="auto"
-          />
-        </Link>
+        <Logotype variant="white-color" urlHomepage={urlHomepage} />
         <Group
           flexGrow
           alignItems="start"
