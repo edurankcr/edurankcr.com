@@ -15,3 +15,4 @@ export * from './Separator';
 export * from './Stack';
 export * from './Stars';
 export * from './Text';
+export * from './Toaster';

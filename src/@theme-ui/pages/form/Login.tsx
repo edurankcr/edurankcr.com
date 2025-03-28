@@ -18,6 +18,7 @@ import { postAuthentication } from '@theme/services';
 import { LoginValidation } from '@theme/validations';
 import { HeadingForm } from '@theme-ui/components';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 import type { z } from 'zod';
 
@@ -38,7 +39,34 @@ export const Login = () => {
 
   async function onSubmit(values: z.infer<typeof LoginValidation>) {
     const { Identifier, Password } = values;
-    await postAuthentication(Identifier, Password);
+
+    try {
+      await postAuthentication(Identifier, Password);
+    } catch (error: any) {
+      const { response } = error;
+      switch (response.status) {
+        case 404:
+          form.setError('Identifier', {
+            type: 'manual',
+            message: dictionary('Errors.User.404'),
+          });
+          break;
+        case 401:
+          switch (response.data.code) {
+            case 'Auth.InvalidCred':
+              form.setError('Password', {
+                type: 'manual',
+                message: dictionary('Errors.Auth.InvalidCred'),
+              });
+              break;
+            default:
+              toast.error(dictionary('Errors.General.500'));
+          }
+          break;
+        default:
+          toast.error(dictionary('Errors.General.500'));
+      }
+    }
   }
 
   return (

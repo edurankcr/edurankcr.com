@@ -1,5 +1,6 @@
 import '@theme/styles/globals.css';
 
+import { Toaster } from '@theme/components';
 import { getBaseUrl, getLocales, isLocale } from '@theme/functions';
 import { Providers } from '@theme/providers';
 import { fontMono, fontSans } from '@theme/styles';
@@ -49,6 +50,7 @@ export default async function RootLayout({ children, params }: Readonly<IRootLay
         <Providers params={params}>
           {children}
         </Providers>
+        <Toaster />
       </body>
     </html>
   );
