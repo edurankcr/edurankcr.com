@@ -12,4 +12,12 @@ const isValidUsername = (username: string) => {
   return usernamePattern.test(username);
 };
 
-export { isValidEmailDomain, isValidEmailFormat, isValidUsername };
+const isValidAge = (dateString: string) => {
+  const date = new Date(dateString);
+  const today = new Date();
+  const age = today.getFullYear() - date.getFullYear();
+  const monthDiff = today.getMonth() - date.getMonth();
+  return age > 18 || (age === 18 && monthDiff >= 0);
+};
+
+export { isValidAge, isValidEmailDomain, isValidEmailFormat, isValidUsername };
