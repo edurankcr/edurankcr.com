@@ -9,13 +9,14 @@ import {
   FormMessage,
   FormSubmit,
   Link,
+  Logotype,
   ModernInput,
   Stack,
   Text,
 } from '@theme/components';
 import { postRegister } from '@theme/services';
 import { RegisterValidation } from '@theme/validations';
-import { HeadingForm } from '@theme-ui/components';
+import { FormDisclaimers, HeadingForm } from '@theme-ui/components';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
@@ -74,9 +75,12 @@ export const Register = () => {
 
   return (
     <>
-      <HeadingForm>
-        {dictionary('Heading.form_register')}
-      </HeadingForm>
+      <Stack alignItems="center">
+        <Logotype variant="black" type="icon" className="h-[48px]" />
+        <HeadingForm>
+          {dictionary('Heading.form_register')}
+        </HeadingForm>
+      </Stack>
       <Form {...form}>
         <Stack asChild>
           <form
@@ -187,26 +191,7 @@ export const Register = () => {
           </form>
         </Stack>
       </Form>
-      <Text size="sm" align="center" color="secondary" wrap="balance-res">
-        {dictionary('Helpers.Form.by_continuing')}
-        {' '}
-        <Link
-          href={Routes.Global.Legal.Terms}
-          text={{ underline: true, color: 'primary', weight: 'medium' }}
-        >
-          {dictionary('Helpers.Form.terms_of_service')}
-        </Link>
-        {' '}
-        {dictionary('Helpers.Form.and')}
-        {' '}
-        <Link
-          href={Routes.Global.Legal.Privacy}
-          text={{ underline: true, color: 'primary', weight: 'medium' }}
-        >
-          {dictionary('Helpers.Form.privacy_policy')}
-        </Link>
-        .
-      </Text>
+      <FormDisclaimers dictionary={dictionary} />
     </>
   );
 };
