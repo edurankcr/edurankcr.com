@@ -25,7 +25,7 @@ const textVariants = cva('', {
       '300': 'text-300',
       '300-res': 'text-200 md:text-300',
       '400': 'text-400',
-      '400-res': 'text-300 md:text-400-responsive',
+      '400-res': 'text-400 md:text-400-responsive',
       '700-res': 'text-600 md:text-700-responsive',
     },
     truncate: {
