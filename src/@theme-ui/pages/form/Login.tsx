@@ -16,7 +16,7 @@ import {
 } from '@theme/components';
 import { postAuthentication } from '@theme/services';
 import { LoginValidation } from '@theme/validations';
-import { HeadingForm } from '@theme-ui/components';
+import { FormDisclaimers, HeadingForm } from '@theme-ui/components';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
@@ -95,6 +95,7 @@ export const Login = () => {
                   <FormControl>
                     <ModernInput
                       placeholder={dictionary('Input.Identifier.placeholder')}
+                      autoComplete="username"
                       {...field}
                     />
                   </FormControl>
@@ -135,26 +136,7 @@ export const Login = () => {
           </form>
         </Stack>
       </Form>
-      <Text size="sm" align="center" color="secondary" wrap="balance-res">
-        {dictionary('Helpers.Form.by_continuing')}
-        {' '}
-        <Link
-          href={Routes.Global.Legal.Terms}
-          text={{ underline: true, color: 'primary', weight: 'medium' }}
-        >
-          {dictionary('Helpers.Form.terms_of_service')}
-        </Link>
-        {' '}
-        {dictionary('Helpers.Form.and')}
-        {' '}
-        <Link
-          href={Routes.Global.Legal.Privacy}
-          text={{ underline: true, color: 'primary', weight: 'medium' }}
-        >
-          {dictionary('Helpers.Form.privacy_policy')}
-        </Link>
-        .
-      </Text>
+      <FormDisclaimers dictionary={dictionary} />
     </>
   );
 };
