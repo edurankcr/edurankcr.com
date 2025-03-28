@@ -12,12 +12,20 @@ const isValidUsername = (username: string) => {
   return usernamePattern.test(username);
 };
 
-const isValidAge = (dateString: string) => {
-  const date = new Date(dateString);
+const isValidAge = (dateString: string): boolean => {
+  const birthDate = new Date(dateString);
   const today = new Date();
-  const age = today.getFullYear() - date.getFullYear();
-  const monthDiff = today.getMonth() - date.getMonth();
-  return age > 18 || (age === 18 && monthDiff >= 0);
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const hasHadBirthdayThisYear
+    = today.getMonth() > birthDate.getMonth()
+      || (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+
+  if (!hasHadBirthdayThisYear) {
+    age--;
+  }
+
+  return age >= 18 && age <= 100;
 };
 
 export { isValidAge, isValidEmailDomain, isValidEmailFormat, isValidUsername };
