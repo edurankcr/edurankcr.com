@@ -124,6 +124,7 @@ export const Register = () => {
                   <FormControl>
                     <ModernInput
                       placeholder={dictionary('Input.UserName.placeholder')}
+                      autoComplete="username"
                       {...field}
                     />
                   </FormControl>
@@ -171,6 +172,7 @@ export const Register = () => {
                     <ModernInput
                       placeholder={dictionary('Input.Password.placeholder')}
                       type="password"
+                      autoComplete="current-password"
                       {...field}
                     />
                   </FormControl>
