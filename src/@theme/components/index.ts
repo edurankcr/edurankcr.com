@@ -9,6 +9,7 @@ export * from './Input';
 export * from './Label';
 export * from './Link';
 export * from './Link';
+export * from './Logotype';
 export * from './Navigation';
 export * from './Section';
 export * from './Separator';
