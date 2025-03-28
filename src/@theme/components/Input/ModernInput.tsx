@@ -27,7 +27,7 @@ export const ModernInput = ({ ref, type = 'text', value = '', id, placeholder, d
       />
       <label
         htmlFor={id}
-        className="first-of-type:pointer-events-none absolute left-2 top-0 mb-0 w-full max-w-[80%] origin-[0_0] translate-y-1/2 truncate px-1 leading-[1.6] text-text-secondary font-medium peer-focus:w-fit peer-focus:-translate-y-2 peer-focus:scale-[0.8] peer-focus:bg-white peer-focus:text-text-primary peer-aria-[invalid=true]:text-text-error peer-data-[active=true]:w-fit peer-data-[active=true]:-translate-y-2 peer-data-[active=true]:scale-[0.8] peer-data-[active=true]:bg-white"
+        className="first-of-type:pointer-events-none absolute left-2 top-0 mb-0 w-full max-w-[95%] origin-[0_0] translate-y-1/2 truncate px-1 leading-[1.6] text-text-secondary font-medium peer-focus:w-fit peer-focus:-translate-y-2 peer-focus:scale-[0.8] peer-focus:bg-white peer-focus:text-text-primary peer-aria-[invalid=true]:text-text-error peer-data-[active=true]:w-fit peer-data-[active=true]:-translate-y-2 peer-data-[active=true]:scale-[0.8] peer-data-[active=true]:bg-white"
       >
         {placeholder}
       </label>
