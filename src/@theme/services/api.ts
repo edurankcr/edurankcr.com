@@ -38,4 +38,17 @@ async function getVerifyEmail(token: string) {
   });
 }
 
-export { getVerifyEmail, postAuthentication, postRegister, postRequestEmailVerification };
+async function postForgotPassword(Identifier: string) {
+  return await api.post('/password/forgot', {
+    Identifier,
+  });
+}
+
+async function postResetPassword(TokenId: string, NewPassword: string) {
+  return await api.post('/password/reset', {
+    TokenId,
+    NewPassword,
+  });
+}
+
+export { getVerifyEmail, postAuthentication, postForgotPassword, postRegister, postRequestEmailVerification, postResetPassword };
