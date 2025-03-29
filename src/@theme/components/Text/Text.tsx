@@ -15,6 +15,7 @@ const textVariants = cva('', {
       white: 'text-white',
       primary: 'text-text-primary',
       secondary: 'text-text-secondary',
+      neon: 'text-brand-neon',
     },
     size: {
       'inherit': '',
@@ -22,6 +23,7 @@ const textVariants = cva('', {
       'md': 'text-base',
       'sm': 'text-sm',
       'xs': 'text-xs',
+      'md-res': 'text-sm md:text-base',
       '300': 'text-300',
       '300-res': 'text-200 md:text-300',
       '400': 'text-400',
