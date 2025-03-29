@@ -11,6 +11,7 @@ export * from './Link';
 export * from './Link';
 export * from './Logotype';
 export * from './Navigation';
+export * from './Progress';
 export * from './Section';
 export * from './Separator';
 export * from './Stack';
