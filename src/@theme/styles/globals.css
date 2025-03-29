@@ -265,6 +265,7 @@
   --color-background-error-base: var(--color-background-error-base);
   --color-background-error-weak: var(--color-background-error-weak);
   --color-background-caution-weak: var(--color-background-caution-weak);
+  --color-brand-neon: var(--color-brand-neon);
   --color-neutral-600: var(--color-neutral-600);
 
   --spacing-header: var(--height-header);
@@ -315,7 +316,8 @@
     @apply focus-visible:outline-none;
   }
 
-  button {
+  button,
+  .btn {
     @apply overflow-hidden text-ellipsis whitespace-nowrap;
   }
 
