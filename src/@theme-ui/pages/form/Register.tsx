@@ -15,9 +15,9 @@ import {
   Text,
   useRouter,
 } from '@theme/components';
-import { postRegister } from '@theme/services';
+import { postRegister, postRequestEmailVerification } from '@theme/services';
 import { RegisterValidation } from '@theme/validations';
-import { FormDisclaimers, HeadingForm } from '@theme-ui/components';
+import { FormDisclaimer, HeadingForm } from '@theme-ui/components';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
@@ -48,7 +48,12 @@ export const Register = () => {
 
     try {
       await postRegister(Name, LastName, UserName, Email, Password, new Date(BirthDate));
-      form.reset();
+      try {
+        await postRequestEmailVerification(Email);
+      } catch {
+        router.push(Routes.Guest.Email.Request);
+        toast.error(dictionary('Errors.Email.ServerError'));
+      }
       router.push(Routes.Guest.Email.Sent);
     } catch (error: any) {
       const { response } = error;
@@ -191,7 +196,7 @@ export const Register = () => {
           </form>
         </Stack>
       </Form>
-      <FormDisclaimers dictionary={dictionary} />
+      <FormDisclaimer dictionary={dictionary} />
     </>
   );
 };
