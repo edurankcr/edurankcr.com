@@ -16,7 +16,7 @@ import {
 } from '@theme/components';
 import { postRequestEmailVerification } from '@theme/services';
 import { EmailVerificationValidation } from '@theme/validations';
-import { HeadingForm } from '@theme-ui/components';
+import { FormCheckSpam, HeadingForm } from '@theme-ui/components';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
@@ -120,9 +120,7 @@ export const RequestEmailVerification = () => {
           </form>
         </Stack>
       </Form>
-      <Text size="sm" align="center" color="secondary" wrap="balance-res">
-        {dictionary('Helpers.Form.check_spam')}
-      </Text>
+      <FormCheckSpam dictionary={dictionary} />
     </>
   );
 };
