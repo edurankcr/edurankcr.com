@@ -33,7 +33,7 @@ export const ModernInput = ({
         value={value}
         data-active={getMemoIsActive}
         disabled={disabled}
-        className="peer block h-[48px] min-h-[auto] w-full rounded-lg bg-transparent px-3 py-[0.32rem] leading-[1.6] text-text-primary outline-none read-only:cursor-not-allowed hover:placeholder:opacity-100 focus:placeholder:opacity-100 disabled:cursor-not-allowed disabled:grayscale peer-focus:text-primary-foreground aria-[invalid=true]:bg-background-error-weak data-[active=true]:placeholder:opacity-100"
+        className="peer block h-[48px] min-h-[auto] w-full rounded-lg bg-transparent px-3 py-[0.32rem] leading-[1.6] text-text-primary outline-none read-only:cursor-not-allowed hover:placeholder:opacity-100 focus:placeholder:opacity-100 disabled:cursor-not-allowed disabled:grayscale peer-focus:text-primary-foreground aria-[invalid=true]:bg-background-error-weak data-[active=true]:placeholder:opacity-100 disabled:cursor-not-allowed disabled:grayscale disabled:bg-background-secondary"
         {...props}
       />
       <label
