@@ -24,7 +24,7 @@ const Main: FC<MainProps> = ({
     >
       <Section position="relative" zIndex={10}>
         <Box marginX="auto" padding="3xl" rounded="lg" maxWidth="form" bgBackground="white" boxShadow={200}>
-          <Stack gap="section" className="relative md:pt-12">
+          <Stack gap="section" className="relative">
             {children}
           </Stack>
         </Box>
