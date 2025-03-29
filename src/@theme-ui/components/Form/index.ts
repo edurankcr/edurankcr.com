@@ -1,1 +1,1 @@
-export * from './FormDisclaimers';
+export * from './FormDisclaimer';
