@@ -8,10 +8,21 @@ export type InputProps = {
   labelText?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const ModernInput = ({ ref, type = 'text', value = '', id, placeholder, disabled, ...props }: InputProps & { ref?: any }) => {
+export const ModernInput = ({
+  ref,
+  type = 'text',
+  value = '',
+  id,
+  placeholder,
+  disabled,
+  ...props
+}: InputProps & { ref?: any }) => {
   const getMemoIsActive = useMemo(() => {
+    if (type === 'date') {
+      return true;
+    }
     return !!value;
-  }, [value]);
+  }, [type, value]);
 
   return (
     <div className="relative w-full input--modern">

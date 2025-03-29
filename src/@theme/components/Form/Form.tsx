@@ -48,7 +48,7 @@ const FormItem = ({ ref, className, ...props }: React.HTMLAttributes<HTMLDivElem
   const contextValue = useMemo(() => ({ id }), [id]);
   return (
     <FormItemContext value={contextValue}>
-      <div ref={ref} className={cx('space-y-2', className)} {...props} />
+      <div ref={ref} className={cx('space-y-2 w-full', className)} {...props} />
     </FormItemContext>
   );
 };

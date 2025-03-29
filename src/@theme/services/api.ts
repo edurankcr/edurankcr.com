@@ -13,4 +13,15 @@ async function postAuthentication(Identifier: string, Password: string) {
   });
 }
 
-export { postAuthentication };
+async function postRegister(Name: string, LastName: string, UserName: string, Email: string, Password: string, BirthDate: Date) {
+  return await api.post('/register', {
+    Name,
+    LastName,
+    UserName,
+    Email,
+    Password,
+    BirthDate,
+  });
+}
+
+export { postAuthentication, postRegister };
