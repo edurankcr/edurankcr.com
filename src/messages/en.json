@@ -10,7 +10,15 @@
     },
     "Register": {
       "title": "Register on EduRankCR | Rate Teachers & Schools in Costa Rica",
-      "description": "Create an account on EduRankCR to review and explore teachers and institutions in Costa Rica. Join us to make informed academic choices."
+      "description": "Create an account on EduRankCR to review and explore teachers and institutions in Costa Rica."
+    },
+    "VerifyEmail": {
+      "title": "Verify Your Email | EduRankCR",
+      "description": "Verify your email address to complete your registration on EduRankCR."
+    },
+    "VerifyEmailSent": {
+      "title": "Verification Email Sent | EduRankCR",
+      "description": "A verification email has been sent to your email address. Please check your inbox to verify your account."
     }
   },
   "UI": {
@@ -20,9 +28,10 @@
       },
       "User": {
         "404": "We couldn’t find an account matching the information you provided. Please check your details and try again.",
-        "403": "Your email address hasn’t been verified yet. Please check your inbox and verify it to proceed.",
+        "403": "Your email address hasn’t been verified yet. Please check your inbox or spam folder and verify it to proceed. If you haven't received or expired, please <link>request a new verification email</link>.",
         "EmailTaken": "Email already taken. Please use a different email address or log in.",
-        "UserNameTaken": "Username already taken. Please choose a different username."
+        "UserNameTaken": "Username already taken. Please choose a different username.",
+        "EmailAlreadyConfirmed": "This email address has already been verified. You can go ahead and log in."
       },
       "General": {
         "404": "The page you are looking for does not exist.",
@@ -34,18 +43,39 @@
       "log_in": "Log In",
       "link_hero_cta": "Explore Rankings",
       "forgot_password": "Forgot Password?",
-      "sign_up_free": "Sign up for free"
+      "sign_up_free": "Sign up for free",
+      "resend_verification_email": "Send verification email",
+      "new_verification_email": "Send a new verification email",
+      "request_another": "Request another"
     },
     "Heading": {
       "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
       "last_activity": "Last Activity on EduRankCR",
       "form_login": "Welcome back.",
       "form_login_two": "Log in and start exploring.",
-      "form_register": "Sign up today it's free for everyone"
+      "form_register": "Sign up today it's free for everyone",
+      "form_request_verification_email": "Request a new verification email",
+      "form_request_verification_email_sent": "Yeey! A verification email has been sent to your inbox",
+      "form_wait_for_verification_email": "Wait... we're verifying your email address",
+      "form_key_not_found": "Oops... we couldn't find your verification key",
+      "form_key_invalid": "Oops... your verification key is invalid",
+      "form_key_expired": "Oops... your verification key has expired :'(",
+      "form_key_already_used": "Oops... your verification key has already been used",
+      "form_key_verified": "Yeey! Your email address has been verified"
     },
     "Paragraph": {
       "already_have_an_account": "Already have an account?",
-      "dont_have_account": "Don't have an account?"
+      "already_verified": "Already verified your email?",
+      "dont_have_account": "Don't have an account?",
+      "new_verification_email": "Need a new verification email?",
+      "request_verification_email": "If you haven't received a verification email, please enter your email address below to request a new one.",
+      "request_verification_email_sent": "If you haven't received a verification email, please check your SPAM folder, or try again in 30 minutes.",
+      "wait_for_verification_email": "Please don't close this page. We are verifying your email address, and it may take a few moments.",
+      "key_not_found": "It's very strange, but we couldn't find your verification key. Please check given link or contact support.",
+      "key_invalid": "It's very strange, and also a bit suspicious, but your verification key is invalid. If you think this is a mistake, please contact support.",
+      "key_expired": "We know, it's annoying. For security reasons, codes are only valid for 30 minutes. Please request a new one to continue.",
+      "key_already_used": "Oops! It seems that your verification key has already been used. Please request a new one to continue.",
+      "key_verified": "You can now log in to your account."
     },
     "Input": {
       "Search": {
@@ -76,6 +106,7 @@
     },
     "Helpers": {
       "Form": {
+        "check_spam": "If you don't see the email in your inbox, please check your spam folder. Only one verification email is sent every 30 minutes.",
         "by_continuing": "By continuing to use EduRankCR, you agree to our",
         "terms_of_service": "Terms of Service",
         "and": "and",
