@@ -5,9 +5,10 @@ import { Routes } from '@/routes';
 
 type FormDisclaimersProps = {
   dictionary: ReturnType<typeof useTranslations>;
+  helpers?: any;
 };
 
-const FormDisclaimers = ({ dictionary }: FormDisclaimersProps) => {
+const FormDisclaimer = ({ dictionary }: FormDisclaimersProps) => {
   return (
     <>
       <Text size="sm" align="center" color="secondary" wrap="balance-res">
@@ -34,4 +35,12 @@ const FormDisclaimers = ({ dictionary }: FormDisclaimersProps) => {
   );
 };
 
-export { FormDisclaimers };
+const FormCheckSpam = ({ dictionary }: FormDisclaimersProps) => {
+  return (
+    <Text size="sm" align="center" color="secondary" wrap="balance-res">
+      {dictionary('Helpers.Form.check_spam')}
+    </Text>
+  );
+};
+
+export { FormCheckSpam, FormDisclaimer };

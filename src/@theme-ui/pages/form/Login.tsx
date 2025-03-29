@@ -16,7 +16,7 @@ import {
 } from '@theme/components';
 import { postAuthentication } from '@theme/services';
 import { LoginValidation } from '@theme/validations';
-import { FormDisclaimers, HeadingForm } from '@theme-ui/components';
+import { FormDisclaimer, HeadingForm } from '@theme-ui/components';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
@@ -86,7 +86,7 @@ export const Login = () => {
 
   return (
     <>
-      <HeadingForm>
+      <HeadingForm className="md:pt-12">
         {dictionary('Heading.form_login')}
         <br />
         {dictionary('Heading.form_login_two')}
@@ -132,7 +132,7 @@ export const Login = () => {
             <FormSubmit>
               {dictionary('Button.log_in')}
             </FormSubmit>
-            <Button href={Routes.Global.ForgotPassword} bgColor="ghostInteractiveSecondary" height="lg">
+            <Button href={Routes.Global.Password.Request} bgColor="ghostInteractiveSecondary" height="lg">
               {dictionary('Button.forgot_password')}
             </Button>
             <Text align="center" color="secondary" weight="medium" wrap="balance">
@@ -145,7 +145,7 @@ export const Login = () => {
           </form>
         </Stack>
       </Form>
-      <FormDisclaimers dictionary={dictionary} />
+      <FormDisclaimer dictionary={dictionary} />
     </>
   );
 };

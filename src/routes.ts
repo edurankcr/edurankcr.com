@@ -1,6 +1,11 @@
 export const Routes = {
   Global: {
-    ForgotPassword: '/reset-password',
+    Home: '/',
+    Password: {
+      Request: '/password',
+      Sent: '/password/password-sent',
+      Reset: '/password/change',
+    },
     Legal: {
       Terms: '/legal/terms',
       Privacy: '/legal/privacy',

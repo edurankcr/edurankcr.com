@@ -5,7 +5,7 @@ import { cva, cx } from 'class-variance-authority';
 import type { ComponentProps, ReactNode } from 'react';
 import { memo } from 'react';
 
-const buttonVariants = cva('inline-flex justify-center items-center btn', {
+const buttonVariants = cva('inline-flex justify-center items-center btn disabled:bg-background-secondary disabled:text-black/25 disabled:cursor-not-allowed', {
   variants: {
     bgColor: {
       transparent: 'bg-transparent',

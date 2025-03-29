@@ -94,7 +94,9 @@ export const VerifyEmail = () => {
     };
 
     verifyToken();
-  }, [searchParams, dictionary]);
+  },
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  [searchParams]);
 
   return (
     <>
