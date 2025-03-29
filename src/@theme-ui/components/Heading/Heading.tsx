@@ -1,7 +1,10 @@
 import { Text } from '@theme/components';
 import type { IComponent } from '@theme/types';
+import { cx } from 'class-variance-authority';
 
-type HeadingProps = {} & IComponent;
+type HeadingProps = {
+  className?: string;
+} & IComponent;
 
 const HeadingHero = ({ children }: HeadingProps) => {
   return (
@@ -17,7 +20,7 @@ const HeadingHero = ({ children }: HeadingProps) => {
   );
 };
 
-const HeadingForm = ({ children }: HeadingProps) => {
+const HeadingForm = ({ children, className }: HeadingProps) => {
   return (
     <Text
       as="h1"
@@ -26,6 +29,7 @@ const HeadingForm = ({ children }: HeadingProps) => {
       weight="medium"
       align="center"
       wrap="balance"
+      className={cx(className)}
     >
       {children}
     </Text>
