@@ -54,8 +54,17 @@ export const Login = () => {
         case 403:
           form.setError('Identifier', {
             type: 'manual',
-            message: dictionary('Errors.User.403'),
-          });
+            message: dictionary.rich('Errors.User.403', {
+              link: chunks => (
+                <Link
+                  href={Routes.Guest.Email.Request}
+                  text={{ underline: true, color: 'neon' }}
+                >
+                  {chunks}
+                </Link>
+              ),
+            }),
+          } as any);
           break;
         case 401:
           switch (response.data.code) {

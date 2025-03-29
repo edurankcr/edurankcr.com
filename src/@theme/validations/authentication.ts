@@ -80,3 +80,15 @@ export const RegisterValidation = z.object({
       message: 'You must be at least 18 years old and at most 100 years old.',
     }),
 });
+
+export const EmailVerificationValidation = z.object({
+  Email: z
+    .string()
+    .nonempty({ message: 'Email is required.' })
+    .max(256, { message: 'Email must be at most 256 characters long.' })
+    .refine(isValidEmailDomain, {
+      message: 'Email must be valid and from a common provider (e.g., Gmail, Yahoo, Hotmail, iCloud).',
+    }),
+});
+
+export const GuidValidation = z.string().uuid();

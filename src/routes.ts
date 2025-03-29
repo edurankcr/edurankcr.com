@@ -9,5 +9,10 @@ export const Routes = {
   Guest: {
     Login: '/login',
     Register: '/register',
+    Email: {
+      Request: '/email',
+      Sent: '/email/verification-sent',
+      Verify: '/email/verify',
+    },
   },
 };

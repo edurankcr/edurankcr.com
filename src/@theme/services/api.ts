@@ -24,4 +24,18 @@ async function postRegister(Name: string, LastName: string, UserName: string, Em
   });
 }
 
-export { postAuthentication, postRegister };
+async function postRequestEmailVerification(Email: string) {
+  return await api.post('/email/request', {
+    Email,
+  });
+}
+
+async function getVerifyEmail(token: string) {
+  return await api.get('/email/verify', {
+    params: {
+      TokenId: token,
+    },
+  });
+}
+
+export { getVerifyEmail, postAuthentication, postRegister, postRequestEmailVerification };
