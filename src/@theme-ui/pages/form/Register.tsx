@@ -13,6 +13,7 @@ import {
   ModernInput,
   Stack,
   Text,
+  useRouter,
 } from '@theme/components';
 import { postRegister } from '@theme/services';
 import { RegisterValidation } from '@theme/validations';
@@ -26,6 +27,7 @@ import { Routes } from '@/routes';
 
 export const Register = () => {
   const dictionary = useTranslations('UI');
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof RegisterValidation>>({
     resolver: zodResolver(RegisterValidation),
@@ -46,26 +48,22 @@ export const Register = () => {
 
     try {
       await postRegister(Name, LastName, UserName, Email, Password, new Date(BirthDate));
+      form.reset();
+      router.push(Routes.Guest.Email.Sent);
     } catch (error: any) {
       const { response } = error;
-      switch (response.status) {
-        case 409:
-          switch (response.data.code) {
-            case 'User.EmailTaken':
-              form.setError('Email', {
-                type: 'manual',
-                message: dictionary('Errors.User.EmailTaken'),
-              });
-              break;
-            case 'User.UsernameTaken':
-              form.setError('UserName', {
-                type: 'manual',
-                message: dictionary('Errors.User.UserNameTaken'),
-              });
-              break;
-            default:
-              toast.error(dictionary('Errors.General.500'));
-          }
+      switch (response.data.code) {
+        case 'User.EmailTaken':
+          form.setError('Email', {
+            type: 'manual',
+            message: dictionary('Errors.User.EmailTaken'),
+          });
+          break;
+        case 'User.UsernameTaken':
+          form.setError('UserName', {
+            type: 'manual',
+            message: dictionary('Errors.User.UserNameTaken'),
+          });
           break;
         default:
           toast.error(dictionary('Errors.General.500'));
