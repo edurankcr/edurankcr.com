@@ -61,6 +61,12 @@ export const RequestEmailVerification = () => {
                 message: dictionary('Errors.User.EmailAlreadyConfirmed'),
               });
               break;
+            case 'Token.AlreadyExists':
+              form.setError('Email', {
+                type: 'manual',
+                message: dictionary('Errors.Token.AlreadyExists'),
+              });
+              break;
             default:
               toast.error(dictionary('Errors.General.500'));
           }
