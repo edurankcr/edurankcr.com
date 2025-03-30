@@ -70,7 +70,12 @@
       "request_another": "Request another",
       "send_password_reset": "Send email",
       "go_to_home": "Go to Home",
-      "change_password": "Change Password"
+      "change_password": "Change Password",
+      "profile": "Profile",
+      "show_profile": "Show Profile",
+      "settings": "Settings",
+      "help_center": "Help Center",
+      "logout": "Log Out"
     },
     "Heading": {
       "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
@@ -106,7 +111,8 @@
       "request_password": "If you forgot your password, please enter your email address below to request a password reset link.",
       "already_know_password": "Are you knowing your password?",
       "request_password_sent": "Please check your inbox for a password reset link. If you don't see it, check your spam folder.",
-      "password_change_success": "Your password has been successfully changed. You can now log in with your new password."
+      "password_change_success": "Your password has been successfully changed. You can now log in with your new password.",
+      "success_logout": "You have successfully logged out. See you soon!"
     },
     "Input": {
       "Search": {
