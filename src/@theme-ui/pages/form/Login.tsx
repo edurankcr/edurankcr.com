@@ -13,8 +13,11 @@ import {
   ModernInput,
   Stack,
   Text,
+  useRouter,
 } from '@theme/components';
 import { postAuthentication } from '@theme/services';
+import { saveTokenCookie } from '@theme/services/jwt';
+import { useUserStore } from '@theme/stores';
 import { LoginValidation } from '@theme/validations';
 import { FormDisclaimer, HeadingForm } from '@theme-ui/components';
 import { useForm } from 'react-hook-form';
@@ -25,6 +28,7 @@ import type { z } from 'zod';
 import { Routes } from '@/routes';
 
 export const Login = () => {
+  const router = useRouter();
   const dictionary = useTranslations('UI');
 
   const form = useForm<z.infer<typeof LoginValidation>>({
@@ -39,9 +43,15 @@ export const Login = () => {
 
   async function onSubmit(values: z.infer<typeof LoginValidation>) {
     const { Identifier, Password } = values;
+    const setUser = useUserStore.getState().setUser;
 
     try {
-      await postAuthentication(Identifier, Password);
+      const response = await postAuthentication(Identifier, Password);
+      const { data } = response;
+      const { token, ...userWithoutToken } = data;
+      setUser(userWithoutToken);
+      await saveTokenCookie(token);
+      router.push(Routes.Global.Home);
     } catch (error: any) {
       const { response } = error;
       switch (response.status) {
