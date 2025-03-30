@@ -63,7 +63,12 @@ const UserQuickView = ({ userName, avatarUrl, name, lastName }: UserProps) => {
       <DropdownMenuContent className="min-w-[220px] w-[220px] max-w-[220px]">
         <DropdownMenuItem>
           <Group width="full" preventGrowOverflow={false} flexWrap="nowrap" justifyContent="between">
-            <Group preventGrowOverflow={false} flexWrap="nowrap" gap="md">
+            <Group
+              preventGrowOverflow={false}
+              flexWrap="nowrap"
+              gap="md"
+              overflow="hidden"
+            >
               <Avatar
                 User={{
                   AvatarUrl: avatarUrl,
