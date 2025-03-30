@@ -5,3 +5,5 @@ export * from './CTA';
 export * from './Form';
 export * from './Heading';
 export * from './Search';
+export * from './Skeleton';
+export * from './User';
