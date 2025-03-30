@@ -102,30 +102,35 @@ export const ChangePassword = () => {
   }
 
   useEffect(() => {
-    const token = searchParams.get('token');
-
-    if (!token) {
+    const showAlert = (message: string) => {
       setAlert({
         type: 'error',
-        message: dictionary('Paragraph.key_not_found'),
+        message,
       });
-      return;
-    }
+    };
 
-    const isValidToken = GuidValidation.safeParse(token);
-    if (!isValidToken.success) {
-      setAlert({
-        type: 'error',
-        message: dictionary('Paragraph.key_invalid'),
-      });
-      return;
-    }
+    const setFalseDisabled = () => setButtonDisabled(false);
 
-    form.setValue('TokenId', token);
-    setButtonDisabled(false);
-  },
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  [searchParams]);
+    const handleTokenValidation = () => {
+      const token = searchParams.get('token');
+
+      if (!token) {
+        showAlert(dictionary('Paragraph.key_not_found'));
+        return;
+      }
+
+      const isValidToken = GuidValidation.safeParse(token);
+      if (!isValidToken.success) {
+        showAlert(dictionary('Paragraph.key_invalid'));
+        return;
+      }
+
+      form.setValue('TokenId', token);
+      setFalseDisabled();
+    };
+
+    handleTokenValidation();
+  }, [searchParams, dictionary, form]);
 
   return (
     <>

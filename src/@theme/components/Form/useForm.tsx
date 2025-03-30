@@ -1,13 +1,13 @@
 'use client';
 
-import * as React from 'react';
+import { use } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { FormFieldContext, FormItemContext } from './FormContext';
 
 export const useFormField = () => {
-  const fieldContext = React.useContext(FormFieldContext);
-  const itemContext = React.useContext(FormItemContext);
+  const fieldContext = use(FormFieldContext);
+  const itemContext = use(FormItemContext);
   const { getFieldState, formState } = useFormContext();
 
   const fieldState = getFieldState(fieldContext.name, formState);
