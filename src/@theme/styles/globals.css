@@ -267,6 +267,7 @@
   --color-background-caution-weak: var(--color-background-caution-weak);
   --color-brand-neon: var(--color-brand-neon);
   --color-neutral-600: var(--color-neutral-600);
+  --color-background-primary-hover: var(--color-background-primary-hover);
 
   --spacing-header: var(--height-header);
   --spacing-18: var(--height-18);
