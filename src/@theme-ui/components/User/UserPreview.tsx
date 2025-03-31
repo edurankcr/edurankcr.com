@@ -93,6 +93,9 @@ const UserQuickView = ({ userName, avatarUrl, name, lastName }: UserProps) => {
           </Group>
         </DropdownMenuItem>
         <DropdownMenuItem>
+          {dictionary('Button.favorites')}
+        </DropdownMenuItem>
+        <DropdownMenuItem>
           {dictionary('Button.settings')}
         </DropdownMenuItem>
         <DropdownMenuItem>
