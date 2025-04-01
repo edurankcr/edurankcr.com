@@ -2,6 +2,7 @@ import '@theme/styles/globals.css';
 
 import { Toaster } from '@theme/components';
 import { getBaseUrl, getLocales, isLocale } from '@theme/functions';
+import { AuthGuard } from '@theme/functions/authGuard';
 import { Providers } from '@theme/providers';
 import { fontMono, fontSans } from '@theme/styles';
 import type { IRootLayout } from '@theme/types';
@@ -51,6 +52,7 @@ export default async function RootLayout({ children, params }: Readonly<IRootLay
           {children}
         </Providers>
         <Toaster />
+        <AuthGuard />
       </body>
     </html>
   );
