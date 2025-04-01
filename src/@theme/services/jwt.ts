@@ -6,7 +6,7 @@ import { cookies } from 'next/headers';
 
 import { Env } from './env';
 
-const JWT_SECRET = Env.JWT_SECRET || 'dev-secret';
+const JWT_SECRET = Env.JWT_SECRET;
 const COOKIE_NAME = Env.NEXT_PUBLIC_JWT_COOKIE_NAME;
 
 const COOKIE_OPTIONS = {
@@ -41,7 +41,8 @@ export async function verifyToken(token: string): Promise<boolean> {
   try {
     jwt.verify(token, JWT_SECRET);
     return true;
-  } catch {
+  } catch (error: any) {
+    console.error('JWT verification error:', error);
     return false;
   }
 }
