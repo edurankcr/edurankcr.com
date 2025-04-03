@@ -1,7 +1,6 @@
 'use server';
 
-import type { JwtPayload } from 'jsonwebtoken';
-import jwt from 'jsonwebtoken';
+import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 
 import { Env } from './env';
@@ -17,10 +16,15 @@ const COOKIE_OPTIONS = {
   maxAge: 60 * 60 * 2,
 };
 
+function getSecretKey() {
+  return new TextEncoder().encode(JWT_SECRET);
+}
+
 export async function saveTokenCookie(token: string) {
   const cookieStore = await cookies();
+
   try {
-    jwt.verify(token, JWT_SECRET);
+    await jwtVerify(token, getSecretKey());
     cookieStore.set(COOKIE_NAME, token, COOKIE_OPTIONS);
   } catch {
     await deleteTokenCookie();
@@ -39,7 +43,7 @@ export async function getTokenFromCookie(): Promise<string | null> {
 
 export async function verifyToken(token: string): Promise<boolean> {
   try {
-    jwt.verify(token, JWT_SECRET);
+    await jwtVerify(token, getSecretKey());
     return true;
   } catch (error: any) {
     console.error('JWT verification error:', error);
@@ -47,14 +51,15 @@ export async function verifyToken(token: string): Promise<boolean> {
   }
 }
 
-export async function getPayloadFromCookie<T = JwtPayload>(): Promise<T | null> {
+export async function getPayloadFromCookie<T = unknown>(): Promise<T | null> {
   const token = await getTokenFromCookie();
   if (!token) {
     return null;
   }
 
   try {
-    return jwt.verify(token, JWT_SECRET) as T;
+    const { payload } = await jwtVerify(token, getSecretKey());
+    return payload as T;
   } catch {
     await deleteTokenCookie();
     return null;
