@@ -1,3 +1,0 @@
-export {
-  ReviewCard,
-} from './ReviewCard';

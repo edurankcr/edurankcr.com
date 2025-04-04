@@ -1,31 +1,21 @@
-import { deleteTokenCookie, getTokenFromCookie, verifyToken } from '@theme/services';
-import { routing } from '@theme/services/routing';
+import { AppRoutes } from '@constants';
+import { deleteTokenCookie, getTokenFromCookie, verifyToken } from '@services';
+import { routing } from '@services/config/routing';
+import { isGuestRoute } from '@utils';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 
-import { Routes } from '@/routes';
-
 const intlMiddleware = createMiddleware(routing);
-
-const guestRoutes = [
-  Routes.Guest.Login,
-  Routes.Guest.Register,
-  Routes.Guest.Email.Request,
-  Routes.Guest.Email.Sent,
-  Routes.Guest.Email.Verify,
-];
 
 export async function middleware(request: NextRequest) {
   const response = intlMiddleware(request);
   const token = await getTokenFromCookie();
-  const pathname = request.nextUrl.pathname;
-  const isGuestRoute = guestRoutes.some(route => pathname.includes(route));
 
-  if (token && isGuestRoute) {
+  if (token && isGuestRoute(request.nextUrl.pathname)) {
     const valid = await verifyToken(token);
     if (valid) {
-      return NextResponse.redirect(new URL(Routes.Global.Home, request.url));
+      return NextResponse.redirect(new URL(AppRoutes.Global.Home, request.url));
     } else {
       await deleteTokenCookie();
     }

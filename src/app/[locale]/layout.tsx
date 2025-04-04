@@ -1,12 +1,11 @@
-import '@theme/styles/globals.css';
+import '@/styles/globals.css';
 
-import { Toaster } from '@theme/components';
-import { getBaseUrl, getLocales, isLocale } from '@theme/functions';
-import { AuthGuard } from '@theme/functions/authGuard';
-import { Providers } from '@theme/providers';
-import { fontMono, fontSans } from '@theme/styles';
-import type { IRootLayout } from '@theme/types';
-import { clsx } from 'clsx';
+import { Toaster } from '@components';
+import { Providers } from '@providers';
+import { fontMono, fontSans } from '@styles/fonts';
+import type { IRootLayout } from '@types';
+import { AuthGuard, getBaseUrl, getLocales, isLocale } from '@utils';
+import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 

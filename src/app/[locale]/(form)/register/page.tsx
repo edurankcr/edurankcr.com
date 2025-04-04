@@ -1,10 +1,10 @@
-import { getMetadata } from '@theme/functions';
-import type { IMeta } from '@theme/types';
-import { Register } from '@theme-ui/pages';
+import type { IMeta } from '@types';
+import { Register } from '@ui/pages';
+import { getMetadata } from '@utils';
 
 export async function generateMetadata({ params }: IMeta) {
   const { locale } = await params;
-  return await getMetadata({ locale, space: 'Register' });
+  return await getMetadata({ locale, namespace: 'Register' });
 }
 
 export default async function Page() {
