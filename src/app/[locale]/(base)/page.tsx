@@ -1,11 +1,11 @@
-import { getMetadata } from '@theme/functions';
-import type { IMeta } from '@theme/types';
-import { Home } from '@theme-ui/pages';
+import type { IMeta } from '@types';
+import { Home } from '@ui/pages';
+import { getMetadata } from '@utils';
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({ params }: IMeta) {
   const { locale } = await params;
-  return await getMetadata({ locale, space: 'Home' });
+  return await getMetadata({ locale, namespace: 'Home' });
 }
 
 export default async function Page({ params }: IMeta) {
