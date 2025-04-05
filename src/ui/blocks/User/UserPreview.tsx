@@ -47,7 +47,6 @@ const UserQuickView = ({ userName, avatarUrl, name, lastName }: UserProps) => {
           rounded="full"
           justifyContent="between"
           gap="md"
-          boxShadow="card"
           className="ps-4 pe-2 min-h-[42px] max-h-[42px] cursor-pointer"
         >
           <IconMenu size={18} />
