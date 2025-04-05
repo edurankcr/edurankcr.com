@@ -1,7 +1,8 @@
-import type { IMeta } from '@types';
-import { Home } from '@ui/pages';
-import { getMetadata } from '@utils';
 import { getTranslations } from 'next-intl/server';
+
+import type { IMeta } from '@/types';
+import { Home } from '@/ui';
+import { getMetadata } from '@/utils';
 
 export async function generateMetadata({ params }: IMeta) {
   const { locale } = await params;

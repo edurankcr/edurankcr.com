@@ -1,14 +1,31 @@
 {
   "compilerOptions": {
+
+    "incremental": true,
+    "target": "es2017",
+
+    "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
+
+    // Path aliases
+    "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "bundler",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/public/*": ["./public/*"]
+    },
     "resolveJsonModule": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
+    // Load types
+    "types": ["vitest/globals"],
+    "allowJs": true,
+    "checkJs": true,
     "strict": true,
-    "alwaysStrict": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
     "strictNullChecks": true,
+    "allowUnreachableCode": false,
+    "alwaysStrict": true,
     "noUncheckedIndexedAccess": true,
 
     "noImplicitAny": true,
@@ -16,34 +33,16 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
-
-    "target": "es2017",
     "outDir": "out",
     "sourceMap": true,
 
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "checkJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "jsx": "preserve",
+    "esModuleInterop": true,
     "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "incremental": true,
-
-    // Load types
-    "types": ["vitest/globals"],
-
-    // Path aliases
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/public/*": ["./public/*"]
-    },
+    "skipLibCheck": true,
 
     // Editor supports
     "plugins": [
@@ -52,17 +51,17 @@
       }
     ]
   },
-  "exclude": [
-    "./out/**/*",
-    "./node_modules/**/*",
-    "**/*.spec.ts",
-    "**/*.e2e.ts"
-  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "**/*.mts"
+  ],
+  "exclude": [
+    "./out/**/*",
+    "./node_modules/**/*",
+    "**/*.spec.ts",
+    "**/*.e2e.ts"
   ]
 }
