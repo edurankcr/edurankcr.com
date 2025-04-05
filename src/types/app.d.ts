@@ -28,6 +28,10 @@ type IBaseLayout = {
   children: Children;
 } & ILayoutParams;
 
+type IChildren = {
+  children: Children;
+};
+
 type ILayout = IBaseLayout;
 type IRootLayout = IBaseLayout;
 type IPageLayout = IBaseLayout;
@@ -52,6 +56,7 @@ type IComponent = {
 };
 
 export {
+  IChildren,
   IComponent,
   IDictionary,
   IFormatter,
