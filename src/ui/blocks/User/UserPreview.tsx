@@ -94,10 +94,7 @@ const UserQuickView = ({ userName, avatarUrl, name, lastName }: UserProps) => {
             <IconChevronRight />
           </Group>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          {dictionary('Button.favorites')}
-        </DropdownMenuItem>
-        <DropdownMenuItem>
+        <DropdownMenuItem href={AppRoutes.Auth.Settings}>
           {dictionary('Button.settings')}
         </DropdownMenuItem>
         <DropdownMenuItem>
