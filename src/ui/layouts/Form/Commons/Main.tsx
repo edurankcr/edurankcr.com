@@ -1,8 +1,9 @@
 import type { ComponentProps, FC } from 'react';
-import React from 'react';
+import React, { useMemo } from 'react';
 
-import { Box, Section, Stack } from '@/components';
-import { LayoutBackground } from '@/utils';
+import { Box, Section } from '@/components';
+
+import { LayoutBackground, LayoutMainForm } from '../../Background';
 
 type MainProps = {} & ComponentProps<typeof Box>;
 
@@ -14,6 +15,8 @@ export const Main: FC<MainProps> = ({
     ...props,
   };
 
+  const indexImage = useMemo(() => Math.floor(Math.random() * 2) + 1, []);
+
   return (
     <Box
       as="main"
@@ -24,13 +27,11 @@ export const Main: FC<MainProps> = ({
       {...mainProps}
     >
       <Section position="relative" zIndex={10}>
-        <Box marginX="auto" padding="3xl" rounded="lg" maxWidth="form" bgBackground="white" boxShadow={200}>
-          <Stack gap="section" className="relative">
-            {children}
-          </Stack>
-        </Box>
+        <LayoutMainForm>
+          {children}
+        </LayoutMainForm>
       </Section>
-      <LayoutBackground />
+      <LayoutBackground indexImage={indexImage} />
     </Box>
   );
 };
