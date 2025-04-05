@@ -5,6 +5,7 @@ import { cx } from 'class-variance-authority';
 import type { FC, HTMLAttributes, RefObject } from 'react';
 import { memo } from 'react';
 
+// noinspection ES6PreferShortImport
 import { alertVariants } from './Alert.variants';
 
 type AlertProps = HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>;

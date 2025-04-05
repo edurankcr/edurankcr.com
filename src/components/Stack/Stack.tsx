@@ -1,8 +1,9 @@
 'use client';
 
-import { Box } from '@components';
 import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
+
+import { Box } from '../Box';
 
 type StackProps = ComponentProps<typeof Box>;
 

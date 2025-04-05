@@ -1,4 +1,12 @@
+// noinspection ES6PreferShortImport
+
 'use client';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
+import type { z } from 'zod';
 
 import {
   Button,
@@ -13,17 +21,14 @@ import {
   Stack,
   Text,
   useRouter,
-} from '@components';
-import { AppRoutes } from '@constants';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { postAuthentication, saveTokenCookie } from '@services';
-import { useUserStore } from '@stores';
-import { FormDisclaimer, HeadingForm } from '@ui/blocks';
-import { LoginValidation } from '@validations';
-import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
-import { useTranslations } from 'use-intl';
-import type { z } from 'zod';
+} from '@/components';
+import { AppRoutes } from '@/constants';
+import { postAuthentication, saveTokenCookie } from '@/services';
+import { useUserStore } from '@/stores';
+import { LoginValidation } from '@/validations';
+
+import { FormDisclaimer } from '../../blocks/Form';
+import { HeadingForm } from '../../blocks/Heading';
 
 export const Login = () => {
   const router = useRouter();

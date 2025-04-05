@@ -1,17 +1,19 @@
 'use client';
 
-import { Link as RouterLink } from '@components/Navigation/Navigation';
 import { IconLoader2 } from '@tabler/icons-react';
 import type { VariantProps } from 'class-variance-authority';
 import { cx } from 'class-variance-authority';
 import type { ComponentProps, ReactNode } from 'react';
 import { memo } from 'react';
 
+import { Link as RouterLink } from '../Navigation/Navigation';
+// noinspection ES6PreferShortImport
 import { buttonVariants } from './Button.variants';
 
 type CommonProps = {
   leftSection?: ReactNode;
   rightSection?: ReactNode;
+  disabled?: boolean;
   isLoading?: boolean;
   className?: string;
   href?: string;

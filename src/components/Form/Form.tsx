@@ -1,6 +1,5 @@
 'use client';
 
-import { Button, Group, Label } from '@components';
 import type * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
 import { IconExclamationCircleFilled } from '@tabler/icons-react';
@@ -10,6 +9,10 @@ import { useId, useMemo } from 'react';
 import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 
+import { Button } from '../Button';
+import { Group } from '../Group';
+import { Label } from '../Label';
+// noinspection ES6PreferShortImport
 import { FormFieldContext, FormItemContext } from './FormContext';
 import { useFormField } from './useForm';
 

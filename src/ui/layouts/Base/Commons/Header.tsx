@@ -1,8 +1,11 @@
-import type { IDictionary } from '@types';
-import { UserPreview } from '@ui/blocks';
-import type { Box } from 'components';
-import { Group, Image, Link, Stack, Text } from 'components';
 import type { ComponentProps, FC } from 'react';
+
+import type { Box } from '@/components';
+import { Group, Image, Link, Stack, Text } from '@/components';
+import type { IDictionary } from '@/types';
+
+// noinspection ES6PreferShortImport
+import { UserPreview } from '../../../blocks/User';
 
 type HeaderProps = {
   urlHomepage?: string;

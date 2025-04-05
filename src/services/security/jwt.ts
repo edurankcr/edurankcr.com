@@ -3,14 +3,12 @@
 import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 
-import { Env } from '../config/env';
-
-const JWT_SECRET = Env.JWT_SECRET;
-const COOKIE_NAME = Env.NEXT_PUBLIC_JWT_COOKIE_NAME;
+const JWT_SECRET = process.env.JWT_SECRET || 'abcdefghijklmnop';
+const COOKIE_NAME = process.env.NEXT_PUBLIC_JWT_COOKIE_NAME || 'jwt';
 
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: Env.NODE_ENV === 'production',
+  secure: process.env.NODE_ENV === 'production',
   sameSite: 'strict' as const,
   path: '/',
   maxAge: 60 * 60 * 2, // 2 hours

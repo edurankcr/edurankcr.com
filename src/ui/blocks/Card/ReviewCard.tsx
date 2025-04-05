@@ -1,7 +1,5 @@
-'use client';
-
-import { Avatar, Group, Link, Stack, Stars, Text } from '@components';
-import type { IDictionary, IFormatter } from '@types';
+import { Avatar, Group, Link, Stack, Stars, Text } from '@/components';
+import type { IFormatter, ITranslations } from '@/types';
 
 type ReviewCardProps = {
   User: {
@@ -17,7 +15,7 @@ type ReviewCardProps = {
     CreatedAt: Date;
     IsVerified?: boolean;
   };
-} & IDictionary & IFormatter;
+} & ITranslations & IFormatter;
 
 export const ReviewCard = ({ User, Review, dictionary, formatter }: ReviewCardProps) => {
   const getName = () => {

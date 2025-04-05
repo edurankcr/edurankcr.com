@@ -1,8 +1,7 @@
-'use client';
-
-import { CSput } from '@components';
 import { IconSearch } from '@tabler/icons-react';
 import type { ComponentProps } from 'react';
+
+import { CSput } from '@/components';
 
 type SearchInputProps = {
   variant?: 'hero' | 'default';

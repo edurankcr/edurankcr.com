@@ -1,5 +1,7 @@
-import { Env, getTokenFromCookie } from '@services';
 import axios from 'axios';
+
+import { getTokenFromCookie } from '@/services';
+import { Env } from '@/services/config/env';
 
 const api = axios.create({
   baseURL: Env.NEXT_PUBLIC_API_URL,

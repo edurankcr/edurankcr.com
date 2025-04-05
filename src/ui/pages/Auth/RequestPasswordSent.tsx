@@ -1,15 +1,18 @@
 'use client';
 
+import { IconMailUp } from '@tabler/icons-react';
+import { useTranslations } from 'use-intl';
+
 import {
   Button,
   Link,
   Stack,
   Text,
-} from '@components';
-import { AppRoutes } from '@constants';
-import { IconMailUp } from '@tabler/icons-react';
-import { HeadingForm } from '@ui/blocks';
-import { useTranslations } from 'use-intl';
+} from '@/components';
+import { AppRoutes } from '@/constants';
+
+// noinspection ES6PreferShortImport
+import { HeadingForm } from '../../blocks/Heading';
 
 export const RequestPasswordSent = () => {
   const dictionary = useTranslations('UI');

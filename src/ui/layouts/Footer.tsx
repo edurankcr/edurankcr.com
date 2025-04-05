@@ -1,7 +1,8 @@
-import type { Box } from '@theme/components';
-import { Group, Link, Logotype, Separator, Stack, Text } from '@theme/components';
-import type { IDictionary } from '@types';
 import type { ComponentProps, FC } from 'react';
+
+import type { Box } from '@/components';
+import { Group, Link, Logotype, Separator, Stack, Text } from '@/components';
+import type { IDictionary } from '@/types';
 
 const MenuItems = [
   {

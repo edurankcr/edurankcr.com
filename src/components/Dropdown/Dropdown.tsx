@@ -1,9 +1,10 @@
 'use client';
 
-import { Link as RouterLink } from '@components/Navigation/Navigation';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { cx } from 'class-variance-authority';
 import type { ComponentPropsWithoutRef, Ref } from 'react';
+
+import { Link as RouterLink } from '../Navigation/Navigation';
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 

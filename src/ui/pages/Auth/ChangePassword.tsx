@@ -1,5 +1,13 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
+import type { z } from 'zod';
+
 import {
   Alert,
   AlertDescription,
@@ -15,18 +23,13 @@ import {
   Stack,
   Text,
   useRouter,
-} from '@components';
-import { AppRoutes } from '@constants';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { postResetPassword } from '@services';
-import { HeadingForm } from '@ui/blocks';
-import { ChangePasswordValidation, GuidValidation } from '@validations';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
-import { useTranslations } from 'use-intl';
-import type { z } from 'zod';
+} from '@/components';
+import { AppRoutes } from '@/constants';
+import { postResetPassword } from '@/services';
+import { ChangePasswordValidation, GuidValidation } from '@/validations';
+
+// noinspection ES6PreferShortImport
+import { HeadingForm } from '../../blocks/Heading';
 
 type AlertProps = {
   type: 'success' | 'error';

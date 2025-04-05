@@ -1,7 +1,6 @@
-'use client';
-
-import { Link } from '@components';
 import type { ComponentProps } from 'react';
+
+import { Link } from '@/components';
 
 type CtaRankingProps = {} & ComponentProps<typeof Link>;
 

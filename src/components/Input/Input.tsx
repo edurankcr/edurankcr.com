@@ -1,10 +1,13 @@
 'use client';
 
-import { Box, inputVariants } from '@components';
 import type { VariantProps } from 'class-variance-authority';
 import { cx } from 'class-variance-authority';
 import type { ComponentProps, ReactNode } from 'react';
 import { memo } from 'react';
+
+import { Box } from '../Box';
+// noinspection ES6PreferShortImport
+import { inputVariants } from './Input.variants';
 
 type InputProps = {
   leftSection?: ReactNode;

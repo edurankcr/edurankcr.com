@@ -1,6 +1,7 @@
-import { Box, Image, Section, Stack } from '@components';
 import type { ComponentProps, FC } from 'react';
 import React, { useMemo } from 'react';
+
+import { Box, Image, Section, Stack } from '@/components';
 
 type MainProps = {} & ComponentProps<typeof Box>;
 

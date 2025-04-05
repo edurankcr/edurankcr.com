@@ -1,8 +1,7 @@
-'use client';
-
-import { AppRoutes } from '@constants';
-import { Link, Text } from 'components';
 import type { useTranslations } from 'use-intl';
+
+import { Link, Text } from '@/components';
+import { AppRoutes } from '@/constants';
 
 type FormDisclaimersProps = {
   dictionary: ReturnType<typeof useTranslations>;

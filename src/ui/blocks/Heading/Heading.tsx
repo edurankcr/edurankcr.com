@@ -1,8 +1,7 @@
-'use client';
-
-import type { IComponent } from '@types';
 import { cx } from 'class-variance-authority';
-import { Text } from 'components';
+
+import { Text } from '@/components';
+import type { IComponent } from '@/types';
 
 type HeadingProps = {
   className?: string;

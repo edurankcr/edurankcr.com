@@ -10,7 +10,7 @@ const DISABLED_COLOR = '#6A6A6A';
 
 const getStarColor = (rate: number) => STAR_COLORS[Math.round(rate) - 1];
 
-const Star: FC<{ half?: boolean; color: string; disabled?: boolean }> = ({ half = false, color, disabled = false }) => {
+const Star: FC<{ half?: boolean; color?: string; disabled?: boolean }> = ({ half = false, color, disabled = false }) => {
   const bgColor = disabled ? DISABLED_COLOR : color;
 
   return (

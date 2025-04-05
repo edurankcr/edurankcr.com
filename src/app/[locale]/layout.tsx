@@ -1,13 +1,14 @@
 import '@/styles/globals.css';
 
-import { Toaster } from '@components';
-import { Providers } from '@providers';
-import { fontMono, fontSans } from '@styles/fonts';
-import type { IRootLayout } from '@types';
-import { AuthGuard, getBaseUrl, getLocales, isLocale } from '@utils';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+import { Toaster } from '@/components';
+import { Providers } from '@/providers';
+import { fontMono, fontSans } from '@/styles';
+import type { IRootLayout } from '@/types';
+import { AuthGuard, getBaseUrl, getLocales, isLocale } from '@/utils';
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),

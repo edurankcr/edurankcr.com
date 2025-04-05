@@ -1,9 +1,11 @@
 'use client';
 
-import { Image, Link } from '@components';
 import { cx } from 'class-variance-authority';
 import type { FC } from 'react';
 import { memo } from 'react';
+
+import { Image } from '../Image';
+import { Link } from '../Link';
 
 type LogotypeProps = {
   urlHomepage?: string;
