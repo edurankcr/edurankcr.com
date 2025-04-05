@@ -11,6 +11,9 @@ export const AppRoutes = {
       Privacy: '/legal/privacy',
     },
   },
+  Auth: {
+    Settings: '/settings',
+  },
   Guest: {
     Login: '/login',
     Register: '/register',
