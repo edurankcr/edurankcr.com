@@ -5,6 +5,22 @@ import React from 'react';
 
 import { Box, Stack } from '@/components';
 
+export const MainHeader: FC<ComponentProps<typeof Stack>> = ({
+  children,
+  ...props
+}) => {
+  return (
+    <Stack
+      gap="none"
+      paddingY="none"
+      paddingX="section"
+      {...props}
+    >
+      {children}
+    </Stack>
+  );
+};
+
 type MainProps = {} & ComponentProps<typeof Box>;
 
 export const Main: FC<MainProps> = ({
@@ -31,6 +47,7 @@ export const Main: FC<MainProps> = ({
         bgBackground="white"
         boxShadow={200}
       >
+        <MainHeader />
         <Stack gap="section" className="relative">
           {children}
         </Stack>
