@@ -4,9 +4,9 @@ import { Logotype, Stack } from '@/components';
 import { useUserStore } from '@/stores';
 
 export const LoadingScreen = () => {
-  const { hasHydrated } = useUserStore();
+  const { user } = useUserStore();
 
-  if (hasHydrated) {
+  if (user) {
     return null;
   }
 
