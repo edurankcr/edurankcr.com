@@ -1,6 +1,9 @@
-import type { IDictionary } from '@types';
-import { HeroSection, LastReviewActivitySection } from '@ui/sections';
 import { useFormatter } from 'next-intl';
+
+import type { IDictionary } from '@/types';
+
+// noinspection ES6PreferShortImport
+import { HeroSection, LastReviewActivitySection } from '../../sections';
 
 type HomeProps = {} & IDictionary;
 

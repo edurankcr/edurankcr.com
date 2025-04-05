@@ -1,10 +1,10 @@
-import { AppRoutes } from '@constants';
-import { deleteTokenCookie, getTokenFromCookie, verifyToken } from '@services';
-import { routing } from '@services/config/routing';
-import { isGuestRoute } from '@utils';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
+
+import { AppRoutes } from '@/constants';
+import { deleteTokenCookie, getTokenFromCookie, routing, verifyToken } from '@/services';
+import { isGuestRoute } from '@/utils';
 
 const intlMiddleware = createMiddleware(routing);
 

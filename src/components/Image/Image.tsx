@@ -1,10 +1,12 @@
 'use client';
 
-import { imageVariants } from '@components';
 import type { VariantProps } from 'class-variance-authority';
 import { cx } from 'class-variance-authority';
 import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
+
+// noinspection ES6PreferShortImport
+import { imageVariants } from './Image.variants';
 
 type ImageProps = ComponentProps<'img'> & VariantProps<typeof imageVariants>;
 

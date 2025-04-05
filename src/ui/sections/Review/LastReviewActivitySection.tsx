@@ -1,6 +1,8 @@
-import { Box, Section, Stack } from '@components';
-import type { IDictionary, IFormatter } from '@types';
-import { Heading, ReviewCard } from '@ui/blocks';
+import { Box, Section, Stack } from '@/components';
+import type { IDictionary, IFormatter } from '@/types';
+
+// noinspection ES6PreferShortImport
+import { Heading, ReviewCard } from '../../blocks';
 
 type LastReviewActivitySectionProps = {
 } & IDictionary & IFormatter;

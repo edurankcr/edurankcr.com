@@ -1,9 +1,10 @@
 'use client';
 
 import { Slot } from '@radix-ui/react-slot';
-import { getVisibilityClasses } from '@utils';
 import { cx } from 'class-variance-authority';
 import { memo } from 'react';
+
+import { getVisibilityClasses } from '@/utils';
 
 import type { BoxProps } from './Box.types';
 import { boxVariants } from './Box.variants';

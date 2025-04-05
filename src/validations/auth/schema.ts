@@ -1,5 +1,6 @@
-import { isValidAge, isValidUsername } from '@utils';
 import { z } from 'zod';
+
+import { isValidAge, isValidUsername } from '@/utils';
 
 import {
   ConfirmPasswordSchema,

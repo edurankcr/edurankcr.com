@@ -1,6 +1,6 @@
 import type { getTranslations } from 'next-intl/server';
 import type { ReactNode } from 'react';
-import type { createFormatter } from 'use-intl';
+import type { createFormatter, useTranslations } from 'use-intl';
 
 import type en from '../messages/en.json';
 import type { formats } from './@theme/i18n';
@@ -38,6 +38,10 @@ type IDictionary = {
   dictionary: Awaited<ReturnType<typeof getTranslations>>;
 };
 
+type ITranslations = {
+  dictionary: Awaited<ReturnType<typeof useTranslations>>;
+};
+
 type IFormatter = {
   formatter: Awaited<ReturnType<typeof createFormatter>>;
 };
@@ -56,6 +60,7 @@ export {
   IPageLayout,
   IProviders,
   IRootLayout,
+  ITranslations,
   Locale,
   Messages,
 };

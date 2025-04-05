@@ -1,21 +1,24 @@
 'use client';
 
+import { IconMailOpened } from '@tabler/icons-react';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
+
 import {
   Button,
   Link,
   Progress,
   Stack,
   Text,
-} from '@components';
-import { AppRoutes } from '@constants';
-import { getVerifyEmail } from '@services';
-import { IconMailOpened } from '@tabler/icons-react';
-import { HeadingForm } from '@ui/blocks';
-import { GuidValidation } from '@validations';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { toast } from 'sonner';
-import { useTranslations } from 'use-intl';
+} from '@/components';
+import { AppRoutes } from '@/constants';
+import { getVerifyEmail } from '@/services';
+import { GuidValidation } from '@/validations';
+
+// noinspection ES6PreferShortImport
+import { HeadingForm } from '../../blocks/Heading';
 
 export const VerifyEmail = () => {
   const [barProgress, setBarProgress] = useState(0);

@@ -1,4 +1,12 @@
+// noinspection ES6PreferShortImport
+
 'use client';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
+import type { z } from 'zod';
 
 import {
   Form,
@@ -12,16 +20,13 @@ import {
   Stack,
   Text,
   useRouter,
-} from '@components';
-import { AppRoutes } from '@constants';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { postRequestEmailVerification } from '@services';
-import { FormCheckSpam, HeadingForm } from '@ui/blocks';
-import { EmailVerificationValidation } from '@validations';
-import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
-import { useTranslations } from 'use-intl';
-import type { z } from 'zod';
+} from '@/components';
+import { AppRoutes } from '@/constants';
+import { postRequestEmailVerification } from '@/services';
+import { EmailVerificationValidation } from '@/validations';
+
+import { FormCheckSpam } from '../../blocks/Form';
+import { HeadingForm } from '../../blocks/Heading';
 
 export const RequestEmailVerification = () => {
   const dictionary = useTranslations('UI');

@@ -1,5 +1,9 @@
 'use client';
 
+import { IconChevronRight, IconMenu } from '@tabler/icons-react';
+import { toast } from 'sonner';
+import { useTranslations } from 'use-intl';
+
 import {
   Avatar,
   Button,
@@ -11,15 +15,14 @@ import {
   Stack,
   Text,
   useRouter,
-} from '@components';
-import { AppRoutes } from '@constants';
-import { deleteTokenCookie } from '@services';
-import { useUserStore } from '@stores';
-import { IconChevronRight, IconMenu } from '@tabler/icons-react';
-import type { User } from '@types';
-import { UserPreviewSkeleton } from '@ui/blocks';
-import { toast } from 'sonner';
-import { useTranslations } from 'use-intl';
+} from '@/components';
+import { AppRoutes } from '@/constants';
+import { deleteTokenCookie } from '@/services';
+import { useUserStore } from '@/stores';
+import type { User } from '@/types';
+
+// noinspection ES6PreferShortImport
+import { UserPreviewSkeleton } from '../Skeleton';
 
 type UserProps = {} & User;
 

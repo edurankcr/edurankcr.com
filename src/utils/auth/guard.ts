@@ -1,9 +1,10 @@
 'use client';
 
-import { getTokenFromCookie } from '@services';
-import { useUserStore } from '@stores';
 import { useEffect, useRef } from 'react';
 import { toast } from 'sonner';
+
+import { getTokenFromCookie } from '@/services';
+import { useUserStore } from '@/stores';
 
 export const AuthGuard = () => {
   const { user, hasHydrated, clearUser } = useUserStore();

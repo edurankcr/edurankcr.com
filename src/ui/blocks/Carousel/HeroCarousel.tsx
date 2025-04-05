@@ -1,8 +1,7 @@
-'use client';
-
-import { Box, Carousel, CarouselContent } from 'components';
 import Autoplay from 'embla-carousel-autoplay';
 import type { ReactNode } from 'react';
+
+import { Box, Carousel, CarouselContent } from '@/components';
 
 type IHeroCarousel = {
   children: ReactNode;

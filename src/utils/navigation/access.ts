@@ -1,4 +1,4 @@
-import { AppRoutes } from '@constants';
+import { AppRoutes } from '@/constants';
 
 type AppRoutesType = typeof AppRoutes;
 type RouteGroup = keyof AppRoutesType;

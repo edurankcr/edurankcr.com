@@ -1,8 +1,11 @@
 'use client';
 
-import { CarouselItem, Image } from '@components';
-import { HeroCarousel } from '@ui/blocks';
 import React from 'react';
+
+import { CarouselItem, Image } from '@/components';
+
+// noinspection ES6PreferShortImport
+import { HeroCarousel } from '../Carousel';
 
 export const BackgroundHero = () => {
   return (

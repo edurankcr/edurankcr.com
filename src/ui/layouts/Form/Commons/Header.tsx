@@ -1,9 +1,12 @@
-import { AppRoutes } from '@constants';
-import type { IDictionary } from '@types';
-import { SearchInput } from '@ui/blocks';
-import type { Box } from 'components';
-import { Button, Group, Logotype, Stack, Text } from 'components';
 import type { ComponentProps, FC } from 'react';
+
+import type { Box } from '@/components';
+import { Button, Group, Logotype, Stack, Text } from '@/components';
+import { AppRoutes } from '@/constants';
+import type { IDictionary } from '@/types';
+
+// noinspection ES6PreferShortImport
+import { SearchInput } from '../../../blocks/Search';
 
 type HeaderProps = {
   urlHomepage?: string;

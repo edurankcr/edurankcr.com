@@ -1,6 +1,7 @@
-import { Box, Stack } from '@components';
-import type { IPageLayout } from '@types';
 import { getTranslations } from 'next-intl/server';
+
+import { Box, Stack } from '@/components';
+import type { IPageLayout } from '@/types';
 
 import { Footer } from '../Footer';
 import { Header } from './Commons';

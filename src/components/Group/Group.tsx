@@ -1,9 +1,11 @@
 'use client';
 
-import { Box } from '@components';
-import { getPreventGrowOverflow } from '@utils';
 import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
+
+import { getPreventGrowOverflow } from '@/utils';
+
+import { Box } from '../Box';
 
 type GroupProps = {
   preventGrowOverflow?: boolean;

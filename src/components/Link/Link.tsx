@@ -1,12 +1,13 @@
 'use client';
 
-import { Text } from '@components';
-import { Link as RouterLink } from '@components/Navigation/Navigation';
 import type { VariantProps } from 'class-variance-authority';
 import { cx } from 'class-variance-authority';
 import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
 
+import { Link as RouterLink } from '../Navigation/Navigation';
+import { Text } from '../Text';
+// noinspection ES6PreferShortImport
 import { linkVariants } from './Link.variants';
 
 type LinkProps = {

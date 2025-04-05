@@ -7,6 +7,7 @@ import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
 import * as React from 'react';
 
+// noinspection ES6PreferShortImport
 import { separatorVariants } from './Separator.variants';
 
 type SeparatorProps = ComponentProps<typeof SeparatorPrimitive.Root> & VariantProps<typeof separatorVariants>;

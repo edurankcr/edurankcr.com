@@ -1,6 +1,7 @@
-import type { Breakpoint } from '@utils/domHelpers';
 import type { VariantProps } from 'class-variance-authority';
 import type { HTMLAttributes } from 'react';
+
+import type { Breakpoint } from '@/utils';
 
 import type { boxVariants } from './Box.variants';
 

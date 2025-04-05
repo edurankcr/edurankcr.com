@@ -1,6 +1,6 @@
-import type { IMeta } from '@types';
-import { RequestEmailVerification } from '@ui/pages';
-import { getMetadata } from '@utils';
+import type { IMeta } from '@/types';
+import { RequestEmailVerification } from '@/ui';
+import { getMetadata } from '@/utils';
 
 export async function generateMetadata({ params }: IMeta) {
   const { locale } = await params;

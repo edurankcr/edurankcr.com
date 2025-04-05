@@ -1,7 +1,10 @@
-import { Section, Stack } from '@components';
-import type { IDictionary } from '@types';
-import { BackgroundHero, CTAHero, HeadingHero, SearchInput } from '@ui/blocks';
 import React from 'react';
+
+import { Section, Stack } from '@/components';
+import type { IDictionary } from '@/types';
+
+// noinspection ES6PreferShortImport
+import { BackgroundHero, CTAHero, HeadingHero, SearchInput } from '../../blocks';
 
 type HeroSectionProps = {} & IDictionary;
 

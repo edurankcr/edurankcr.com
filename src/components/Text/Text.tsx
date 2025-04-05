@@ -6,6 +6,7 @@ import { cx } from 'class-variance-authority';
 import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
 
+// noinspection ES6PreferShortImport
 import { textVariants } from './Text.variants';
 
 type TextProps = {

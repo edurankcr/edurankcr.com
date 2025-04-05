@@ -1,7 +1,8 @@
-import { routing } from '@services';
-import type { GetLocales, GetMessagesForLocale, GetMetadata, IsLocale } from '@types';
 import { notFound } from 'next/navigation';
 import { getMessages, getTranslations } from 'next-intl/server';
+
+import { routing } from '@/services';
+import type { GetLocales, GetMessagesForLocale, GetMetadata, IsLocale } from '@/types';
 
 async function getMetadata({ locale, namespace, variables }: GetMetadata.Params): Promise<GetMetadata.Response> {
   // @ts-expect-error @next-intl/server

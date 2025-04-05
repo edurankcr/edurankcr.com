@@ -1,6 +1,8 @@
-import { isLocale } from '@utils';
 import { getRequestConfig } from 'next-intl/server';
 
+import { isLocale } from '@/utils';
+
+// noinspection ES6PreferShortImport
 import { routing } from '../config/routing';
 
 export default getRequestConfig(async ({ requestLocale }) => {

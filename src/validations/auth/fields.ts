@@ -1,5 +1,6 @@
-import { isValidEmailDomain, isValidEmailFormat, isValidUsername } from '@utils';
 import { z } from 'zod';
+
+import { isValidEmailDomain, isValidEmailFormat, isValidUsername } from '@/utils';
 
 export const IdentifierSchema = z
   .string()
