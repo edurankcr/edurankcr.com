@@ -1,7 +1,9 @@
 import type { ComponentProps, FC } from 'react';
 import React, { useMemo } from 'react';
 
-import { Box, Image, Section, Stack } from '@/components';
+import { Box, Section } from '@/components';
+
+import { LayoutBackground, LayoutMainForm } from '../../Background';
 
 type MainProps = {} & ComponentProps<typeof Box>;
 
@@ -20,28 +22,16 @@ export const Main: FC<MainProps> = ({
       as="main"
       height="full"
       position="relative"
+      bgBackground="secondary"
       flexGrow
       {...mainProps}
     >
       <Section position="relative" zIndex={10}>
-        <Box marginX="auto" padding="3xl" rounded="lg" maxWidth="form" bgBackground="white" boxShadow={200}>
-          <Stack gap="section" className="relative">
-            {children}
-          </Stack>
-        </Box>
+        <LayoutMainForm>
+          {children}
+        </LayoutMainForm>
       </Section>
-      <picture className="absolute inset-0 overflow-hidden">
-        <source
-          media="(max-width: 767.95px)"
-          srcSet={`/assets/images/form/${indexImage}-sm.jpg`}
-          type="image/jpg"
-        />
-        <Image
-          loading="eager"
-          src={`/assets/images/form/${indexImage}.jpg`}
-          className="size-full object-cover"
-        />
-      </picture>
+      <LayoutBackground indexImage={indexImage} />
     </Box>
   );
 };

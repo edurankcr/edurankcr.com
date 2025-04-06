@@ -1,6 +1,7 @@
 'use client';
 
 import { IconChevronRight, IconMenu } from '@tabler/icons-react';
+import { cx } from 'class-variance-authority';
 import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 
@@ -24,9 +25,11 @@ import type { User } from '@/types';
 // noinspection ES6PreferShortImport
 import { UserPreviewSkeleton } from '../Skeleton';
 
-type UserProps = {} & User;
+type UserProps = {
+  border?: boolean;
+} & User;
 
-const UserQuickView = ({ userName, avatarUrl, name, lastName }: UserProps) => {
+const UserQuickView = ({ border = false, userName, avatarUrl, name, lastName }: UserProps) => {
   const dictionary = useTranslations('UI');
   const router = useRouter();
 
@@ -47,8 +50,10 @@ const UserQuickView = ({ userName, avatarUrl, name, lastName }: UserProps) => {
           rounded="full"
           justifyContent="between"
           gap="md"
-          boxShadow="card"
-          className="ps-4 pe-2 min-h-[42px] max-h-[42px] cursor-pointer"
+          className={cx(
+            'ps-4 pe-2 min-h-[42px] max-h-[42px] cursor-pointer',
+            border && 'border border-border-interactive',
+          )}
         >
           <IconMenu size={18} />
           <Avatar
@@ -94,10 +99,7 @@ const UserQuickView = ({ userName, avatarUrl, name, lastName }: UserProps) => {
             <IconChevronRight />
           </Group>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          {dictionary('Button.favorites')}
-        </DropdownMenuItem>
-        <DropdownMenuItem>
+        <DropdownMenuItem href={AppRoutes.Auth.Settings.Main}>
           {dictionary('Button.settings')}
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -111,7 +113,11 @@ const UserQuickView = ({ userName, avatarUrl, name, lastName }: UserProps) => {
   );
 };
 
-export const UserPreview = () => {
+type UserPreviewProps = {
+  border?: boolean;
+};
+
+export const UserPreview = ({ border = false }: UserPreviewProps) => {
   const dictionary = useTranslations('UI');
   const user = useUserStore(state => state.user);
   const isLoading = useUserStore(state => state.hasHydrated);
@@ -121,7 +127,7 @@ export const UserPreview = () => {
   }
 
   if (user) {
-    return <UserQuickView {...user} />;
+    return <UserQuickView border={border} {...user} />;
   }
 
   return (

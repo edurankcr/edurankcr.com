@@ -2,6 +2,7 @@
 
 import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
+import type { NextRequest, NextResponse } from 'next/server';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'abcdefghijklmnop';
 const COOKIE_NAME = process.env.NEXT_PUBLIC_JWT_COOKIE_NAME || 'jwt';
@@ -62,4 +63,22 @@ export async function getPayloadFromCookie<T = unknown>(): Promise<T | null> {
     await deleteTokenCookie();
     return null;
   }
+}
+
+export async function getTokenFromMiddleware(request: NextRequest): Promise<string | null> {
+  return request.cookies.get(COOKIE_NAME)?.value || null;
+}
+
+export async function verifyTokenInMiddleware(token: string): Promise<boolean> {
+  try {
+    await jwtVerify(token, getSecretKey());
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export async function deleteTokenInMiddleware(response: NextResponse): Promise<NextResponse> {
+  response.cookies.delete(COOKIE_NAME);
+  return response;
 }

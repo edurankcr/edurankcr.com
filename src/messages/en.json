@@ -31,6 +31,10 @@
     "RequestPasswordChange": {
       "title": "Change Password | EduRankCR",
       "description": "Change your password to log in to your EduRankCR account."
+    },
+    "Settings": {
+      "title": "Settings | EduRankCR",
+      "description": "Manage your account settings, preferences, and notifications on EduRankCR."
     }
   },
   "UI": {
@@ -94,7 +98,8 @@
       "form_key_verified": "Yeey! Your email address has been verified",
       "form_request_password": "Request a password reset",
       "form_request_password_sent": "Yeey! A password reset email has been sent to your inbox",
-      "alert_error": "Oops! Something went wrong"
+      "alert_error": "Oops! Something went wrong",
+      "loading": "Loading..."
     },
     "Paragraph": {
       "already_have_an_account": "Already have an account?",
@@ -149,6 +154,20 @@
       }
     },
     "Helpers": {
+      "Settings": {
+        "About": {
+          "title": "Account Settings",
+          "description": "{greeting}, <b>{name}</b>! {email} · <link>Go to my profile</link>"
+        },
+        "Menu": {
+          "personal_info": "Personal Information",
+          "security": "Security",
+          "privacy": "Privacy",
+          "notifications": "Notifications",
+          "preferences": "Preferences",
+          "help": "Help"
+        }
+      },
       "Form": {
         "check_spam": "If you don’t see the email in your inbox, be sure to check your spam, promotions or junk folder. Please note that only one email can be sent every 30 minutes.",
         "by_continuing": "By continuing to use EduRankCR, you agree to our",

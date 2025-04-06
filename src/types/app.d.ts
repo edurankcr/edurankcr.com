@@ -28,6 +28,10 @@ type IBaseLayout = {
   children: Children;
 } & ILayoutParams;
 
+type IChildren = {
+  children: Children;
+};
+
 type ILayout = IBaseLayout;
 type IRootLayout = IBaseLayout;
 type IPageLayout = IBaseLayout;
@@ -51,13 +55,19 @@ type IComponent = {
   dictionary?: Awaited<ReturnType<typeof getTranslations>>;
 };
 
+type IPathName = {
+  pathname: string;
+};
+
 export {
+  IChildren,
   IComponent,
   IDictionary,
   IFormatter,
   ILayout,
   IMeta,
   IPageLayout,
+  IPathName,
   IProviders,
   IRootLayout,
   ITranslations,

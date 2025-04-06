@@ -3,22 +3,41 @@ import { NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 
 import { AppRoutes } from '@/constants';
-import { deleteTokenCookie, getTokenFromCookie, routing, verifyToken } from '@/services';
-import { isGuestRoute } from '@/utils';
+import { deleteTokenInMiddleware, getTokenFromMiddleware, routing, verifyTokenInMiddleware } from '@/services';
+import { isAuthRoute, isGuestRoute } from '@/utils';
 
 const intlMiddleware = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
   const response = intlMiddleware(request);
-  const token = await getTokenFromCookie();
+  const { pathname } = request.nextUrl;
 
-  if (token && isGuestRoute(request.nextUrl.pathname)) {
-    const valid = await verifyToken(token);
-    if (valid) {
-      return NextResponse.redirect(new URL(AppRoutes.Global.Home, request.url));
-    } else {
-      await deleteTokenCookie();
+  const isGuest = isGuestRoute(pathname);
+  const isAuth = isAuthRoute(pathname);
+  const requiresAuthCheck = isGuest || isAuth;
+
+  if (!requiresAuthCheck) {
+    return response;
+  }
+
+  const token = await getTokenFromMiddleware(request);
+
+  if (!token) {
+    if (isAuth) {
+      return NextResponse.redirect(new URL(AppRoutes.Guest.Login, request.url));
     }
+    return response;
+  }
+
+  const isValid = await verifyTokenInMiddleware(token);
+
+  if (isGuest && isValid) {
+    return NextResponse.redirect(new URL(AppRoutes.Global.Home, request.url));
+  }
+
+  if (isAuth && !isValid) {
+    const redirect = NextResponse.redirect(new URL(AppRoutes.Guest.Login, request.url));
+    return deleteTokenInMiddleware(redirect);
   }
 
   return response;
