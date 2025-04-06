@@ -22,7 +22,7 @@ export const LoadingScreen = () => {
       justifyContent="center"
       className="inset-0"
     >
-      <Logotype variant="black" className="scale-200 loading-logo" />
+      <Logotype variant="black" className="loading-logo" />
     </Stack>
   );
 };
