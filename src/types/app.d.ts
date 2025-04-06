@@ -55,6 +55,10 @@ type IComponent = {
   dictionary?: Awaited<ReturnType<typeof getTranslations>>;
 };
 
+type IPathName = {
+  pathname: string;
+};
+
 export {
   IChildren,
   IComponent,
@@ -63,6 +67,7 @@ export {
   ILayout,
   IMeta,
   IPageLayout,
+  IPathName,
   IProviders,
   IRootLayout,
   ITranslations,
