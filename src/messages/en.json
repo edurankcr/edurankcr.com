@@ -154,6 +154,20 @@
       }
     },
     "Helpers": {
+      "Settings": {
+        "About": {
+          "title": "Account Settings",
+          "description": "{greeting}, <b>{name}</b>! {email} · <link>Go to my profile</link>"
+        },
+        "Menu": {
+          "personal_info": "Personal Information",
+          "security": "Security",
+          "privacy": "Privacy",
+          "notifications": "Notifications",
+          "preferences": "Preferences",
+          "help": "Help"
+        }
+      },
       "Form": {
         "check_spam": "If you don’t see the email in your inbox, be sure to check your spam, promotions or junk folder. Please note that only one email can be sent every 30 minutes.",
         "by_continuing": "By continuing to use EduRankCR, you agree to our",
