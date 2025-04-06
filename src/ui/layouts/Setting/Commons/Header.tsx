@@ -53,7 +53,7 @@ export const Header: FC<HeaderProps> = ({
               {dictionary('Helpers.Navigation.Saved.label')}
             </Text>
           </Group>
-          <UserPreview />
+          <UserPreview border />
         </Group>
       </Group>
     </Stack>
