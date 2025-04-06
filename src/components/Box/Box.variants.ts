@@ -110,6 +110,7 @@ export const boxVariants = cva('', {
       auto: 'max-w-auto',
       full: 'max-w-full',
       form: 'max-w-[524px]',
+      item: 'max-w-1/4',
     },
     minHeight: {
       auto: 'min-h-auto',
@@ -188,8 +189,9 @@ export const boxVariants = cva('', {
       inOut: 'ease-in-out',
     },
     width: {
-      auto: 'w-auto',
-      full: 'w-full',
+      'auto': 'w-auto',
+      'full': 'w-full',
+      '1/3': 'w-1/3',
     },
     zIndex: {
       0: 'z-0',
