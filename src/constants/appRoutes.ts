@@ -12,7 +12,14 @@ export const AppRoutes = {
     },
   },
   Auth: {
-    Settings: '/settings',
+    Settings: {
+      Main: '/settings',
+      Security: '/settings/security',
+      Privacy: '/settings/privacy',
+      Notifications: '/settings/notifications',
+      Preferences: '/settings/preferences',
+      Help: '/settings/help',
+    },
   },
   Guest: {
     Login: '/login',
