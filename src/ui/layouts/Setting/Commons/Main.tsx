@@ -139,7 +139,7 @@ export const MainMenu: FC<MainMenuProps> = ({
           label={dictionary(`Helpers.Settings.Menu.${item.label}` as any)}
           icon={item.icon}
           href={item.href}
-          isActive={pathname.includes(item.href)}
+          isActive={pathname === item.href}
           key={item.id}
         />
       ))}
