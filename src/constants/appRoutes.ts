@@ -6,6 +6,7 @@ export const AppRoutes = {
       Sent: '/forgot-password/sent',
       Reset: '/reset-password',
     },
+    Profile: (userName: string) => `/profile/${userName}`,
     Legal: {
       Terms: '/legal/terms',
       Privacy: '/legal/privacy',
