@@ -51,7 +51,7 @@ export const UsernameForm = ({ dictionary, user }: UsernameFormProps) => {
         case 'user.UsernameTaken':
           form.setError('UserName', {
             type: 'manual',
-            message: dictionary('Errors.user.UserNameTaken'),
+            message: dictionary('Errors.User.UserNameTaken'),
           });
           break;
         default:

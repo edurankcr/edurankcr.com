@@ -72,13 +72,13 @@ export const EmailForm = ({ dictionary, user }: EmailFormProps) => {
         case 'user.EmailTaken':
           form.setError('Email', {
             type: 'manual',
-            message: dictionary('Errors.user.EmailTaken'),
+            message: dictionary('Errors.User.EmailTaken'),
           });
           break;
         case 'user.EmailCurrentInUse':
           form.setError('Email', {
             type: 'manual',
-            message: dictionary('Errors.user.EmailCurrentInUse'),
+            message: dictionary('Errors.User.EmailCurrentInUse'),
           });
           break;
         default:

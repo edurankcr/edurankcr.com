@@ -65,13 +65,13 @@ export const Register = () => {
         case 'user.EmailTaken':
           form.setError('Email', {
             type: 'manual',
-            message: dictionary('Errors.user.EmailTaken'),
+            message: dictionary('Errors.User.EmailTaken'),
           });
           break;
         case 'user.UsernameTaken':
           form.setError('UserName', {
             type: 'manual',
-            message: dictionary('Errors.user.UserNameTaken'),
+            message: dictionary('Errors.User.UserNameTaken'),
           });
           break;
         default:
