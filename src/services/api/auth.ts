@@ -63,3 +63,33 @@ export async function postResetPassword(tokenId: string, newPassword: string) {
     NewPassword: newPassword,
   });
 }
+
+export async function putUserProfile({
+  Name,
+  LastName,
+  UserName,
+  BirthDate,
+  Biography,
+}: {
+  Name?: string;
+  LastName?: string;
+  UserName?: string;
+  BirthDate?: Date;
+  Biography?: string;
+}) {
+  return await api.put('/profile/update', {
+    Name,
+    LastName,
+    UserName,
+    BirthDate,
+    Biography,
+  });
+}
+
+export async function putRequestEmailChange(NewEmail: string) {
+  return await api.put('/profile/change-email', { NewEmail });
+}
+
+export async function deleteRequestEmailChange() {
+  return await api.delete('/profile/change-email');
+}
