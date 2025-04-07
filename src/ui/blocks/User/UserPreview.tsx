@@ -63,7 +63,7 @@ const UserQuickView = ({ border = false, userName, avatarUrl, name, lastName }: 
             }}
             width={32}
             height={32}
-            className="rounded-full"
+            className="rounded-full min-w-[32px] min-h-[32px] max-w-[32px] max-h-[32px]"
           />
         </Group>
       </DropdownMenuTrigger>
@@ -83,7 +83,7 @@ const UserQuickView = ({ border = false, userName, avatarUrl, name, lastName }: 
                 }}
                 width={32}
                 height={32}
-                className="rounded-full"
+                className="rounded-full min-w-[32px] min-h-[32px] max-w-[32px] max-h-[32px]"
               />
               <Stack gap="none" overflow="hidden">
                 <Text weight="medium" truncate>

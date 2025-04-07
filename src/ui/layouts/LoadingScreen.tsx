@@ -16,7 +16,7 @@ export const LoadingScreen = () => {
       height="auto"
       minHeight="dvh"
       gap="none"
-      position="absolute"
+      position="fixed"
       zIndex={50}
       alignItems="center"
       justifyContent="center"

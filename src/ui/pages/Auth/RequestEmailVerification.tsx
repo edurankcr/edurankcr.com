@@ -23,7 +23,7 @@ import {
 } from '@/components';
 import { AppRoutes } from '@/constants';
 import { postRequestEmailVerification } from '@/services';
-import { EmailVerificationValidation } from '@/validations';
+import { EmailValidation } from '@/validations';
 
 import { FormCheckSpam } from '../../blocks/Form';
 import { HeadingForm } from '../../blocks/Heading';
@@ -32,8 +32,8 @@ export const RequestEmailVerification = () => {
   const dictionary = useTranslations('UI');
   const router = useRouter();
 
-  const form = useForm<z.infer<typeof EmailVerificationValidation>>({
-    resolver: zodResolver(EmailVerificationValidation),
+  const form = useForm<z.infer<typeof EmailValidation>>({
+    resolver: zodResolver(EmailValidation),
     reValidateMode: 'onSubmit',
     shouldFocusError: true,
     defaultValues: {
@@ -41,7 +41,7 @@ export const RequestEmailVerification = () => {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof EmailVerificationValidation>) {
+  async function onSubmit(values: z.infer<typeof EmailValidation>) {
     const { Email } = values;
 
     try {
@@ -59,7 +59,7 @@ export const RequestEmailVerification = () => {
           break;
         case 409:
           switch (response.data.code) {
-            case 'User.EmailAlreadyConfirmed':
+            case 'user.EmailAlreadyConfirmed':
               form.setError('Email', {
                 type: 'manual',
                 message: dictionary('Errors.User.EmailAlreadyConfirmed'),

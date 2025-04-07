@@ -102,6 +102,7 @@ export const boxVariants = cva('', {
     },
     marginX: {
       auto: 'mx-auto',
+      section: 'mx-4',
     },
     marginY: {
       section: 'my-4 md:my-6 lg:my-16',

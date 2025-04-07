@@ -1,9 +1,9 @@
 import type { ComponentProps, FC } from 'react';
 
 import type { Box } from '@/components';
-import { Button, Group, Logotype, Stack, Text } from '@/components';
-import { AppRoutes } from '@/constants';
+import { Group, Logotype, Stack, Text } from '@/components';
 import type { IDictionary } from '@/types';
+import { UserPreview } from '@/ui';
 
 // noinspection ES6PreferShortImport
 import { SearchInput } from '../../../blocks/Search';
@@ -53,9 +53,7 @@ export const Header: FC<HeaderProps> = ({
               {dictionary('Helpers.Navigation.Saved.label')}
             </Text>
           </Group>
-          <Button bgColor="interactivePrimary" height="sm" paddingX="sm" href={AppRoutes.Guest.Login}>
-            {dictionary('Button.log_in')}
-          </Button>
+          <UserPreview border />
         </Group>
       </Group>
     </Stack>

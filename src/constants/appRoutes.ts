@@ -6,6 +6,7 @@ export const AppRoutes = {
       Sent: '/forgot-password/sent',
       Reset: '/reset-password',
     },
+    Profile: (userName: string) => `/profile/${userName}`,
     Legal: {
       Terms: '/legal/terms',
       Privacy: '/legal/privacy',
@@ -19,6 +20,9 @@ export const AppRoutes = {
       Notifications: '/settings/notifications',
       Preferences: '/settings/preferences',
       Help: '/settings/help',
+    },
+    Email: {
+      VerifyChange: '/verify-email/change',
     },
   },
   Guest: {

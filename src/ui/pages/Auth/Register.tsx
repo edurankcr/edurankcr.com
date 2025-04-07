@@ -62,13 +62,13 @@ export const Register = () => {
     } catch (error: any) {
       const { response } = error;
       switch (response.data.code) {
-        case 'User.EmailTaken':
+        case 'user.EmailTaken':
           form.setError('Email', {
             type: 'manual',
             message: dictionary('Errors.User.EmailTaken'),
           });
           break;
-        case 'User.UsernameTaken':
+        case 'user.UsernameTaken':
           form.setError('UserName', {
             type: 'manual',
             message: dictionary('Errors.User.UserNameTaken'),

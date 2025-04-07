@@ -28,5 +28,5 @@ export type User = {
 };
 
 export type IUser = {
-  User: User | null;
+  user: User | null;
 };

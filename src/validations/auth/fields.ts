@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { isValidEmailDomain, isValidEmailFormat, isValidUsername } from '@/utils';
+import { isValidAge, isValidEmailDomain, isValidEmailFormat, isValidUsername } from '@/utils';
 
 export const IdentifierSchema = z
   .string()
@@ -39,3 +39,40 @@ export const ConfirmPasswordSchema = z
 export const GuidSchema = z
   .string()
   .uuid({ message: 'Invalid GUID format.' });
+
+export const NameSchema = z
+  .string()
+  .nonempty()
+  .max(64);
+
+export const LastNameSchema = z
+  .string()
+  .nonempty()
+  .max(96);
+
+export const UserNameSchema = z
+  .string()
+  .nonempty()
+  .min(3)
+  .max(20)
+  .refine(isValidUsername, {
+    message: 'Username can only contain letters, numbers, underscores, and periods (no consecutive periods or underscores).',
+  });
+
+export const BirthDateSchema = z
+  .string()
+  .nonempty()
+  .refine(isValidAge, {
+    message: 'You must be at least 18 years old and at most 100 years old.',
+  });
+
+export const AvatarSchema = z
+  .custom<File>(file => file instanceof File, {
+    message: 'Avatar file is required.',
+  })
+  .refine(file => ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'].includes(file.type), {
+    message: 'Avatar file type must be JPEG, JPG, PNG, WEBP, or GIF.',
+  })
+  .refine(file => file.size <= 2 * 1024 * 1024, {
+    message: 'Avatar file size must be less than 2MB.',
+  });

@@ -14,91 +14,101 @@ import {
   Text,
 } from '@/components';
 import { AppRoutes } from '@/constants';
-import { getVerifyEmail } from '@/services';
+import { getVerifyEmail, getVerifyEmailChange } from '@/services';
+import { useUserStore } from '@/stores';
 import { GuidValidation } from '@/validations';
 
 // noinspection ES6PreferShortImport
 import { HeadingForm } from '../../blocks/Heading';
 
-export const VerifyEmail = () => {
+type VerifyEmailProps = {
+  mode?: 'confirmation' | 'verification';
+};
+
+type HeadingKey =
+  | 'Heading.form_wait_for_verification_email'
+  | 'Heading.form_key_not_found'
+  | 'Heading.form_key_invalid'
+  | 'Heading.form_key_expired'
+  | 'Heading.form_key_already_used'
+  | 'Heading.form_key_verified';
+
+type ParagraphKey =
+  | 'Paragraph.wait_for_verification_email'
+  | 'Paragraph.key_not_found'
+  | 'Paragraph.key_invalid'
+  | 'Paragraph.key_expired'
+  | 'Paragraph.key_already_used'
+  | 'Paragraph.key_verified'
+  | 'Paragraph.change_verified';
+
+const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
+
+export const VerifyEmail = ({ mode = 'confirmation' }: VerifyEmailProps) => {
   const [barProgress, setBarProgress] = useState(0);
-  const [heading, setHeading] = useState<'Heading.form_wait_for_verification_email' | string>(
-    'Heading.form_wait_for_verification_email',
-  );
-  const [paragraph, setParagraph] = useState<'Paragraph.wait_for_verification_email' | string>(
-    'Paragraph.wait_for_verification_email',
-  );
+  const [heading, setHeading] = useState<HeadingKey>('Heading.form_wait_for_verification_email');
+  const [paragraph, setParagraph] = useState<ParagraphKey>('Paragraph.wait_for_verification_email');
 
   const searchParams = useSearchParams();
   const dictionary = useTranslations('UI');
-  const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
+
+  const handleTokenError = (code: string) => {
+    const messages: Record<string, [HeadingKey, ParagraphKey]> = {
+      'Token.NotFound': ['Heading.form_key_not_found', 'Paragraph.key_not_found'],
+      'Token.AlreadyExpired': ['Heading.form_key_expired', 'Paragraph.key_expired'],
+      'Token.AlreadyUsed': ['Heading.form_key_already_used', 'Paragraph.key_already_used'],
+    };
+
+    const fallback: [HeadingKey, ParagraphKey] = ['Heading.form_key_invalid', 'Paragraph.key_invalid'];
+    const [head, para] = messages[code] ?? fallback;
+
+    setHeading(head);
+    setParagraph(para);
+    setBarProgress(-1);
+  };
 
   useEffect(() => {
     const verifyToken = async () => {
-      if (!searchParams) {
-        setBarProgress(-1);
-        return;
-      }
-
-      const token = searchParams.get('token');
-
+      const token = searchParams?.get('token');
       if (!token) {
-        setBarProgress(-1);
-        setHeading('Heading.form_key_not_found');
-        setParagraph('Paragraph.key_not_found');
-        return;
+        return handleTokenError('Token.NotFound');
       }
 
       setBarProgress(25);
       await delay(500);
 
-      const isValidToken = GuidValidation.safeParse(token);
-      if (!isValidToken.success) {
-        setBarProgress(-1);
-        setHeading('Heading.form_key_invalid');
-        setParagraph('Paragraph.key_invalid');
-        return;
+      const isValid = GuidValidation.safeParse(token);
+      if (!isValid.success) {
+        return handleTokenError('invalid');
       }
 
       setBarProgress(50);
       await delay(500);
 
       try {
-        await getVerifyEmail(token);
+        mode === 'confirmation' ? await getVerifyEmail(token) : await getVerifyEmailChange(token);
 
         setBarProgress(75);
         await delay(400);
-
         setBarProgress(100);
         setHeading('Heading.form_key_verified');
-        setParagraph('Paragraph.key_verified');
-      } catch (error: any) {
-        setBarProgress(-1);
-        const { response } = error;
+        setParagraph(mode === 'confirmation' ? 'Paragraph.key_verified' : 'Paragraph.change_verified');
 
-        switch (response.data?.code) {
-          case 'Token.NotFound':
-            setHeading('Heading.form_key_not_found');
-            setParagraph('Paragraph.key_not_found');
-            break;
-          case 'Token.AlreadyExpired':
-            setHeading('Heading.form_key_expired');
-            setParagraph('Paragraph.key_expired');
-            break;
-          case 'Token.AlreadyUsed':
-            setHeading('Heading.form_key_already_used');
-            setParagraph('Paragraph.key_already_used');
-            break;
-          default:
-            toast.error(dictionary('Errors.General.500'));
+        if (mode === 'verification') {
+          const { user, setUser } = useUserStore.getState();
+          if (user) {
+            setUser({ ...user, newEmail: null });
+          }
         }
+      } catch (error: any) {
+        handleTokenError(error.response?.data?.code || '');
+        toast.error(dictionary('Errors.General.500'));
       }
     };
 
     verifyToken();
-  },
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  [searchParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   return (
     <>
@@ -106,37 +116,31 @@ export const VerifyEmail = () => {
         <IconMailOpened size={64} />
       </Stack>
       <Stack alignItems="center" gap="sm">
-        <HeadingForm>
-          {dictionary(heading as any)}
-        </HeadingForm>
+        <HeadingForm>{dictionary(heading)}</HeadingForm>
         <Text align="center" color="secondary" wrap="balance" size="md-res">
-          {dictionary(paragraph as any)}
+          {dictionary(paragraph)}
         </Text>
-        {barProgress >= 0 && barProgress < 100 && (
-          <Progress value={barProgress} />
-        )}
+        {barProgress >= 0 && barProgress < 100 && <Progress value={barProgress} />}
       </Stack>
-      {barProgress === 100 && (
-        <Button
-          bgColor="interactivePrimary"
-          height="lg"
-          href={AppRoutes.Guest.Login}
-        >
+      {mode === 'confirmation' && barProgress === 100 && (
+        <Button bgColor="interactivePrimary" height="lg" href={AppRoutes.Guest.Login}>
           {dictionary('Button.log_in')}
         </Button>
       )}
-      <Stack>
-        <Text align="center" color="secondary" weight="medium" wrap="balance">
-          {dictionary('Paragraph.new_verification_email')}
-          {' '}
-          <Link
-            href={AppRoutes.Guest.Email.Request}
-            text={{ underline: true, color: 'primary' }}
-          >
-            {dictionary('Button.request_another')}
-          </Link>
-        </Text>
-      </Stack>
+      {mode === 'confirmation' && (
+        <Stack>
+          <Text align="center" color="secondary" weight="medium" wrap="balance">
+            {dictionary('Paragraph.new_verification_email')}
+            {' '}
+            <Link
+              href={AppRoutes.Guest.Email.Request}
+              text={{ underline: true, color: 'primary' }}
+            >
+              {dictionary('Button.request_another')}
+            </Link>
+          </Text>
+        </Stack>
+      )}
     </>
   );
 };

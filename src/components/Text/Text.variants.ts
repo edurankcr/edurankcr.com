@@ -12,6 +12,7 @@ export const textVariants = cva('', {
       primary: 'text-text-primary',
       secondary: 'text-text-secondary',
       neon: 'text-brand-neon',
+      danger: 'text-text-error',
     },
     size: {
       'inherit': '',

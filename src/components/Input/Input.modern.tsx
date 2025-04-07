@@ -1,8 +1,9 @@
 'use client';
 
+import { IconUpload } from '@tabler/icons-react';
 import type { InputHTMLAttributes } from 'react';
+import { useMemo, useRef } from 'react';
 import * as React from 'react';
-import { useMemo } from 'react';
 
 export type InputProps = {
   labelText?: string;
@@ -68,15 +69,89 @@ export const Textarea = ({ ref, value = '', id, placeholder, disabled, rows, ...
         rows={rows}
         data-active={getMemoIsActive}
         disabled={disabled}
-        className="peer block h-[140px] max-h-[166px] min-h-[66px] w-full rounded-lg border border-border-level-2 bg-transparent px-3 py-[0.32rem] leading-[1.6] text-heading outline-none transition-all duration-200 ease-linear read-only:cursor-not-allowed read-only:border-[#DDD] hover:border-primary-foreground focus:border-2 focus:border-primary-foreground focus:placeholder:opacity-100 disabled:cursor-not-allowed disabled:grayscale peer-focus:text-primary-foreground aria-[invalid=true]:border-2 aria-[invalid=true]:border-error aria-[invalid=true]:bg-error-bg data-[active=true]:placeholder:opacity-100 motion-reduce:transition-none"
+        className="peer block h-[140px] max-h-[166px] min-h-[66px] w-full rounded-lg border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-colors duration-200 ease-linear read-only:cursor-not-allowed read-only:border-[#DDD] disabled:cursor-not-allowed disabled:grayscale peer-focus:text-primary-foreground aria-[invalid=true]:border-2 aria-[invalid=true]:border-error aria-[invalid=true]:bg-error-bg data-[active=true]:placeholder:opacity-100 motion-reduce:transition-none"
         {...props}
       />
       <label
         htmlFor={id}
-        className="first-of-type: pointer-events-none absolute left-2 top-0 mb-0 w-full max-w-[80%] origin-[0_0] translate-y-1/2 truncate px-1 leading-[1.6] text-heading-muted transition-all duration-200 ease-out peer-focus:w-fit peer-focus:-translate-y-2 peer-focus:scale-[0.8] peer-focus:bg-white peer-focus:text-heading peer-aria-[invalid=true]:text-error-text peer-data-[active=true]:w-fit peer-data-[active=true]:-translate-y-2 peer-data-[active=true]:scale-[0.8] peer-data-[active=true]:bg-white motion-reduce:transition-none"
+        className="first-of-type:pointer-events-none absolute left-2 top-0 mb-0 w-full max-w-[80%] origin-[0_0] translate-y-1/2 truncate px-1 leading-[1.6] text-heading-muted transition-all duration-200 ease-out peer-focus:w-fit peer-focus:-translate-y-2 peer-focus:scale-[0.8] peer-focus:bg-white peer-focus:text-heading peer-aria-[invalid=true]:text-error-text peer-data-[active=true]:w-fit peer-data-[active=true]:-translate-y-2 peer-data-[active=true]:scale-[0.8] peer-data-[active=true]:bg-white motion-reduce:transition-none"
       >
         {placeholder}
       </label>
     </div>
   );
 };
+
+type InputUploadAreaProps = {
+  labelBoldText?: string;
+  labelText?: string;
+} & InputHTMLAttributes<HTMLInputElement>;
+
+export const InputUploadArea = ({
+  ref,
+  id,
+  labelBoldText,
+  labelText,
+  onChange,
+  ...props
+}: InputUploadAreaProps & { ref?: React.RefObject<HTMLInputElement | null> }) => {
+  const internalRef = useRef<HTMLInputElement>(null);
+  const inputRef = (ref as React.RefObject<HTMLInputElement>) ?? internalRef;
+
+  const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    if (!inputRef.current) {
+      return;
+    }
+
+    const file = e.dataTransfer.files?.[0];
+    const dataTransfer = new DataTransfer();
+    if (file) {
+      dataTransfer.items.add(file);
+    }
+    inputRef.current.files = dataTransfer.files;
+
+    const event = {
+      target: {
+        files: dataTransfer.files,
+      },
+    } as unknown as React.ChangeEvent<HTMLInputElement>;
+
+    onChange?.(event);
+  };
+
+  return (
+    <div className="flex items-center justify-center w-full">
+      <label
+        htmlFor={id}
+        onDrop={handleDrop}
+        onDragOver={e => e.preventDefault()}
+        className="flex flex-col items-center justify-center w-full h-64 border-2 border-border-interactive border-dashed rounded-lg cursor-pointer bg-background-secondary"
+      >
+        <div className="flex flex-col items-center justify-center gap-4 text-primary text-center text-sm">
+          <IconUpload />
+          <p className="mb-2">
+            <span className="font-semibold">{labelBoldText}</span>
+            <br />
+            {labelText}
+          </p>
+          <p className="text-text-secondary font-semibold">
+            JPEG, PNG, WEBP, GIF (max. 2MB)
+          </p>
+        </div>
+        <input
+          type="file"
+          className="hidden"
+          id={id}
+          ref={inputRef}
+          onChange={(e) => {
+            onChange?.(e);
+          }}
+          {...props}
+        />
+      </label>
+    </div>
+  );
+};
+
+InputUploadArea.displayName = 'InputUploadArea';

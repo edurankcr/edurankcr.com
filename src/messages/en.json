@@ -35,19 +35,25 @@
     "Settings": {
       "title": "Settings | EduRankCR",
       "description": "Manage your account settings, preferences, and notifications on EduRankCR."
+    },
+    "VerifyEmailChange": {
+      "title": "Verify Email Change | EduRankCR",
+      "description": "Verify your new email address to complete the change on EduRankCR."
     }
   },
   "UI": {
     "Errors": {
       "Auth": {
-        "InvalidCred": "The identifier or password you entered is incorrect. Please try again."
+        "InvalidCred": "The identifier or password you entered is incorrect. Please try again.",
+        "LoginRequired": "You need to log in to access this feature."
       },
       "User": {
         "404": "We couldn’t find an account matching the information you provided. Please check your details and try again.",
         "403": "Your email address hasn’t been verified yet. Please check your inbox or spam folder and verify it to proceed. If you haven't received or expired, please <link>request a new verification email</link>.",
         "EmailTaken": "Email already taken. Please use a different email address or log in.",
         "UserNameTaken": "Username already taken. Please choose a different username.",
-        "EmailAlreadyConfirmed": "This email address has already been verified. You can go ahead and log in."
+        "EmailAlreadyConfirmed": "This email address has already been verified. You can go ahead and log in.",
+        "EmailCurrentInUse": "Seriously? This email address is already in use. Please use a different one."
       },
       "Email": {
         "ServerError": "An error occurred while sending the verification email. Please try again later."
@@ -80,7 +86,11 @@
       "settings": "Settings",
       "help_center": "Help Center",
       "logout": "Log Out",
-      "favorites": "Favorites"
+      "favorites": "Favorites",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "reset": "Reset"
     },
     "Heading": {
       "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
@@ -99,7 +109,15 @@
       "form_request_password": "Request a password reset",
       "form_request_password_sent": "Yeey! A password reset email has been sent to your inbox",
       "alert_error": "Oops! Something went wrong",
-      "loading": "Loading..."
+      "loading": "Loading...",
+      "form_legal_name": "Legal name",
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "form_username": "Username",
+      "form_birthdate": "Date of birth",
+      "form_biography": "Biography",
+      "form_email": "Email address",
+      "form_avatar": "Avatar"
     },
     "Paragraph": {
       "already_have_an_account": "Already have an account?",
@@ -114,13 +132,28 @@
       "key_expired": "We know, it's annoying. For security reasons, codes are only valid for 30 minutes. Please request a new one to continue.",
       "key_already_used": "Oops! It seems that your verification key has already been used. Please request a new one to continue.",
       "key_verified": "You can now log in to your account.",
+      "change_verified": "You can see your new email address in your profile settings.",
       "request_password": "If you forgot your password, please enter your email address below to request a password reset link.",
       "already_know_password": "Are you knowing your password?",
       "request_password_sent": "Please check your inbox for a password reset link. If you don't see it, check your spam folder.",
       "password_change_success": "Your password has been successfully changed. You can now log in with your new password.",
-      "success_logout": "You have successfully logged out. See you soon!"
+      "success_logout": "You have successfully logged out. See you soon!",
+      "form_legal_name": "Please enter your legal name as it appears on your official documents.",
+      "profile_data_updated": "Your profile data has been successfully updated.",
+      "form_username": "Please choose a unique username that will be visible to other users.",
+      "form_birthdate": "This information is required for account verification and security purposes.",
+      "form_biography": "This will help other users get to know you better.",
+      "form_email": "This will be used for account verification and password recovery.",
+      "check_email_to_confirm": "Please check your email inbox for a confirmation link. If you don't see it, check your spam folder.",
+      "pending_to_confirm": "{email} is pending to be confirmed",
+      "email_change_cancelled": "Email change has been cancelled. The previous email address is still active.",
+      "form_avatar": "Please upload a clear and recent photo of yourself. This will help other users recognize you."
     },
     "Input": {
+      "Avatar": {
+        "placeholder_bold": "Click to upload a new avatar",
+        "placeholder": "or drag and drop"
+      },
       "Search": {
         "placeholder": "Search for teachers, universities or institutes...",
         "placeholder_sm": "Search..."
@@ -140,6 +173,9 @@
       "Email": {
         "placeholder": "Email address"
       },
+      "NewEmail": {
+        "placeholder": "New email address"
+      },
       "UserName": {
         "placeholder": "Username"
       },
@@ -151,6 +187,9 @@
       },
       "BirthDate": {
         "placeholder": "Date of birth"
+      },
+      "Biography": {
+        "placeholder": "Tell us about yourself..."
       }
     },
     "Helpers": {
