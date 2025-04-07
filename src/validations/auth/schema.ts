@@ -73,3 +73,27 @@ export const BiographyValidation = z.object({
 export const AvatarValidation = z.object({
   Avatar: AvatarSchema,
 });
+
+export const PasswordValidation = z
+  .object({
+    CurrentPassword: PasswordSchema,
+    NewPassword: PasswordSchema,
+    ConfirmPassword: ConfirmPasswordSchema,
+  })
+  .superRefine(({ CurrentPassword, NewPassword, ConfirmPassword }, ctx) => {
+    if (ConfirmPassword !== NewPassword) {
+      ctx.addIssue({
+        path: ['ConfirmPassword'],
+        code: 'custom',
+        message: 'Passwords do not match.',
+      });
+    }
+
+    if (CurrentPassword === NewPassword) {
+      ctx.addIssue({
+        path: ['NewPassword'],
+        code: 'custom',
+        message: 'New password cannot be the same as current password.',
+      });
+    }
+  });

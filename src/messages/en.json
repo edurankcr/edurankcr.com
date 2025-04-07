@@ -39,6 +39,10 @@
     "VerifyEmailChange": {
       "title": "Verify Email Change | EduRankCR",
       "description": "Verify your new email address to complete the change on EduRankCR."
+    },
+    "Security": {
+      "title": "Security Settings | EduRankCR",
+      "description": "Manage your security settings, including password changes on EduRankCR."
     }
   },
   "UI": {
@@ -117,7 +121,8 @@
       "form_birthdate": "Date of birth",
       "form_biography": "Biography",
       "form_email": "Email address",
-      "form_avatar": "Avatar"
+      "form_avatar": "Avatar",
+      "form_password": "Change password"
     },
     "Paragraph": {
       "already_have_an_account": "Already have an account?",
@@ -147,7 +152,8 @@
       "check_email_to_confirm": "Please check your email inbox for a confirmation link. If you don't see it, check your spam folder.",
       "pending_to_confirm": "{email} is pending to be confirmed",
       "email_change_cancelled": "Email change has been cancelled. The previous email address is still active.",
-      "form_avatar": "Please upload a clear and recent photo of yourself. This will help other users recognize you."
+      "form_avatar": "Please upload a clear and recent photo of yourself. This will help other users recognize you.",
+      "form_password": "This will be used to log in to your account. Please choose a strong password."
     },
     "Input": {
       "Avatar": {
@@ -190,6 +196,9 @@
       },
       "Biography": {
         "placeholder": "Tell us about yourself..."
+      },
+      "CurrentPassword": {
+        "placeholder": "Current password"
       }
     },
     "Helpers": {
