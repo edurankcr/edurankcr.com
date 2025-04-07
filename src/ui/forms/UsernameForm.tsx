@@ -22,13 +22,13 @@ import { UsernameValidation } from '@/validations';
 
 type UsernameFormProps = {} & ITranslations & IUser;
 
-export const UsernameForm = ({ dictionary, User }: UsernameFormProps) => {
+export const UsernameForm = ({ dictionary, user }: UsernameFormProps) => {
   const form = useForm<z.infer<typeof UsernameValidation>>({
     resolver: zodResolver(UsernameValidation),
     reValidateMode: 'onSubmit',
     shouldFocusError: true,
     defaultValues: {
-      UserName: User?.userName || '',
+      UserName: user?.userName || '',
     },
   });
 
@@ -36,22 +36,22 @@ export const UsernameForm = ({ dictionary, User }: UsernameFormProps) => {
     const { UserName } = values;
     const setUser = useUserStore.getState().setUser;
 
-    if (!User) {
+    if (!user) {
       toast.error(dictionary('Errors.Auth.LoginRequired'));
       return;
     }
 
     try {
       await putUserProfile({ UserName });
-      setUser({ ...User, userName: UserName });
+      setUser({ ...user, userName: UserName });
       toast.success(dictionary('Paragraph.profile_data_updated'));
     } catch (error: any) {
       const { response } = error;
       switch (response.data.code) {
-        case 'User.UsernameTaken':
+        case 'user.UsernameTaken':
           form.setError('UserName', {
             type: 'manual',
-            message: dictionary('Errors.User.UserNameTaken'),
+            message: dictionary('Errors.user.UserNameTaken'),
           });
           break;
         default:

@@ -61,13 +61,13 @@ export const Login = () => {
         case 404:
           form.setError('Identifier', {
             type: 'manual',
-            message: dictionary('Errors.User.404'),
+            message: dictionary('Errors.user.404'),
           });
           break;
         case 403:
           form.setError('Identifier', {
             type: 'manual',
-            message: dictionary.rich('Errors.User.403', {
+            message: dictionary.rich('Errors.user.403', {
               link: chunks => (
                 <Link
                   href={AppRoutes.Guest.Email.Request}

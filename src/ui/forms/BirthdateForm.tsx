@@ -22,13 +22,13 @@ import { BirthDateValidation } from '@/validations';
 
 type BirthdateFormProps = {} & ITranslations & IUser;
 
-export const BirthdateForm = ({ dictionary, User }: BirthdateFormProps) => {
+export const BirthdateForm = ({ dictionary, user }: BirthdateFormProps) => {
   const form = useForm<z.infer<typeof BirthDateValidation>>({
     resolver: zodResolver(BirthDateValidation),
     reValidateMode: 'onSubmit',
     shouldFocusError: true,
     defaultValues: {
-      BirthDate: new Date(User?.birthDate || Date.now()).toISOString().split('T')[0],
+      BirthDate: new Date(user?.birthDate || Date.now()).toISOString().split('T')[0],
     },
   });
 
@@ -36,14 +36,14 @@ export const BirthdateForm = ({ dictionary, User }: BirthdateFormProps) => {
     const { BirthDate } = values;
     const setUser = useUserStore.getState().setUser;
 
-    if (!User) {
+    if (!user) {
       toast.error(dictionary('Errors.Auth.LoginRequired'));
       return;
     }
 
     try {
       await putUserProfile({ BirthDate: new Date(BirthDate) });
-      setUser({ ...User, birthDate: BirthDate });
+      setUser({ ...user, birthDate: BirthDate });
       toast.success(dictionary('Paragraph.profile_data_updated'));
     } catch (error: any) {
       const { response } = error;

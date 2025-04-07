@@ -23,14 +23,14 @@ import { NameValidation } from '@/validations';
 
 type LegalNameFormProps = {} & ITranslations & IUser;
 
-export const NameForm = ({ dictionary, User }: LegalNameFormProps) => {
+export const NameForm = ({ dictionary, user }: LegalNameFormProps) => {
   const form = useForm<z.infer<typeof NameValidation>>({
     resolver: zodResolver(NameValidation),
     reValidateMode: 'onSubmit',
     shouldFocusError: true,
     defaultValues: {
-      Name: User?.name || '',
-      LastName: User?.lastName || '',
+      Name: user?.name || '',
+      LastName: user?.lastName || '',
     },
   });
 
@@ -38,14 +38,14 @@ export const NameForm = ({ dictionary, User }: LegalNameFormProps) => {
     const { Name, LastName } = values;
     const setUser = useUserStore.getState().setUser;
 
-    if (!User) {
+    if (!user) {
       toast.error(dictionary('Errors.Auth.LoginRequired'));
       return;
     }
 
     try {
       await putUserProfile({ Name, LastName });
-      setUser({ ...User, name: Name, lastName: LastName });
+      setUser({ ...user, name: Name, lastName: LastName });
       toast.success(dictionary('Paragraph.profile_data_updated'));
     } catch (error: any) {
       console.error('Error updating user data:', error);

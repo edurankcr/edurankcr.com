@@ -57,7 +57,7 @@ type MainHeaderProps = {} & IUser & ITranslations;
 
 export const MainHeader: FC<MainHeaderProps> = ({
   dictionary,
-  User,
+  user,
 }) => {
   return (
     <Stack
@@ -70,12 +70,12 @@ export const MainHeader: FC<MainHeaderProps> = ({
       <Text>
         {dictionary.rich('Helpers.Settings.About.description', {
           greeting: 'Hello',
-          name: User?.name || '',
-          email: User?.email || '',
+          name: user?.name || '',
+          email: user?.email || '',
           b: chunks => <b>{chunks}</b>,
           link: chunks => (
             <Link
-              href={AppRoutes.Global.Profile(User?.userName || '')}
+              href={AppRoutes.Global.Profile(user?.userName || '')}
               text={{ underline: true, weight: 'semibold', color: 'neon' }}
             >
               {chunks}
@@ -177,7 +177,7 @@ export const Main: FC<MainProps> = ({
         boxShadow={200}
         gap="section"
       >
-        <MainHeader dictionary={dictionary} User={user} />
+        <MainHeader dictionary={dictionary} user={user} />
         <Group preventGrowOverflow={false} justifyContent="between" alignItems="start" gap="section">
           <MainMenu dictionary={dictionary} pathname={pathname} />
           <Stack flexGrow height="full">

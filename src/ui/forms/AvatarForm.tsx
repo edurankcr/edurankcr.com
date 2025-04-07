@@ -29,7 +29,7 @@ import { AvatarValidation } from '@/validations';
 
 type AvatarFormProps = {} & ITranslations & IUser;
 
-export const AvatarForm = ({ dictionary, User }: AvatarFormProps) => {
+export const AvatarForm = ({ dictionary, user }: AvatarFormProps) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const form = useForm<z.infer<typeof AvatarValidation>>({
@@ -77,14 +77,14 @@ export const AvatarForm = ({ dictionary, User }: AvatarFormProps) => {
     const { Avatar } = values;
     const setUser = useUserStore.getState().setUser;
 
-    if (!User) {
+    if (!user) {
       toast.error(dictionary('Errors.Auth.LoginRequired'));
       return;
     }
 
     try {
       const response = await putUserAvatar(Avatar);
-      setUser({ ...User, avatarUrl: response.data.avatarUrl });
+      setUser({ ...user, avatarUrl: response.data.avatarUrl });
       toast.success(dictionary('Paragraph.profile_data_updated'));
       setPreviewUrl(null);
     } catch (error: any) {
@@ -101,8 +101,8 @@ export const AvatarForm = ({ dictionary, User }: AvatarFormProps) => {
             <Stack justifyContent="start" alignItems="center">
               <Avatar
                 User={{
-                  UserName: User?.userName ?? '',
-                  AvatarUrl: previewUrl ?? User?.avatarUrl ?? null,
+                  UserName: user?.userName ?? '',
+                  AvatarUrl: previewUrl ?? user?.avatarUrl ?? null,
                 }}
                 width={128}
                 height={128}

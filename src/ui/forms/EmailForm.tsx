@@ -23,15 +23,15 @@ import { EmailValidation } from '@/validations';
 
 type EmailFormProps = {} & ITranslations & IUser;
 
-export const EmailForm = ({ dictionary, User }: EmailFormProps) => {
-  const [disabled, setDisabled] = useState(User?.newEmail !== null);
+export const EmailForm = ({ dictionary, user }: EmailFormProps) => {
+  const [disabled, setDisabled] = useState(user?.newEmail !== null);
 
   const form = useForm<z.infer<typeof EmailValidation>>({
     resolver: zodResolver(EmailValidation),
     reValidateMode: 'onSubmit',
     shouldFocusError: true,
     defaultValues: {
-      Email: User?.newEmail || '',
+      Email: user?.newEmail || '',
     },
   });
 
@@ -39,7 +39,7 @@ export const EmailForm = ({ dictionary, User }: EmailFormProps) => {
     const { Email } = values;
     const setUser = useUserStore.getState().setUser;
 
-    if (!User) {
+    if (!user) {
       toast.error(dictionary('Errors.Auth.LoginRequired'));
       return;
     }
@@ -47,7 +47,7 @@ export const EmailForm = ({ dictionary, User }: EmailFormProps) => {
     if (disabled) {
       try {
         await deleteRequestEmailChange();
-        setUser({ ...User, newEmail: null });
+        setUser({ ...user, newEmail: null });
         form.reset({ Email: '' });
         setDisabled(false);
         toast.success(dictionary('Paragraph.email_change_cancelled'));
@@ -64,21 +64,21 @@ export const EmailForm = ({ dictionary, User }: EmailFormProps) => {
     try {
       await putRequestEmailChange(Email);
       setDisabled(true);
-      setUser({ ...User, newEmail: Email });
+      setUser({ ...user, newEmail: Email });
       toast.success(dictionary('Paragraph.check_email_to_confirm'));
     } catch (error: any) {
       const { response } = error;
       switch (response.data.code) {
-        case 'User.EmailTaken':
+        case 'user.EmailTaken':
           form.setError('Email', {
             type: 'manual',
-            message: dictionary('Errors.User.EmailTaken'),
+            message: dictionary('Errors.user.EmailTaken'),
           });
           break;
-        case 'User.EmailCurrentInUse':
+        case 'user.EmailCurrentInUse':
           form.setError('Email', {
             type: 'manual',
-            message: dictionary('Errors.User.EmailCurrentInUse'),
+            message: dictionary('Errors.user.EmailCurrentInUse'),
           });
           break;
         default:

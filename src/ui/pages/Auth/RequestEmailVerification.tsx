@@ -54,15 +54,15 @@ export const RequestEmailVerification = () => {
         case 404:
           form.setError('Email', {
             type: 'manual',
-            message: dictionary('Errors.User.404'),
+            message: dictionary('Errors.user.404'),
           });
           break;
         case 409:
           switch (response.data.code) {
-            case 'User.EmailAlreadyConfirmed':
+            case 'user.EmailAlreadyConfirmed':
               form.setError('Email', {
                 type: 'manual',
-                message: dictionary('Errors.User.EmailAlreadyConfirmed'),
+                message: dictionary('Errors.user.EmailAlreadyConfirmed'),
               });
               break;
             case 'Token.AlreadyExists':

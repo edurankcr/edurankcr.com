@@ -84,38 +84,38 @@ export const PersonalInformation = () => {
                   {dictionary('Paragraph.form_avatar')}
                 </DialogDescription>
               </DialogHeader>
-              <AvatarForm User={user} dictionary={dictionary} />
+              <AvatarForm user={user} dictionary={dictionary} />
             </DialogContent>
           </Dialog>
         </AccordionItem>
         <AccordionItem value="name">
           <AccordionTriggerForm keyValue={getName()} keyLocalization="form_legal_name" dictionary={dictionary} />
           <AccordionContent>
-            <NameForm User={user} dictionary={dictionary} />
+            <NameForm user={user} dictionary={dictionary} />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="username">
           <AccordionTriggerForm keyValue={user?.userName} keyLocalization="form_username" dictionary={dictionary} />
           <AccordionContent>
-            <UsernameForm User={user} dictionary={dictionary} />
+            <UsernameForm user={user} dictionary={dictionary} />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="birthdate">
           <AccordionTriggerForm keyValue={getBirthdate()} keyLocalization="form_birthdate" dictionary={dictionary} />
           <AccordionContent>
-            <BirthdateForm User={user} dictionary={dictionary} />
+            <BirthdateForm user={user} dictionary={dictionary} />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="biography">
           <AccordionTriggerForm keyValue={getBiography()} keyLocalization="form_biography" dictionary={dictionary} />
           <AccordionContent>
-            <BiographyForm User={user} dictionary={dictionary} />
+            <BiographyForm user={user} dictionary={dictionary} />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="email">
           <AccordionTriggerForm keyValue={getEmail()} keyLocalization="form_email" dictionary={dictionary} />
           <AccordionContent>
-            <EmailForm User={user} dictionary={dictionary} />
+            <EmailForm user={user} dictionary={dictionary} />
           </AccordionContent>
         </AccordionItem>
       </Accordion>
