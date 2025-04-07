@@ -36,7 +36,7 @@ export const ReviewCard = ({ User, Review, dictionary, formatter }: ReviewCardPr
           <Text truncate>
             <Text as="span" weight="semibold">{getName()}</Text>
             {' '}
-            {dictionary('Helpers.user.action_review')}
+            {dictionary('Helpers.User.action_review')}
           </Text>
           <Text color="secondary" size="sm">
             {getRelativeTime()}
@@ -51,7 +51,7 @@ export const ReviewCard = ({ User, Review, dictionary, formatter }: ReviewCardPr
         </Text>
         <Group preventGrowOverflow={false} justifyContent="between">
           <Link href="#" text={{ underline: true, weight: 'semibold', size: 'sm' }}>
-            {dictionary('Helpers.user.action_read_more')}
+            {dictionary('Helpers.User.action_read_more')}
           </Link>
           <Stars rate={Review.Rating} />
         </Group>
