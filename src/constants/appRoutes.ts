@@ -21,6 +21,9 @@ export const AppRoutes = {
       Preferences: '/settings/preferences',
       Help: '/settings/help',
     },
+    Email: {
+      VerifyChange: '/verify-email/change',
+    },
   },
   Guest: {
     Login: '/login',
