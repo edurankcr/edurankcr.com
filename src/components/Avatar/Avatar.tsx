@@ -12,7 +12,7 @@ import { avatarVariants } from './Avatar.variants';
 type AvatarProps = {
   User: {
     UserName: string;
-    AvatarUrl?: string;
+    AvatarUrl?: string | null;
   };
 } & ComponentProps<typeof Image> & VariantProps<typeof avatarVariants>;
 
