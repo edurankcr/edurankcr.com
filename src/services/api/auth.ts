@@ -93,3 +93,20 @@ export async function putRequestEmailChange(NewEmail: string) {
 export async function deleteRequestEmailChange() {
   return await api.delete('/profile/change-email');
 }
+
+export async function getVerifyEmailChange(token: string) {
+  return await api.get('/profile/verify-change-email', {
+    params: { token },
+  });
+}
+
+export async function putUserAvatar(Avatar: File) {
+  const formData = new FormData();
+  formData.append('Avatar', Avatar);
+
+  return await api.put('/profile/change-avatar', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+}
