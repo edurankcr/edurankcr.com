@@ -75,7 +75,7 @@ export const MainHeader: FC<MainHeaderProps> = ({
           b: chunks => <b>{chunks}</b>,
           link: chunks => (
             <Link
-              href={AppRoutes.Global.Password.Request}
+              href={AppRoutes.Global.Profile(User?.userName || '')}
               text={{ underline: true, weight: 'semibold', color: 'neon' }}
             >
               {chunks}
@@ -110,7 +110,7 @@ const MainMenuItem: FC<MainMenuItemProps> = ({
         overflow="hidden"
         preventGrowOverflow={false}
         data-active={isActive}
-        className="border border-transparent text-text-secondary data-[active=true]:border-border-interactive data-[active=true]:text-text-primary hover:text-text-primary rounded-lg transition-all duration-300 ease-in-out"
+        className="text-nowrap border border-transparent text-text-secondary data-[active=true]:border-border-interactive data-[active=true]:text-text-primary hover:text-text-primary rounded-lg transition-all duration-300 ease-in-out"
       >
         {icon}
         {label}
@@ -126,12 +126,13 @@ export const MainMenu: FC<MainMenuProps> = ({
   pathname,
 }) => {
   return (
-    <Stack
+    <Box
       gap="none"
       fontSize="sm"
       fontWeight="semibold"
       width="full"
-      maxWidth="item"
+      flexWrap="nowrap"
+      className="flex flex-row md:flex-col overflow-x-scroll md:overflow-x-hidden md:max-w-1/4"
     >
       {MenuItems.map(item => (
         <MainMenuItem
@@ -142,7 +143,7 @@ export const MainMenu: FC<MainMenuProps> = ({
           key={item.id}
         />
       ))}
-    </Stack>
+    </Box>
   );
 };
 
@@ -164,22 +165,22 @@ export const Main: FC<MainProps> = ({
       height="full"
       position="relative"
       bgBackground="secondary"
+      padding="section"
       flexGrow
       {...mainProps}
     >
       <Stack
         container
-        marginY="section"
-        padding="3xl"
+        padding="section"
         rounded="lg"
         bgBackground="white"
         boxShadow={200}
-        gap="4xl"
+        gap="section"
       >
         <MainHeader dictionary={dictionary} User={user} />
-        <Group preventGrowOverflow={false} justifyContent="between" gap="4xl">
+        <Group preventGrowOverflow={false} justifyContent="between" alignItems="start" gap="section">
           <MainMenu dictionary={dictionary} pathname={pathname} />
-          <Stack flexGrow alignItems="start">
+          <Stack flexGrow height="full">
             {children}
           </Stack>
         </Group>
