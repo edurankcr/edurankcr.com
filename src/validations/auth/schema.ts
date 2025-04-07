@@ -1,13 +1,16 @@
 import { z } from 'zod';
 
-import { isValidAge, isValidUsername } from '@/utils';
-
 import {
+  AvatarSchema,
+  BirthDateSchema,
   ConfirmPasswordSchema,
   EmailSchema,
   GuidSchema,
   IdentifierSchema,
+  LastNameSchema,
+  NameSchema,
   PasswordSchema,
+  UserNameSchema,
 } from './fields';
 
 export const LoginValidation = z.object({
@@ -16,19 +19,15 @@ export const LoginValidation = z.object({
 });
 
 export const RegisterValidation = z.object({
-  Name: z.string().nonempty().max(64),
-  LastName: z.string().nonempty().max(96),
-  UserName: z.string().nonempty().min(3).max(20).refine(isValidUsername, {
-    message: 'Username can only contain letters, numbers, underscores, and periods (no consecutive periods or underscores).',
-  }),
+  Name: NameSchema,
+  LastName: LastNameSchema,
+  UserName: UserNameSchema,
   Email: EmailSchema,
   Password: PasswordSchema,
-  BirthDate: z.string().nonempty().refine(isValidAge, {
-    message: 'You must be at least 18 years old and at most 100 years old.',
-  }),
+  BirthDate: BirthDateSchema,
 });
 
-export const EmailVerificationValidation = z.object({
+export const EmailValidation = z.object({
   Email: EmailSchema,
 });
 
@@ -53,3 +52,24 @@ export const ChangePasswordValidation = z
   });
 
 export const GuidValidation = GuidSchema;
+
+export const NameValidation = z.object({
+  Name: NameSchema,
+  LastName: LastNameSchema,
+});
+
+export const UsernameValidation = z.object({
+  UserName: UserNameSchema,
+});
+
+export const BirthDateValidation = z.object({
+  BirthDate: BirthDateSchema,
+});
+
+export const BiographyValidation = z.object({
+  Biography: z.string().max(512, 'Biography is too long.'),
+});
+
+export const AvatarValidation = z.object({
+  Avatar: AvatarSchema,
+});
