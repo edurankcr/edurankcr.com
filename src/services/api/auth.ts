@@ -110,3 +110,10 @@ export async function putUserAvatar(Avatar: File) {
     },
   });
 }
+
+export async function postChangePassword(currentPassword: string, newPassword: string) {
+  return await api.post('/password/change', {
+    CurrentPassword: currentPassword,
+    NewPassword: newPassword,
+  });
+}
