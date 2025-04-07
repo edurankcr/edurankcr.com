@@ -1,4 +1,5 @@
 import type { IMeta } from '@/types';
+import { PersonalInformation } from '@/ui';
 import { getMetadata } from '@/utils';
 
 export async function generateMetadata({ params }: IMeta) {
@@ -7,5 +8,5 @@ export async function generateMetadata({ params }: IMeta) {
 }
 
 export default async function Page() {
-  return <div>Settings</div>;
+  return <PersonalInformation />;
 }
