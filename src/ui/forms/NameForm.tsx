@@ -64,7 +64,7 @@ export const NameForm = ({ dictionary, user }: LegalNameFormProps) => {
               control={form.control}
               name="Name"
               render={({ field }) => (
-                <FormItem className="w-full">
+                <FormItem>
                   <FormControl>
                     <Input
                       placeholder={dictionary('Input.Name.placeholder')}
@@ -80,7 +80,7 @@ export const NameForm = ({ dictionary, user }: LegalNameFormProps) => {
               control={form.control}
               name="LastName"
               render={({ field }) => (
-                <FormItem className="w-full">
+                <FormItem>
                   <FormControl>
                     <Input
                       placeholder={dictionary('Input.LastName.placeholder')}
