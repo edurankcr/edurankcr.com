@@ -6,17 +6,6 @@ import React, { useMemo } from 'react';
 import { Box, Image, Stack, usePathname } from '@/components';
 import { AppRoutes } from '@/constants';
 
-const formRoutes = [
-  AppRoutes.Guest.Email.Request,
-  AppRoutes.Guest.Email.Verify,
-  AppRoutes.Guest.Email.Sent,
-  AppRoutes.Guest.Login,
-  AppRoutes.Guest.Register,
-  AppRoutes.Global.Password.Sent,
-  AppRoutes.Global.Password.Reset,
-  AppRoutes.Global.Password.Request,
-];
-
 const backgroundRoutes = [
   AppRoutes.Guest.Login,
   AppRoutes.Guest.Register,
@@ -30,14 +19,12 @@ const usePathStartsWith = (paths: string[]) => {
 type LayoutFormProps = ComponentProps<typeof Box>;
 
 export const LayoutMainForm = ({ children, ...props }: LayoutFormProps) => {
-  const isFormRoute = usePathStartsWith(formRoutes);
-
   return (
     <Box
       marginX="auto"
       padding="3xl"
       rounded="lg"
-      maxWidth={isFormRoute ? 'form' : 'full'}
+      maxWidth="form"
       bgBackground="white"
       boxShadow={200}
       {...props}

@@ -113,7 +113,7 @@ export const Login = () => {
               control={form.control}
               name="Identifier"
               render={({ field }) => (
-                <FormItem className="w-full">
+                <FormItem>
                   <FormControl>
                     <Input
                       placeholder={dictionary('Input.Identifier.placeholder')}
@@ -129,7 +129,7 @@ export const Login = () => {
               control={form.control}
               name="Password"
               render={({ field }) => (
-                <FormItem className="w-full">
+                <FormItem>
                   <FormControl>
                     <Input
                       placeholder={dictionary('Input.Password.placeholder')}

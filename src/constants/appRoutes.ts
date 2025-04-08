@@ -24,6 +24,10 @@ export const AppRoutes = {
     Email: {
       VerifyChange: '/verify-email/change',
     },
+    Add: {
+      Institute: '/add/institute',
+      Teacher: '/add/teacher',
+    },
   },
   Guest: {
     Login: '/login',

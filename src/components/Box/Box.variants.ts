@@ -80,7 +80,7 @@ export const boxVariants = cva('', {
       '2xl': 'gap-6',
       'lg': 'gap-4',
       'md': 'gap-3',
-      'sm': 'gap-2 md:gap-4',
+      'sm': 'gap-2',
       'xl': 'gap-5',
       'xs': 'gap-1',
       'section': 'gap-4 md:gap-8',

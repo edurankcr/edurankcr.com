@@ -4,12 +4,17 @@ import {
   AvatarSchema,
   BirthDateSchema,
   ConfirmPasswordSchema,
+  DistrictSchema,
   EmailSchema,
   GuidSchema,
   IdentifierSchema,
+  InstituteNameSchema,
+  InstituteTypeSchema,
   LastNameSchema,
   NameSchema,
   PasswordSchema,
+  ProvinceSchema,
+  UrlSchema,
   UserNameSchema,
 } from './fields';
 
@@ -97,3 +102,11 @@ export const PasswordValidation = z
       });
     }
   });
+
+export const AddInstituteValidation = z.object({
+  Name: InstituteNameSchema,
+  Type: InstituteTypeSchema,
+  Province: ProvinceSchema,
+  District: DistrictSchema,
+  Url: UrlSchema,
+});

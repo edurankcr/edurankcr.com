@@ -43,6 +43,10 @@
     "Security": {
       "title": "Security Settings | EduRankCR",
       "description": "Manage your security settings, including password changes on EduRankCR."
+    },
+    "AddInstitute": {
+      "title": "Add an Institute | EduRankCR",
+      "description": "Add a new institute to EduRankCR and help others discover it."
     }
   },
   "UI": {
@@ -74,6 +78,35 @@
         "403": "You do not have permission to access this page."
       }
     },
+    "Select": {
+      "Type": {
+        "placeholder": "Select a type of institution",
+        "Options": {
+          "0": "School",
+          "1": "College",
+          "2": "University",
+          "3": "Institute"
+        }
+      },
+      "Province": {
+        "placeholder": "Select a province",
+        "Options": {
+          "1": "San José",
+          "2": "Alajuela",
+          "3": "Cartago",
+          "4": "Heredia",
+          "5": "Guanacaste",
+          "6": "Puntarenas",
+          "7": "Limón"
+        }
+      },
+      "Canton": {
+        "placeholder": "Select a canton"
+      },
+      "District": {
+        "placeholder": "Select a district"
+      }
+    },
     "Button": {
       "log_in": "Log In",
       "link_hero_cta": "Explore Rankings",
@@ -94,7 +127,8 @@
       "save": "Save",
       "cancel": "Cancel",
       "delete": "Delete",
-      "reset": "Reset"
+      "reset": "Reset",
+      "create": "Create"
     },
     "Heading": {
       "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
@@ -122,7 +156,9 @@
       "form_biography": "Biography",
       "form_email": "Email address",
       "form_avatar": "Avatar",
-      "form_password": "Change password"
+      "form_password": "Change password",
+      "add_institute": "Add an Institute",
+      "localization": "Localization"
     },
     "Paragraph": {
       "already_have_an_account": "Already have an account?",
@@ -199,6 +235,12 @@
       },
       "CurrentPassword": {
         "placeholder": "Current password"
+      },
+      "InstituteName": {
+        "placeholder": "Institute name"
+      },
+      "Url": {
+        "placeholder": "Website URL"
       }
     },
     "Helpers": {

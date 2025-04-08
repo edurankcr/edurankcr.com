@@ -64,7 +64,7 @@ export const BirthdateForm = ({ dictionary, user }: BirthdateFormProps) => {
             control={form.control}
             name="BirthDate"
             render={({ field }) => (
-              <FormItem className="w-full">
+              <FormItem>
                 <FormControl>
                   <Input
                     placeholder={dictionary('Input.BirthDate.placeholder')}
