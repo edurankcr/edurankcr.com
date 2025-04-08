@@ -352,7 +352,8 @@
   }
 
   .input--modern input,
-  .input--modern textarea {
+  .input--modern textarea,
+  button[role='combobox'] {
     box-shadow: inset 0 0 0 1px var(--color-border-interactive);
   }
 
@@ -364,22 +365,26 @@
   }
 
   .input--modern input[aria-invalid='true']:focus,
-  .input--modern textarea[aria-invalid='true']:focus {
+  .input--modern textarea[aria-invalid='true']:focus,
+  button[role='combobox'][aria-invalid='true']:focus {
     box-shadow: inset 0 0 0 2px var(--color-border-error);
   }
 
   .input--modern input[aria-invalid='true'],
-  .input--modern textarea[aria-invalid='true'] {
+  .input--modern textarea[aria-invalid='true'],
+  button[role='combobox'][aria-invalid='true'] {
     box-shadow: inset 0 0 0 2px var(--color-border-error);
   }
 
   .input--modern input:not[aria-invalid='true']:hover,
-  .input--modern textarea:not[aria-invalid='true']:hover {
+  .input--modern textarea:not[aria-invalid='true']:hover,
+  button[role='combobox']:hover {
     box-shadow: inset 0 0 0 1px var(--color-border-interactive-active);
   }
 
   .input--modern input:not[aria-invalid='true']:focus,
-  .input--modern textarea:not[aria-invalid='true']:focus {
+  .input--modern textarea:not[aria-invalid='true']:focus,
+  button[role='combobox']:focus {
     box-shadow: inset 0 0 0 2px var(--color-border-interactive-active);
   }
 
