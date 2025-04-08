@@ -70,7 +70,7 @@ export const UsernameForm = ({ dictionary, user }: UsernameFormProps) => {
             control={form.control}
             name="UserName"
             render={({ field }) => (
-              <FormItem className="w-full">
+              <FormItem>
                 <FormControl>
                   <Input
                     placeholder={dictionary('Input.UserName.placeholder')}
