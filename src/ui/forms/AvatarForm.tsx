@@ -116,7 +116,7 @@ export const AvatarForm = ({ dictionary, user }: AvatarFormProps) => {
               <FormField
                 name="Avatar"
                 render={({ field: { onBlur, name } }) => (
-                  <FormItem className="w-full">
+                  <FormItem>
                     <FormControl>
                       <InputUploadArea
                         id="avatar"
