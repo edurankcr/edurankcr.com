@@ -100,9 +100,9 @@ export const AvatarForm = ({ dictionary, user }: AvatarFormProps) => {
           <Box flexGrow width="full" gap="section" className="flex-col md:flex-row flex">
             <Stack justifyContent="start" alignItems="center">
               <Avatar
-                User={{
-                  UserName: user?.userName ?? '',
-                  AvatarUrl: previewUrl ?? user?.avatarUrl ?? null,
+                user={{
+                  userName: user?.userName ?? '',
+                  avatarUrl: previewUrl ?? user?.avatarUrl ?? null,
                 }}
                 width={128}
                 height={128}
