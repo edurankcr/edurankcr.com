@@ -25,7 +25,7 @@ const Avatar: FC<AvatarProps> = memo(({
     if (user.avatarUrl) {
       return user.avatarUrl;
     }
-    return `https://api.dicebear.com/9.x/thumbs/svg?seed=${user.avatarUrl}&radius=50&backgroundColor=abdae3`;
+    return `https://api.dicebear.com/9.x/thumbs/svg?seed=${user.userName}&radius=50&backgroundColor=abdae3`;
   };
 
   return (
