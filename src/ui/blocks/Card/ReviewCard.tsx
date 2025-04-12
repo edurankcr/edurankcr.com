@@ -2,36 +2,36 @@ import { Avatar, Group, Link, Stack, Stars, Text } from '@/components';
 import type { IFormatter, ITranslations } from '@/types';
 
 type ReviewCardProps = {
-  User: {
-    Name: string;
-    LastName: string;
-    UserName: string;
-    AvatarUrl?: string;
+  user: {
+    name: string;
+    lastName: string;
+    userName: string;
+    avatarUrl?: string;
   };
-  Review: {
-    ReviewId: string;
-    Rating: number;
-    ExperienceText: string;
-    CreatedAt: Date;
-    IsVerified?: boolean;
+  review: {
+    reviewId: string;
+    rating: number;
+    experienceText: string;
+    createdAt: Date;
+    isVerified?: boolean;
   };
 } & ITranslations & IFormatter;
 
-export const ReviewCard = ({ User, Review, dictionary, formatter }: ReviewCardProps) => {
+export const ReviewCard = ({ user, review, dictionary, formatter }: ReviewCardProps) => {
   const getName = () => {
-    if (User.LastName) {
-      return `${User.Name} ${User.LastName}`;
+    if (user.lastName) {
+      return `${user.name} ${user.lastName}`;
     }
-    return User.Name;
+    return user.name;
   };
   const getRelativeTime = () => {
-    const date = Review.CreatedAt || new Date();
+    const date = review.createdAt || new Date();
     return formatter.relativeTime(date);
   };
   return (
     <Stack boxShadow="card" padding="md" rounded="lg" width="full" className="review-card">
       <Group flexWrap="nowrap" justifyContent="start" preventGrowOverflow={false} overflow="hidden">
-        <Avatar User={User} />
+        <Avatar user={user} />
         <Stack gap="none" overflow="hidden">
           <Text truncate>
             <Text as="span" weight="semibold">{getName()}</Text>
@@ -46,14 +46,14 @@ export const ReviewCard = ({ User, Review, dictionary, formatter }: ReviewCardPr
       <Stack>
         <Text>
           “
-          {Review.ExperienceText}
+          {review.experienceText}
           ”
         </Text>
         <Group preventGrowOverflow={false} justifyContent="between">
           <Link href="#" text={{ underline: true, weight: 'semibold', size: 'sm' }}>
             {dictionary('Helpers.User.action_read_more')}
           </Link>
-          <Stars rate={Review.Rating} />
+          <Stars rate={review.rating} />
         </Group>
       </Stack>
     </Stack>
