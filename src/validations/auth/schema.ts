@@ -4,7 +4,6 @@ import {
   AvatarSchema,
   BirthDateSchema,
   ConfirmPasswordSchema,
-  DistrictSchema,
   EmailSchema,
   GuidSchema,
   IdentifierSchema,
@@ -107,6 +106,5 @@ export const AddInstituteValidation = z.object({
   Name: InstituteNameSchema,
   Type: InstituteTypeSchema,
   Province: ProvinceSchema,
-  District: DistrictSchema,
   Url: UrlSchema,
 });
