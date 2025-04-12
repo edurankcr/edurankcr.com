@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [20.x] # Adjust if 23.x is experimental or unavailable
+        node-version: [23.x]
 
     name: Build with ${{ matrix.node-version }}
     runs-on: ubuntu-latest
@@ -18,28 +18,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js and pnpm
+      - name: Setup Node.js ${{ matrix.node-version }} with pnpm
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
 
-      - name: Enable Corepack & install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-          pnpm --version
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build project
-        run: pnpm build
+        run: pnpm run build
 
   test:
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [23.x]
 
     name: Run all tests
     runs-on: ubuntu-latest
@@ -49,26 +46,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js and pnpm
+      - name: Setup Node.js ${{ matrix.node-version }} with pnpm
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
 
-      - name: Enable Corepack & install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-          pnpm --version
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build Next.js
-        run: pnpm build
+        run: pnpm run build
 
       - name: Linter
-        run: pnpm lint
+        run: pnpm run lint
 
       - uses: actions/upload-artifact@v4
         if: always()
