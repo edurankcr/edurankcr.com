@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
+import { ViewHome } from '@/elements';
 import type { IMeta } from '@/types';
-import { Home } from '@/ui';
 import { getMetadata } from '@/utils';
 
 export async function generateMetadata({ params }: IMeta) {
@@ -15,5 +15,5 @@ export default async function Page({ params }: IMeta) {
     locale,
     namespace: 'UI',
   });
-  return <Home dictionary={dictionary} />;
+  return <ViewHome dictionary={dictionary} />;
 }
