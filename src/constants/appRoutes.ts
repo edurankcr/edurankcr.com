@@ -13,7 +13,14 @@ export const AppRoutes = {
     },
     Institutes: {
       Explore: '/explore/institutes',
+      Profile: (instituteId: string) => `/institute/${instituteId}`,
       Search: (type: 'province' | 'query', value: string) => `/explore/institutes/search?${type}=${value}`,
+    },
+    Teachers: {
+      Profile: (teacherId: string) => `/teacher/${teacherId}`,
+    },
+    Users: {
+      Profile: (userName: string) => `/community/${userName}`,
     },
   },
   Auth: {
