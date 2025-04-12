@@ -57,9 +57,9 @@ const UserQuickView = ({ border = false, userName, avatarUrl, name, lastName }: 
         >
           <IconMenu size={18} />
           <Avatar
-            User={{
-              AvatarUrl: avatarUrl,
-              UserName: userName,
+            user={{
+              avatarUrl,
+              userName,
             }}
             width={32}
             height={32}
@@ -77,9 +77,9 @@ const UserQuickView = ({ border = false, userName, avatarUrl, name, lastName }: 
               overflow="hidden"
             >
               <Avatar
-                User={{
-                  AvatarUrl: avatarUrl,
-                  UserName: userName,
+                user={{
+                  avatarUrl,
+                  userName,
                 }}
                 width={32}
                 height={32}
