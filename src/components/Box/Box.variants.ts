@@ -92,6 +92,7 @@ export const boxVariants = cva('', {
       md: 'h-12',
       lg: 'h-18',
       carouselLinear: 'h-4/5',
+      navbar: 'h-[80px] max-h-[80px]',
       carousel: 'h-[476px] md:h-[540px] lg:h-[36vw]',
     },
     justifyContent: {
