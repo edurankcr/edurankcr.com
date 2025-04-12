@@ -16,145 +16,145 @@ export const LastReviewActivitySection = ({ dictionary, formatter }: LastReviewA
         </Heading>
         <Box className="grid-reviews">
           <ReviewCard
-            User={{
-              Name: 'Carlos',
-              LastName: 'Gomez',
-              UserName: 'carlitox',
+            user={{
+              name: 'Carlos',
+              lastName: 'Gomez',
+              userName: 'carlitox',
             }}
-            Review={{
-              ReviewId: '987654321',
-              IsVerified: true,
-              Rating: 4.5,
-              ExperienceText: 'Amazing experience, highly recommended!',
-              CreatedAt: new Date('2024-01-15T14:30:00Z'),
-            }}
-            dictionary={dictionary}
-            formatter={formatter}
-          />
-          <ReviewCard
-            User={{
-              Name: 'Sofia',
-              LastName: 'Rodriguez',
-              UserName: 'sofi23',
-            }}
-            Review={{
-              ReviewId: '564738291',
-              IsVerified: false,
-              Rating: 2.5,
-              ExperienceText: 'It was okay, but not what I expected.',
-              CreatedAt: new Date('2023-12-10T09:15:00Z'),
+            review={{
+              reviewId: '987654321',
+              isVerified: true,
+              rating: 4.5,
+              experienceText: 'Amazing experience, highly recommended!',
+              createdAt: new Date('2024-01-15T14:30:00Z'),
             }}
             dictionary={dictionary}
             formatter={formatter}
           />
           <ReviewCard
-            User={{
-              Name: 'Luis',
-              LastName: 'Fernandez',
-              UserName: 'luisito_f',
+            user={{
+              name: 'Sofia',
+              lastName: 'Rodriguez',
+              userName: 'sofi23',
             }}
-            Review={{
-              ReviewId: '112233445',
-              IsVerified: true,
-              Rating: 5.0,
-              ExperienceText: 'Perfect service! Couldn’t be happier.',
-              CreatedAt: new Date('2024-02-20T18:45:00Z'),
-            }}
-            dictionary={dictionary}
-            formatter={formatter}
-          />
-          <ReviewCard
-            User={{
-              Name: 'Andrea',
-              LastName: 'Lopez',
-              UserName: 'andrea_lpz',
-            }}
-            Review={{
-              ReviewId: '998877665',
-              IsVerified: false,
-              Rating: 3.0,
-              ExperienceText: 'Good but with some flaws.',
-              CreatedAt: new Date('2024-03-05T20:00:00Z'),
+            review={{
+              reviewId: '564738291',
+              isVerified: false,
+              rating: 2.5,
+              experienceText: 'It was okay, but not what I expected.',
+              createdAt: new Date('2023-12-10T09:15:00Z'),
             }}
             dictionary={dictionary}
             formatter={formatter}
           />
           <ReviewCard
-            User={{
-              Name: 'Fernando',
-              LastName: 'Martinez',
-              UserName: 'fercho_mtz',
+            user={{
+              name: 'Luis',
+              lastName: 'Fernandez',
+              userName: 'luisito_f',
             }}
-            Review={{
-              ReviewId: '556677889',
-              IsVerified: true,
-              Rating: 4.5,
-              ExperienceText: 'Really good, but there’s room for improvement.',
-              CreatedAt: new Date('2024-01-28T16:10:00Z'),
-            }}
-            dictionary={dictionary}
-            formatter={formatter}
-          />
-          <ReviewCard
-            User={{
-              Name: 'Elena',
-              LastName: 'Castro',
-              UserName: 'elena_c',
-            }}
-            Review={{
-              ReviewId: '334455667',
-              IsVerified: false,
-              Rating: 1.5,
-              ExperienceText: 'Not satisfied at all. Needs major improvements.',
-              CreatedAt: new Date('2023-11-25T08:00:00Z'),
+            review={{
+              reviewId: '112233445',
+              isVerified: true,
+              rating: 5.0,
+              experienceText: 'Perfect service! Couldn’t be happier.',
+              createdAt: new Date('2024-02-20T18:45:00Z'),
             }}
             dictionary={dictionary}
             formatter={formatter}
           />
           <ReviewCard
-            User={{
-              Name: 'Miguel',
-              LastName: 'Hernandez',
-              UserName: 'miguel_hdz',
+            user={{
+              name: 'Andrea',
+              lastName: 'Lopez',
+              userName: 'andrea_lpz',
             }}
-            Review={{
-              ReviewId: '223344556',
-              IsVerified: true,
-              Rating: 5,
-              ExperienceText: 'Great service and fast response time!',
-              CreatedAt: new Date('2024-02-08T12:30:00Z'),
-            }}
-            dictionary={dictionary}
-            formatter={formatter}
-          />
-          <ReviewCard
-            User={{
-              Name: 'Valeria',
-              LastName: 'Ramos',
-              UserName: 'valeria_r',
-            }}
-            Review={{
-              ReviewId: '667788990',
-              IsVerified: false,
-              Rating: 3.5,
-              ExperienceText: 'Decent experience, but nothing outstanding.',
-              CreatedAt: new Date('2023-10-22T17:20:00Z'),
+            review={{
+              reviewId: '998877665',
+              isVerified: false,
+              rating: 3.0,
+              experienceText: 'Good but with some flaws.',
+              createdAt: new Date('2024-03-05T20:00:00Z'),
             }}
             dictionary={dictionary}
             formatter={formatter}
           />
           <ReviewCard
-            User={{
-              Name: 'Daniel',
-              LastName: 'Vargas',
-              UserName: 'danielvgs',
+            user={{
+              name: 'Fernando',
+              lastName: 'Martinez',
+              userName: 'fercho_mtz',
             }}
-            Review={{
-              ReviewId: '889900112',
-              IsVerified: true,
-              Rating: 5.0,
-              ExperienceText: 'Absolutely loved it! Will return for sure.',
-              CreatedAt: new Date('2024-03-12T21:15:00Z'),
+            review={{
+              reviewId: '556677889',
+              isVerified: true,
+              rating: 4.5,
+              experienceText: 'Really good, but there’s room for improvement.',
+              createdAt: new Date('2024-01-28T16:10:00Z'),
+            }}
+            dictionary={dictionary}
+            formatter={formatter}
+          />
+          <ReviewCard
+            user={{
+              name: 'Elena',
+              lastName: 'Castro',
+              userName: 'elena_c',
+            }}
+            review={{
+              reviewId: '334455667',
+              isVerified: false,
+              rating: 1.5,
+              experienceText: 'Not satisfied at all. Needs major improvements.',
+              createdAt: new Date('2023-11-25T08:00:00Z'),
+            }}
+            dictionary={dictionary}
+            formatter={formatter}
+          />
+          <ReviewCard
+            user={{
+              name: 'Miguel',
+              lastName: 'Hernandez',
+              userName: 'miguel_hdz',
+            }}
+            review={{
+              reviewId: '223344556',
+              isVerified: true,
+              rating: 5,
+              experienceText: 'Great service and fast response time!',
+              createdAt: new Date('2024-02-08T12:30:00Z'),
+            }}
+            dictionary={dictionary}
+            formatter={formatter}
+          />
+          <ReviewCard
+            user={{
+              name: 'Valeria',
+              lastName: 'Ramos',
+              userName: 'valeria_r',
+            }}
+            review={{
+              reviewId: '667788990',
+              isVerified: false,
+              rating: 3.5,
+              experienceText: 'Decent experience, but nothing outstanding.',
+              createdAt: new Date('2023-10-22T17:20:00Z'),
+            }}
+            dictionary={dictionary}
+            formatter={formatter}
+          />
+          <ReviewCard
+            user={{
+              name: 'Daniel',
+              lastName: 'Vargas',
+              userName: 'danielvgs',
+            }}
+            review={{
+              reviewId: '889900112',
+              isVerified: true,
+              rating: 5.0,
+              experienceText: 'Absolutely loved it! Will return for sure.',
+              createdAt: new Date('2024-03-12T21:15:00Z'),
             }}
             dictionary={dictionary}
             formatter={formatter}
