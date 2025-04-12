@@ -55,6 +55,43 @@
   },
   "UI": {
     "Elements": {
+      "Review": {
+        "teacher": "Teacher",
+        "FreeCourse": {
+          "title": "Free Course",
+          "true": "Yes",
+          "false": "No"
+        },
+        "MandatoryAttendance": {
+          "title": "Attendance",
+          "true": "Yes",
+          "false": "No"
+        },
+        "CourseMode": {
+          "title": "Course Mode",
+          "0": "In-person",
+          "1": "Online",
+          "2": "Hybrid"
+        },
+        "InstituteTypes": {
+          "0": "School",
+          "1": "College",
+          "2": "University",
+          "3": "Institute"
+        },
+        "Actions": {
+          "wrote": "<link>{userFullName}</link> <b>wrote a review</b>",
+          "read_more": "Read more"
+        }
+      },
+      "Home": {
+        "Activity": {
+          "title": "Last Activity on EduRankCR"
+        },
+        "Errors": {
+          "fetch_last_activity": "An error occurred while fetching the last activity. Please try again later."
+        }
+      },
       "Institute": {
         "Overview": {
           "title": "About {name}",
