@@ -5,9 +5,11 @@ import { cx } from 'class-variance-authority';
 import type { ComponentPropsWithoutRef, FC } from 'react';
 import { memo } from 'react';
 
-type ProgressProps = ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>;
+type ProgressProps = {
+  bgColor?: 'neon' | 'primary';
+} & ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>;
 
-const Progress: FC<ProgressProps> = memo(({ className, value, ...props }) => (
+const Progress: FC<ProgressProps> = memo(({ className, bgColor = 'primary', value, ...props }) => (
   <ProgressPrimitive.Root
     className={cx(
       'relative h-3 w-full overflow-hidden rounded-full bg-background-secondary',
@@ -16,7 +18,10 @@ const Progress: FC<ProgressProps> = memo(({ className, value, ...props }) => (
     {...props}
   >
     <ProgressPrimitive.Indicator
-      className="h-full w-full flex-1 bg-interactive-primary transition-all"
+      className={cx(
+        'h-full w-full flex-1 transition-all',
+        bgColor === 'neon' ? 'bg-brand-neon' : 'bg-interactive-primary',
+      )}
       style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
     />
   </ProgressPrimitive.Root>
