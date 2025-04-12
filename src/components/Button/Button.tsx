@@ -36,12 +36,13 @@ const Button = memo<ButtonProps>(({
   borderWidth,
   fontWeight,
   height,
+  width,
   paddingX,
   href,
   ...props
 }) => {
   const classes = cx(
-    buttonVariants({ isLoading, bgColor, borderColor, borderRadius, borderWidth, fontWeight, height, paddingX }),
+    buttonVariants({ isLoading, bgColor, borderColor, borderRadius, borderWidth, fontWeight, height, width, paddingX }),
     className,
   );
 
