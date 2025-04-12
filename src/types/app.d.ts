@@ -24,6 +24,13 @@ type ILayoutParams = {
   }>;
 };
 
+type ILayoutIdParams = {
+  params: Promise<{
+    locale: Locale;
+    id: string;
+  }>;
+};
+
 type IBaseLayout = {
   children: Children;
 } & ILayoutParams;
@@ -36,6 +43,7 @@ type ILayout = IBaseLayout;
 type IRootLayout = IBaseLayout;
 type IPageLayout = IBaseLayout;
 type IMeta = ILayoutParams;
+type IIdMeta = ILayoutIdParams;
 type IProviders = IBaseLayout;
 
 type IDictionary = {
@@ -64,6 +72,7 @@ export {
   IComponent,
   IDictionary,
   IFormatter,
+  IIdMeta,
   ILayout,
   IMeta,
   IPageLayout,
