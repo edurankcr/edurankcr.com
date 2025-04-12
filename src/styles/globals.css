@@ -358,7 +358,7 @@
   }
 
   .review-card {
-    @apply col-span-12 md:col-span-4;
+    @apply col-span-12 md:col-span-4 p-4 md:p-6 shadow-200;
   }
 
   .input--modern input,
