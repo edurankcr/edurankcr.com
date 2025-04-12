@@ -268,6 +268,7 @@
   --color-brand-neon: var(--color-brand-neon);
   --color-neutral-600: var(--color-neutral-600);
   --color-background-primary-hover: var(--color-background-primary-hover);
+  --color-border-separator: var(--color-border-separator);
 
   --spacing-header: var(--height-header);
   --spacing-18: var(--height-18);
@@ -290,9 +291,18 @@
   --text-400-responsive: var(--font-size-400-responsive);
   --text-400-responsive--line-height: var(--font-lineheight-400-responsive);
   --text-400-responsive--letter-spacing: var(--font-letterspacing-400-responsive);
+  --text-500: var(--font-size-500);
+  --text-500--line-height: var(--font-lineheight-500);
+  --text-500--letter-spacing: var(--font-letterspacing-500);
+  --text-500-responsive: var(--font-size-500-responsive);
+  --text-500-responsive--line-height: var(--font-lineheight-500-responsive);
+  --text-500-responsive--letter-spacing: var(--font-letterspacing-500-responsive);
   --text-600: var(--font-size-600);
   --text-600--line-height: var(--font-lineheight-600);
   --text-600--letter-spacing: var(--font-letterspacing-600);
+  --text-600-responsive: var(--font-size-600-responsive);
+  --text-600-responsive--line-height: var(--font-lineheight-600-responsive);
+  --text-600-responsive--letter-spacing: var(--font-letterspacing-600-responsive);
   --text-700-responsive: var(--font-size-700-responsive);
   --text-700-responsive--line-height: var(--font-lineheight-700-responsive);
   --text-700-responsive--letter-spacing: var(--font-letterspacing-700-responsive);
@@ -351,7 +361,9 @@
     @apply col-span-12 md:col-span-4;
   }
 
-  .input--modern input {
+  .input--modern input,
+  .input--modern textarea,
+  button[role='combobox'] {
     box-shadow: inset 0 0 0 1px var(--color-border-interactive);
   }
 
@@ -362,19 +374,27 @@
       transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   }
 
-  .input--modern input[aria-invalid='true']:focus {
+  .input--modern input[aria-invalid='true']:focus,
+  .input--modern textarea[aria-invalid='true']:focus,
+  button[role='combobox'][aria-invalid='true']:focus {
     box-shadow: inset 0 0 0 2px var(--color-border-error);
   }
 
-  .input--modern input[aria-invalid='true'] {
+  .input--modern input[aria-invalid='true'],
+  .input--modern textarea[aria-invalid='true'],
+  button[role='combobox'][aria-invalid='true'] {
     box-shadow: inset 0 0 0 2px var(--color-border-error);
   }
 
-  .input--modern input:not[aria-invalid='true']:hover {
+  .input--modern input:not([aria-invalid='true']):hover,
+  .input--modern textarea:not([aria-invalid='true']):hover,
+  button[role='combobox']:hover {
     box-shadow: inset 0 0 0 1px var(--color-border-interactive-active);
   }
 
-  .input--modern input:not[aria-invalid='true']:focus {
+  .input--modern input:not([aria-invalid='true']):focus,
+  .input--modern textarea:not([aria-invalid='true']):focus,
+  button[role='combobox']:focus {
     box-shadow: inset 0 0 0 2px var(--color-border-interactive-active);
   }
 

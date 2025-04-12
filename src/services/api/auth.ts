@@ -117,3 +117,23 @@ export async function postChangePassword(currentPassword: string, newPassword: s
     NewPassword: newPassword,
   });
 }
+
+export async function postAddInstitute(
+  Name: string,
+  Type: number,
+  Province: number,
+  Url?: string,
+) {
+  return await api.post('/institute', {
+    Name,
+    Type,
+    Province,
+    Url,
+  });
+}
+
+export async function getInstitute(id: string) {
+  return await api.get('/institute/search', {
+    params: { InstituteId: id },
+  });
+}

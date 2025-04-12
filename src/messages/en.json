@@ -43,9 +43,58 @@
     "Security": {
       "title": "Security Settings | EduRankCR",
       "description": "Manage your security settings, including password changes on EduRankCR."
+    },
+    "AddInstitute": {
+      "title": "Add an Institute | EduRankCR",
+      "description": "Add a new institute to EduRankCR and help others discover it."
+    },
+    "Institute": {
+      "title": "Institution Details | EduRankCR",
+      "description": "Explore detailed information about institutions in Costa Rica, including reviews and ratings from students."
     }
   },
   "UI": {
+    "Elements": {
+      "Institute": {
+        "Overview": {
+          "title": "About {name}",
+          "button": "Suggest an edit"
+        },
+        "Review": {
+          "Actions": {
+            "report": "Report an issue"
+          }
+        },
+        "Reviews": {
+          "title": "Reviews",
+          "quantity": "{total} reviews",
+          "button": "Review this institution",
+          "Descriptions": {
+            "experience": "Experience",
+            "institution": "Institution"
+          }
+        },
+        "Overall": {
+          "title": "Overall Quality Rating for {name}",
+          "Items": {
+            "reputation": "Reputation",
+            "opportunities": "Opportunities",
+            "happiness": "Happiness",
+            "location": "Location",
+            "facilities": "Facilities",
+            "social": "Social",
+            "clubs": "Clubs",
+            "internet": "Internet",
+            "security": "Security",
+            "food": "Food"
+          }
+        }
+      }
+    },
+    "Breadcrumb": {
+      "home": "Back to Explore",
+      "country": "Costa Rica"
+    },
     "Errors": {
       "Auth": {
         "InvalidCred": "The identifier or password you entered is incorrect. Please try again.",
@@ -74,6 +123,35 @@
         "403": "You do not have permission to access this page."
       }
     },
+    "Select": {
+      "Type": {
+        "placeholder": "Select a type of institution",
+        "Options": {
+          "0": "School",
+          "1": "College",
+          "2": "University",
+          "3": "Institute"
+        }
+      },
+      "Province": {
+        "placeholder": "Select a province",
+        "Options": {
+          "1": "San José",
+          "2": "Alajuela",
+          "3": "Cartago",
+          "4": "Heredia",
+          "5": "Guanacaste",
+          "6": "Puntarenas",
+          "7": "Limón"
+        }
+      },
+      "Canton": {
+        "placeholder": "Select a canton"
+      },
+      "District": {
+        "placeholder": "Select a district"
+      }
+    },
     "Button": {
       "log_in": "Log In",
       "link_hero_cta": "Explore Rankings",
@@ -94,7 +172,12 @@
       "save": "Save",
       "cancel": "Cancel",
       "delete": "Delete",
-      "reset": "Reset"
+      "reset": "Reset",
+      "create": "Create",
+      "compare": "Compare",
+      "rate": "Rate",
+      "reviews": "Reviews",
+      "overview": "Overview"
     },
     "Heading": {
       "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
@@ -122,7 +205,10 @@
       "form_biography": "Biography",
       "form_email": "Email address",
       "form_avatar": "Avatar",
-      "form_password": "Change password"
+      "form_password": "Change password",
+      "add_institute": "Add an Institute",
+      "localization": "Localization",
+      "reviews": "Reviews"
     },
     "Paragraph": {
       "already_have_an_account": "Already have an account?",
@@ -153,7 +239,20 @@
       "pending_to_confirm": "{email} is pending to be confirmed",
       "email_change_cancelled": "Email change has been cancelled. The previous email address is still active.",
       "form_avatar": "Please upload a clear and recent photo of yourself. This will help other users recognize you.",
-      "form_password": "This will be used to log in to your account. Please choose a strong password."
+      "form_password": "This will be used to log in to your account. Please choose a strong password.",
+      "success_add_institute": "Your institute has been successfully added. Thank you for contributing to EduRankCR!",
+      "see_all_reviews": "See all reviews",
+      "overall_quality": "Overall quality",
+      "reputation": "Reputation",
+      "opportunities": "Opportunities",
+      "happiness": "Happiness",
+      "location": "Location",
+      "facilities": "Facilities",
+      "social": "Social",
+      "clubs": "Clubs",
+      "internet": "Internet",
+      "security": "Security",
+      "food": "Food"
     },
     "Input": {
       "Avatar": {
@@ -199,9 +298,24 @@
       },
       "CurrentPassword": {
         "placeholder": "Current password"
+      },
+      "InstituteName": {
+        "placeholder": "Institute name"
+      },
+      "Url": {
+        "placeholder": "Website URL"
       }
     },
     "Helpers": {
+      "Province": {
+        "1": "San José",
+        "2": "Alajuela",
+        "3": "Cartago",
+        "4": "Heredia",
+        "5": "Guanacaste",
+        "6": "Puntarenas",
+        "7": "Limón"
+      },
       "Settings": {
         "About": {
           "title": "Account Settings",
@@ -214,6 +328,14 @@
           "notifications": "Notifications",
           "preferences": "Preferences",
           "help": "Help"
+        }
+      },
+      "Institute": {
+        "Type": {
+          "0": "School",
+          "1": "College",
+          "2": "University",
+          "3": "Institute"
         }
       },
       "Form": {

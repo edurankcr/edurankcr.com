@@ -3,6 +3,7 @@ import { cva } from 'class-variance-authority';
 export const textVariants = cva('', {
   variants: {
     align: {
+      start: 'text-start',
       center: 'text-center',
     },
     color: {
@@ -25,6 +26,10 @@ export const textVariants = cva('', {
       '300-res': 'text-200 md:text-300',
       '400': 'text-400',
       '400-res': 'text-400 md:text-400-responsive',
+      '500': 'text-500',
+      '500-res': 'text-400 md:text-500-responsive',
+      '600': 'text-600',
+      '600-res': 'text-400 md:text-600-responsive',
       '700-res': 'text-600 md:text-700-responsive',
     },
     truncate: {

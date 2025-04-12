@@ -5,7 +5,7 @@ type RouteGroup = keyof AppRoutesType;
 
 const SUPPORTED_LOCALES = ['en', 'es'];
 
-const sanitizePath = (pathname: string): string => {
+export const sanitizePath = (pathname: string): string => {
   const segments = pathname.split('/');
   const noLocale
     = segments.length > 1 && segments[1] && SUPPORTED_LOCALES.includes(segments[1])

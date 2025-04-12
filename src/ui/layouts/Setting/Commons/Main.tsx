@@ -1,6 +1,6 @@
 'use client';
 
-import { IconBell, IconHelp, IconLockSquare, IconShield, IconUserCog, IconUserScan } from '@tabler/icons-react';
+import { IconShield, IconUserScan } from '@tabler/icons-react';
 import type { ComponentProps, FC } from 'react';
 import React from 'react';
 import { useTranslations } from 'use-intl';
@@ -26,30 +26,6 @@ const MenuItems = [
     label: 'security',
     icon: <IconShield />,
     href: AppRoutes.Auth.Settings.Security,
-  },
-  {
-    id: 3,
-    label: 'privacy',
-    icon: <IconLockSquare />,
-    href: AppRoutes.Auth.Settings.Privacy,
-  },
-  {
-    id: 4,
-    label: 'notifications',
-    icon: <IconBell />,
-    href: AppRoutes.Auth.Settings.Notifications,
-  },
-  {
-    id: 5,
-    label: 'preferences',
-    icon: <IconUserCog />,
-    href: AppRoutes.Auth.Settings.Preferences,
-  },
-  {
-    id: 6,
-    label: 'help',
-    icon: <IconHelp />,
-    href: AppRoutes.Auth.Settings.Help,
   },
 ];
 

@@ -6,12 +6,14 @@ export const buttonVariants = cva('inline-flex justify-center items-center btn d
       transparent: 'bg-transparent',
       white: 'bg-white',
       interactivePrimary: 'bg-interactive-primary text-white',
+      interactiveSecondary: 'bg-background-secondary text-text-primary',
       ghostInteractiveSecondary: 'text-text-primary hover:bg-background-secondary',
     },
     borderColor: {
       transparent: 'border-transparent',
       white: 'border-white',
       black: 'border-black',
+      primary: 'border-interactive-primary',
       interactive: 'border-border-interactive',
     },
     borderWidth: {
@@ -35,7 +37,13 @@ export const buttonVariants = cva('inline-flex justify-center items-center btn d
       md: 'h-10',
       lg: 'h-12',
     },
+    width: {
+      sm: 'w-9',
+      md: 'w-10',
+      lg: 'w-12',
+    },
     paddingX: {
+      none: 'px-0',
       sm: 'px-4',
       md: 'px-6',
       lg: 'px-8',
@@ -52,5 +60,6 @@ export const buttonVariants = cva('inline-flex justify-center items-center btn d
     height: 'md',
     paddingX: 'md',
     borderRadius: 'full',
+    isLoading: false,
   },
 });

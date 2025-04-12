@@ -49,7 +49,7 @@ const FormItem = ({ ref, className, ...props }: HTMLAttributes<HTMLDivElement> &
   const contextValue = useMemo(() => ({ id }), [id]);
   return (
     <FormItemContext value={contextValue}>
-      <div ref={ref} className={cx('space-y-2 w-full', className)} {...props} />
+      <div ref={ref} className={cx('w-full', className)} {...props} />
     </FormItemContext>
   );
 };
@@ -110,7 +110,7 @@ const FormMessage = ({ ref, className, children, ...props }: HTMLAttributes<HTML
   }
 
   return (
-    <Group preventGrowOverflow={false} justifyContent="start" alignItems="start" gap="sm" className="text-text-error" flexWrap="nowrap">
+    <Group preventGrowOverflow={false} justifyContent="start" alignItems="start" gap="sm" className="text-text-error mt-2" flexWrap="nowrap">
       <IconExclamationCircleFilled size={14} className="min-h-[14px] min-w-[14px]" />
       <p
         ref={ref}

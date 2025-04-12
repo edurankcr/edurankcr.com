@@ -70,7 +70,7 @@ export const PasswordForm = ({ dictionary, user }: PasswordFormProps) => {
             control={form.control}
             name="CurrentPassword"
             render={({ field }) => (
-              <FormItem className="w-full">
+              <FormItem>
                 <FormControl>
                   <Input
                     placeholder={dictionary('Input.CurrentPassword.placeholder')}
@@ -88,7 +88,7 @@ export const PasswordForm = ({ dictionary, user }: PasswordFormProps) => {
               control={form.control}
               name="NewPassword"
               render={({ field }) => (
-                <FormItem className="w-full">
+                <FormItem>
                   <FormControl>
                     <Input
                       placeholder={dictionary('Input.NewPassword.placeholder')}
@@ -105,7 +105,7 @@ export const PasswordForm = ({ dictionary, user }: PasswordFormProps) => {
               control={form.control}
               name="ConfirmPassword"
               render={({ field }) => (
-                <FormItem className="w-full">
+                <FormItem>
                   <FormControl>
                     <Input
                       placeholder={dictionary('Input.ConfirmPassword.placeholder')}

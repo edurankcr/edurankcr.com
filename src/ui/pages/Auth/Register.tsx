@@ -174,7 +174,7 @@ export const Register = () => {
               control={form.control}
               name="Password"
               render={({ field }) => (
-                <FormItem className="w-full">
+                <FormItem>
                   <FormControl>
                     <Input
                       placeholder={dictionary('Input.Password.placeholder')}

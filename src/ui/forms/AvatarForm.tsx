@@ -100,9 +100,9 @@ export const AvatarForm = ({ dictionary, user }: AvatarFormProps) => {
           <Box flexGrow width="full" gap="section" className="flex-col md:flex-row flex">
             <Stack justifyContent="start" alignItems="center">
               <Avatar
-                User={{
-                  UserName: user?.userName ?? '',
-                  AvatarUrl: previewUrl ?? user?.avatarUrl ?? null,
+                user={{
+                  userName: user?.userName ?? '',
+                  avatarUrl: previewUrl ?? user?.avatarUrl ?? null,
                 }}
                 width={128}
                 height={128}
@@ -116,7 +116,7 @@ export const AvatarForm = ({ dictionary, user }: AvatarFormProps) => {
               <FormField
                 name="Avatar"
                 render={({ field: { onBlur, name } }) => (
-                  <FormItem className="w-full">
+                  <FormItem>
                     <FormControl>
                       <InputUploadArea
                         id="avatar"

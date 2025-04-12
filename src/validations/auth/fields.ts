@@ -45,6 +45,40 @@ export const NameSchema = z
   .nonempty()
   .max(64);
 
+export const InstituteNameSchema = z
+  .string()
+  .nonempty('Name is required.')
+  .max(200, 'Name must not exceed 200 characters.')
+  .regex(/^[a-z0-9\s.,'"-]+$/i, 'Institute name contains invalid characters.');
+
+export const InstituteTypeSchema = z
+  .string()
+  .nonempty('Type is required.')
+  .refine((val) => {
+    const num = Number(val);
+    return !Number.isNaN(num) && num >= 0 && num <= 3;
+  }, {
+    message: 'Institute type must be between 0 and 3 (0 = School, 1 = College, 2 = University, 3 = Institute).',
+  });
+
+export const ProvinceSchema = z
+  .string()
+  .nonempty('Province is required.')
+  .refine((val) => {
+    const num = Number(val);
+    return !Number.isNaN(num) && num >= 1 && num <= 7;
+  }, {
+    message: 'Province must be between 1 and 7 (1 = San José, 2 = Alajuela, 3 = Cartago, 4 = Heredia, 5 = Guanacaste, 6 = Puntarenas, 7 = Limón).',
+  });
+
+export const UrlSchema = z
+  .string()
+  .max(350, 'URL must not exceed 350 characters.')
+  .regex(
+    /^https:\/\/([\w\-]+\.)+[\w\-]+(\/[\w\-./?%&=]*)?$/,
+    'URL must start with \'https://\' and be a valid web address.',
+  );
+
 export const LastNameSchema = z
   .string()
   .nonempty()

@@ -80,7 +80,7 @@ export const boxVariants = cva('', {
       '2xl': 'gap-6',
       'lg': 'gap-4',
       'md': 'gap-3',
-      'sm': 'gap-2 md:gap-4',
+      'sm': 'gap-2',
       'xl': 'gap-5',
       'xs': 'gap-1',
       'section': 'gap-4 md:gap-8',
@@ -92,6 +92,7 @@ export const boxVariants = cva('', {
       md: 'h-12',
       lg: 'h-18',
       carouselLinear: 'h-4/5',
+      navbar: 'h-[80px] max-h-[80px]',
       carousel: 'h-[476px] md:h-[540px] lg:h-[36vw]',
     },
     justifyContent: {

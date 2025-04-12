@@ -11,6 +11,10 @@ export const AppRoutes = {
       Terms: '/legal/terms',
       Privacy: '/legal/privacy',
     },
+    Institutes: {
+      Explore: '/explore/institutes',
+      Search: (type: 'province' | 'query', value: string) => `/explore/institutes/search?${type}=${value}`,
+    },
   },
   Auth: {
     Settings: {
@@ -23,6 +27,10 @@ export const AppRoutes = {
     },
     Email: {
       VerifyChange: '/verify-email/change',
+    },
+    Add: {
+      Institute: '/add/institute',
+      Teacher: '/add/teacher',
     },
   },
   Guest: {

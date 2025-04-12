@@ -18,6 +18,7 @@ const Separator: FC<SeparatorProps> = memo(({
   bgColor,
   orientation = 'horizontal',
   decorative = true,
+  shrink,
   ...props
 }) => (
   <SeparatorPrimitive.Root
@@ -25,7 +26,7 @@ const Separator: FC<SeparatorProps> = memo(({
     decorative={decorative}
     orientation={orientation}
     className={cx(
-      separatorVariants({ bgColor, orientation }),
+      separatorVariants({ bgColor, shrink, orientation }),
       className,
     )}
     {...props}

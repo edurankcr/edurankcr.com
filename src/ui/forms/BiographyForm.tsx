@@ -64,7 +64,7 @@ export const BiographyForm = ({ dictionary, user }: BiographyFormProps) => {
             control={form.control}
             name="Biography"
             render={({ field }) => (
-              <FormItem className="w-full">
+              <FormItem>
                 <FormControl>
                   <Textarea
                     placeholder={dictionary('Input.Biography.placeholder')}
