@@ -4,6 +4,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 import type { z } from 'zod';
 
@@ -22,6 +23,7 @@ import {
   SelectValue,
   Stack,
 } from '@/components';
+import { postAddInstitute } from '@/services';
 import { AddInstituteValidation } from '@/validations';
 
 import { FormDisclaimer } from '../../blocks/Form';
@@ -41,8 +43,18 @@ export const AddInstitute = () => {
   });
 
   async function onSubmit(values: z.infer<typeof AddInstituteValidation>) {
-    // eslint-disable-next-line no-console
-    console.log(values);
+    const { Name, Type, Province, Url } = values;
+
+    try {
+      await postAddInstitute(Name, Number(Type), Number(Province), Url);
+      toast.success(dictionary('Paragraph.success_add_institute'));
+    } catch (error: any) {
+      const { response } = error;
+      switch (response.data.code) {
+        default:
+          toast.error(dictionary('Errors.General.500'));
+      }
+    }
   }
 
   return (
