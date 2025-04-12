@@ -1,0 +1,14 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .table {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, minmax(48px, auto));
+    gap: 0 48px;
+  }
+}
