@@ -2,9 +2,9 @@
 
 import { IconMailOpened } from '@tabler/icons-react';
 import { useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import { useTranslations } from 'use-intl';
 
 import {
   Button,

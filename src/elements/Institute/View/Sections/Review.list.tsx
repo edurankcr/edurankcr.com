@@ -2,7 +2,6 @@ import { IconDots } from '@tabler/icons-react';
 
 import {
   Avatar,
-  Box,
   Button,
   DropdownMenu,
   DropdownMenuContent,
@@ -12,22 +11,9 @@ import {
   Stack,
   Text,
 } from '@/components';
+import { InstituteBadgeList } from '@/constants';
 import type { IDictionary, IFormatter } from '@/types';
-
-type InstituteReviewBadgeItemProps = {
-  title: string;
-  value: number;
-};
-
-const InstituteReviewBadgeItem = ({ title, value }: InstituteReviewBadgeItemProps) => {
-  return (
-    <Box className="px-2.5 py-1 border border-border-interactive rounded-sm text-sm text-text-secondary font-semibold">
-      {title}
-      {' '}
-      {value}
-    </Box>
-  );
-};
+import { BadgeReviewList } from '@/ui';
 
 type InstituteReviewListItemProps = {
   avatarUrl: string;
@@ -65,6 +51,20 @@ const InstituteReviewListItem = (props: InstituteReviewListItemProps) => {
     internet = 0,
     food = 0,
   } = props;
+
+  const reviewList = InstituteBadgeList(dictionary, {
+    reputation,
+    happiness,
+    facilities,
+    clubs,
+    security,
+    opportunities,
+    location,
+    social,
+    internet,
+    food,
+  });
+
   return (
     <Stack className="border-b border-border-interactive pb-4 md:pb-12">
       <Group preventGrowOverflow={false} flexGrow justifyContent="between" flexWrap="nowrap">
@@ -99,16 +99,7 @@ const InstituteReviewListItem = (props: InstituteReviewListItemProps) => {
         {text}
       </Text>
       <Group preventGrowOverflow={false} flexGrow justifyContent="start" gap="md">
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.reputation')} value={reputation} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.happiness')} value={happiness} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.facilities')} value={facilities} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.clubs')} value={clubs} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.security')} value={security} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.opportunities')} value={opportunities} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.location')} value={location} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.social')} value={social} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.internet')} value={internet} />
-        <InstituteReviewBadgeItem title={dictionary('Elements.Institute.Overall.Items.food')} value={food} />
+        <BadgeReviewList reviews={reviewList} />
       </Group>
     </Stack>
   );

@@ -1,12 +1,10 @@
-import type { useTranslations } from 'use-intl';
-
 import { Link, Text } from '@/components';
 import { AppRoutes } from '@/constants';
+import type { ITranslations } from '@/types';
 
 type FormDisclaimersProps = {
-  dictionary: ReturnType<typeof useTranslations>;
   helpers?: any;
-};
+} & ITranslations;
 
 const FormDisclaimer = ({ dictionary }: FormDisclaimersProps) => {
   return (

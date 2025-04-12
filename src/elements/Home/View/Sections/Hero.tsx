@@ -2,13 +2,11 @@ import React from 'react';
 
 import { Section, Stack } from '@/components';
 import type { IDictionary } from '@/types';
+import { BackgroundHero, CTAHero, HeadingHero, SearchInput } from '@/ui';
 
-// noinspection ES6PreferShortImport
-import { BackgroundHero, CTAHero, HeadingHero, SearchInput } from '../../blocks';
+type HomeHeroProps = {} & IDictionary;
 
-type HeroSectionProps = {} & IDictionary;
-
-const HeroSection = ({ dictionary }: HeroSectionProps) => {
+export const HomeHero = ({ dictionary }: HomeHeroProps) => {
   return (
     <Section as="section" paddingY="none" paddingX="none" position="relative">
       <BackgroundHero />
@@ -24,5 +22,3 @@ const HeroSection = ({ dictionary }: HeroSectionProps) => {
     </Section>
   );
 };
-
-export { HeroSection };

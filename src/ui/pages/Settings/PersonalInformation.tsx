@@ -1,7 +1,6 @@
 'use client';
 
-import { useFormatter } from 'next-intl';
-import { useTranslations } from 'use-intl';
+import { useFormatter, useTranslations } from 'next-intl';
 
 import {
   Accordion,

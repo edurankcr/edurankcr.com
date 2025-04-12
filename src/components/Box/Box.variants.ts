@@ -87,6 +87,7 @@ export const boxVariants = cva('', {
     },
     height: {
       auto: 'h-auto',
+      fit: 'h-fit',
       dvh: 'h-dvh',
       full: 'h-full',
       md: 'h-12',

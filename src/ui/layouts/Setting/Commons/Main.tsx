@@ -1,9 +1,9 @@
 'use client';
 
 import { IconShield, IconUserScan } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
 import type { ComponentProps, FC } from 'react';
 import React from 'react';
-import { useTranslations } from 'use-intl';
 
 import { Box, Group, Link, Stack, Text, usePathname } from '@/components';
 import { Link as RouterLink } from '@/components/Navigation/Navigation';
@@ -48,8 +48,8 @@ export const MainHeader: FC<MainHeaderProps> = ({
           greeting: 'Hello',
           name: user?.name || '',
           email: user?.email || '',
-          b: chunks => <b>{chunks}</b>,
-          link: chunks => (
+          b: (chunks: any) => <b>{chunks}</b>,
+          link: (chunks: any) => (
             <Link
               href={AppRoutes.Global.Profile(user?.userName || '')}
               text={{ underline: true, weight: 'semibold', color: 'neon' }}

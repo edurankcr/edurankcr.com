@@ -2,8 +2,8 @@
 
 import { IconChevronRight, IconMenu } from '@tabler/icons-react';
 import { cx } from 'class-variance-authority';
+import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
-import { useTranslations } from 'use-intl';
 
 import {
   Avatar,

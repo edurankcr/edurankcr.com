@@ -1,7 +1,7 @@
 'use client';
 
 import { IconMailUp } from '@tabler/icons-react';
-import { useTranslations } from 'use-intl';
+import { useTranslations } from 'next-intl';
 
 import {
   Button,

@@ -137,3 +137,7 @@ export async function getInstitute(id: string) {
     params: { InstituteId: id },
   });
 }
+
+export async function fetchLastActivity() {
+  return await api.get('/reviews');
+}
