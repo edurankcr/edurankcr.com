@@ -71,16 +71,6 @@ export const ProvinceSchema = z
     message: 'Province must be between 1 and 7 (1 = San José, 2 = Alajuela, 3 = Cartago, 4 = Heredia, 5 = Guanacaste, 6 = Puntarenas, 7 = Limón).',
   });
 
-export const DistrictSchema = z
-  .string()
-  .nonempty('District is required.')
-  .refine((val) => {
-    const num = Number(val);
-    return !Number.isNaN(num) && num >= 101 && num <= 706;
-  }, {
-    message: 'District must be between 101 and 706.',
-  });
-
 export const UrlSchema = z
   .string()
   .max(350, 'URL must not exceed 350 characters.')
