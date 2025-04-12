@@ -10,29 +10,29 @@ import { Image } from '../Image';
 import { avatarVariants } from './Avatar.variants';
 
 type AvatarProps = {
-  User: {
-    UserName: string;
-    AvatarUrl?: string | null;
+  user: {
+    userName: string;
+    avatarUrl?: string | null;
   };
 } & ComponentProps<typeof Image> & VariantProps<typeof avatarVariants>;
 
 const Avatar: FC<AvatarProps> = memo(({
   className,
-  User,
+  user,
   ...props
 }) => {
   const getAvatarUrl = () => {
-    if (User.AvatarUrl) {
-      return User.AvatarUrl;
+    if (user.avatarUrl) {
+      return user.avatarUrl;
     }
-    return `https://api.dicebear.com/9.x/thumbs/svg?seed=${User.UserName}&radius=50&backgroundColor=abdae3`;
+    return `https://api.dicebear.com/9.x/thumbs/svg?seed=${user.avatarUrl}&radius=50&backgroundColor=abdae3`;
   };
 
   return (
     <Image
       className={cx(avatarVariants(), className)}
       src={getAvatarUrl()}
-      alt={User.UserName}
+      alt={user.userName}
       width={48}
       height={48}
       {...props}
