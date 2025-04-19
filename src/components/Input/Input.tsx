@@ -20,6 +20,7 @@ const CSput = memo<InputProps>(({
   leftSection,
   rightSection,
   boxSettings,
+  onKeyDown,
   ...props
 }) => {
   return (
@@ -35,8 +36,9 @@ const CSput = memo<InputProps>(({
     >
       {leftSection && <span className="me-4 text-neutral-600">{leftSection}</span>}
       <input
-        className={cx(inputVariants(), className)}
         {...props}
+        className={cx(inputVariants(), className)}
+        onKeyDown={onKeyDown}
       />
       {rightSection && <span className="ms-4 text-neutral-600">{rightSection}</span>}
     </Box>

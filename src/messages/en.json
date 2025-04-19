@@ -1,349 +1,200 @@
 {
   "Meta": {
-    "Home": {
-      "title": "Trusted Reviews of Teachers, Universities & Institutes in Costa Rica | EduRankCR",
-      "description": "Find and compare the best universities, institutes, and teachers in Costa Rica with EduRankCR. ⭐ Read real student reviews, explore top-rated educators, and choose the best learning experience. 🔍"
+    "Index": {
+      "title": "Rate Professors & Schools in Costa Rica | EduRankCR",
+      "description": "Discover the best professors and educational institutions in Costa Rica. Share reviews, compare ratings, and make informed decisions with EduRankCR."
     },
     "Login": {
-      "title": "Login to EduRankCR | Rate Teachers & Schools in Costa Rica",
-      "description": "Sign in to review and explore teachers and institutions in Costa Rica. Join EduRankCR to make informed academic choices."
+      "title": "Login | EduRankCR",
+      "description": "Sign in to EduRankCR to rate professors, review institutions, and explore education insights across Costa Rica. Your voice matters in shaping academic excellence."
     },
     "Register": {
-      "title": "Register on EduRankCR | Rate Teachers & Schools in Costa Rica",
-      "description": "Create an account on EduRankCR to review and explore teachers and institutions in Costa Rica."
+      "title": "Register | EduRankCR",
+      "description": "Join EduRankCR to share your experiences, rate professors, and connect with the educational community in Costa Rica. Sign up for free today!"
+    },
+    "ForgotPassword": {
+      "title": "Forgot Password | EduRankCR",
+      "description": "Reset your password for EduRankCR. Enter your email to receive a password reset link and regain access to your account."
+    },
+    "ForgotPasswordSent": {
+      "title": "Forgot Password Sent | EduRankCR",
+      "description": "Check your email for a password reset link to regain access to your EduRankCR account. Follow the instructions to reset your password."
+    },
+    "ResetPassword": {
+      "title": "Reset Password | EduRankCR",
+      "description": "Create a new password for your EduRankCR account. Follow the instructions to securely reset your password and regain access."
     },
     "VerifyEmail": {
-      "title": "Verify Your Email | EduRankCR",
-      "description": "Verify your email address to complete your registration on EduRankCR."
+      "title": "Verify Email | EduRankCR",
+      "description": "Verify your email address for EduRankCR. Click the link in your email to confirm your account and start sharing your educational experiences."
+    },
+    "VerifyEmailRequest": {
+      "title": "Verify Email Request | EduRankCR",
+      "description": "Request a new verification email for your EduRankCR account. Enter your email to receive a link and confirm your account."
     },
     "VerifyEmailSent": {
-      "title": "Verification Email Sent | EduRankCR",
-      "description": "A verification email has been sent to your email address. Please check your inbox to verify your account."
-    },
-    "RequestPassword": {
-      "title": "Request Password Reset | EduRankCR",
-      "description": "Request a password reset link to regain access to your EduRankCR account."
-    },
-    "RequestPasswordSent": {
-      "title": "Password Reset Email Sent | EduRankCR",
-      "description": "A password reset email has been sent to your email address. Please check your inbox to reset your password."
-    },
-    "RequestPasswordChange": {
-      "title": "Change Password | EduRankCR",
-      "description": "Change your password to log in to your EduRankCR account."
-    },
-    "Settings": {
-      "title": "Settings | EduRankCR",
-      "description": "Manage your account settings, preferences, and notifications on EduRankCR."
+      "title": "Verify Email Sent | EduRankCR",
+      "description": "Check your email for a verification link to confirm your EduRankCR account. Follow the instructions to complete the verification process."
     },
     "VerifyEmailChange": {
       "title": "Verify Email Change | EduRankCR",
-      "description": "Verify your new email address to complete the change on EduRankCR."
+      "description": "Change your email address for EduRankCR. Verify the new email to update your account information and continue sharing your experiences."
     },
-    "Security": {
+    "Settings": {
+      "title": "Settings | EduRankCR",
+      "description": "Manage your account settings on EduRankCR. Update your profile, change your password, and customize your preferences."
+    },
+    "SettingsSecurity": {
       "title": "Security Settings | EduRankCR",
-      "description": "Manage your security settings, including password changes on EduRankCR."
-    },
-    "AddInstitute": {
-      "title": "Add an Institute | EduRankCR",
-      "description": "Add a new institute to EduRankCR and help others discover it."
+      "description": "Enhance your account security on EduRankCR. Update your password, enable two-factor authentication, and manage your security settings."
     },
     "Institute": {
-      "title": "Institution Details | EduRankCR",
-      "description": "Explore detailed information about institutions in Costa Rica, including reviews and ratings from students."
+      "title": "{name} | EduRankCR",
+      "description": "Explore {name} on EduRankCR. Read reviews, compare ratings, and discover the best educational institutions in Costa Rica.",
+      "generic_title": "Institutions | EduRankCR",
+      "generic_description": "Discover the best educational institutions in Costa Rica. Read reviews, compare ratings, and make informed decisions with EduRankCR."
     }
   },
-  "UI": {
-    "Elements": {
-      "Review": {
-        "teacher": "Teacher",
-        "FreeCourse": {
-          "title": "Free Course",
-          "true": "Yes",
-          "false": "No"
-        },
-        "MandatoryAttendance": {
-          "title": "Attendance",
-          "true": "Yes",
-          "false": "No"
-        },
-        "CourseMode": {
-          "title": "Course Mode",
-          "0": "In-person",
-          "1": "Online",
-          "2": "Hybrid"
-        },
-        "InstituteTypes": {
-          "0": "School",
-          "1": "College",
-          "2": "University",
-          "3": "Institute"
-        },
-        "Actions": {
-          "wrote": "<link>{userFullName}</link> <b>wrote a review</b>",
-          "read_more": "Read more"
-        }
-      },
-      "Home": {
-        "Activity": {
-          "title": "Last Activity on EduRankCR"
-        },
-        "Errors": {
-          "fetch_last_activity": "An error occurred while fetching the last activity. Please try again later."
-        }
-      },
-      "Institute": {
-        "Overview": {
-          "title": "About {name}",
-          "button": "Suggest an edit"
-        },
-        "Review": {
-          "Actions": {
-            "report": "Report an issue"
-          }
-        },
-        "Reviews": {
-          "title": "Reviews",
-          "quantity": "{total} reviews",
-          "button": "Review this institution",
-          "Descriptions": {
-            "experience": "Experience",
-            "institution": "Institution"
-          }
-        },
-        "Overall": {
-          "title": "Overall Quality Rating for {name}",
-          "Items": {
-            "reputation": "Reputation",
-            "opportunities": "Opportunities",
-            "happiness": "Happiness",
-            "location": "Location",
-            "facilities": "Facilities",
-            "social": "Social",
-            "clubs": "Clubs",
-            "internet": "Internet",
-            "security": "Security",
-            "food": "Food"
-          }
-        }
-      }
-    },
+  "Base": {
     "Breadcrumb": {
-      "home": "Back to Explore",
+      "home": "Home",
       "country": "Costa Rica"
     },
-    "Errors": {
-      "Auth": {
-        "InvalidCred": "The identifier or password you entered is incorrect. Please try again.",
-        "LoginRequired": "You need to log in to access this feature."
-      },
-      "User": {
-        "404": "We couldn’t find an account matching the information you provided. Please check your details and try again.",
-        "403": "Your email address hasn’t been verified yet. Please check your inbox or spam folder and verify it to proceed. If you haven't received or expired, please <link>request a new verification email</link>.",
-        "EmailTaken": "Email already taken. Please use a different email address or log in.",
-        "UserNameTaken": "Username already taken. Please choose a different username.",
-        "EmailAlreadyConfirmed": "This email address has already been verified. You can go ahead and log in.",
-        "EmailCurrentInUse": "Seriously? This email address is already in use. Please use a different one."
-      },
-      "Email": {
-        "ServerError": "An error occurred while sending the verification email. Please try again later."
-      },
-      "Token": {
-        "Expired": "The verification key has expired. Please <link>request a new one</link>.",
-        "AlreadyUsed": "The verification key has already been used. Please <link>request a new one</link>.",
-        "AlreadyExists": "A valid link has already been sent. Please check your inbox before requesting another, or try again in 30 minutes.",
-        "NotFound": "We couldn't find the verification key. Please check the link you received or contact support."
-      },
-      "General": {
-        "404": "The page you are looking for does not exist.",
-        "500": "An unexpected error occurred. Please try again later or contact support.",
-        "403": "You do not have permission to access this page."
-      }
-    },
-    "Select": {
-      "Type": {
-        "placeholder": "Select a type of institution",
-        "Options": {
-          "0": "School",
-          "1": "College",
-          "2": "University",
-          "3": "Institute"
-        }
-      },
-      "Province": {
-        "placeholder": "Select a province",
-        "Options": {
-          "1": "San José",
-          "2": "Alajuela",
-          "3": "Cartago",
-          "4": "Heredia",
-          "5": "Guanacaste",
-          "6": "Puntarenas",
-          "7": "Limón"
-        }
-      },
-      "Canton": {
-        "placeholder": "Select a canton"
-      },
-      "District": {
-        "placeholder": "Select a district"
-      }
-    },
-    "Button": {
-      "log_in": "Log In",
-      "link_hero_cta": "Explore Rankings",
-      "forgot_password": "Forgot Password?",
-      "sign_up_free": "Sign up for free",
-      "resend_verification_email": "Send verification email",
-      "new_verification_email": "Send a new verification email",
-      "request_another": "Request another",
-      "send_password_reset": "Send email",
-      "go_to_home": "Go to Home",
-      "change_password": "Change Password",
-      "profile": "Profile",
-      "show_profile": "Show Profile",
-      "settings": "Settings",
-      "help_center": "Help Center",
-      "logout": "Log Out",
-      "favorites": "Favorites",
-      "save": "Save",
-      "cancel": "Cancel",
-      "delete": "Delete",
-      "reset": "Reset",
-      "create": "Create",
-      "compare": "Compare",
-      "rate": "Rate",
-      "reviews": "Reviews",
-      "overview": "Overview"
-    },
-    "Heading": {
-      "hero_cta": "Find Trusted Educational Reviews in Costa Rica",
-      "last_activity": "Last Activity on EduRankCR",
-      "form_login": "Welcome back.",
-      "form_login_two": "Log in and start exploring.",
-      "form_register": "Sign up today it's free for everyone",
-      "form_request_verification_email": "Request a new verification email",
-      "form_request_verification_email_sent": "Yeey! A verification email has been sent to your inbox",
-      "form_wait_for_verification_email": "Wait... we're verifying your email address",
-      "form_key_not_found": "Oops... we couldn't find your verification key",
-      "form_key_invalid": "Oops... your verification key is invalid",
-      "form_key_expired": "Oops... your verification key has expired :'(",
-      "form_key_already_used": "Oops... your verification key has already been used",
-      "form_key_verified": "Yeey! Your email address has been verified",
-      "form_request_password": "Request a password reset",
-      "form_request_password_sent": "Yeey! A password reset email has been sent to your inbox",
-      "alert_error": "Oops! Something went wrong",
-      "loading": "Loading...",
-      "form_legal_name": "Legal name",
+    "Accordion": {
       "edit": "Edit",
       "cancel": "Cancel",
-      "form_username": "Username",
-      "form_birthdate": "Date of birth",
-      "form_biography": "Biography",
-      "form_email": "Email address",
-      "form_avatar": "Avatar",
-      "form_password": "Change password",
-      "add_institute": "Add an Institute",
-      "localization": "Localization",
-      "reviews": "Reviews"
-    },
-    "Paragraph": {
-      "already_have_an_account": "Already have an account?",
-      "already_verified": "Already verified your email?",
-      "dont_have_account": "Don't have an account?",
-      "new_verification_email": "Need a new verification email?",
-      "request_verification_email": "If you haven't received a verification email, please enter your email address below to request a new one.",
-      "request_verification_email_sent": "If you haven't received a verification email, please check your SPAM folder, or try again in 30 minutes.",
-      "wait_for_verification_email": "Please don't close this page. We are verifying your email address, and it may take a few moments.",
-      "key_not_found": "It's very strange, but we couldn't find your verification key. Please check given link or contact support.",
-      "key_invalid": "It's very strange, and also a bit suspicious, but your verification key is invalid. If you think this is a mistake, please contact support.",
-      "key_expired": "We know, it's annoying. For security reasons, codes are only valid for 30 minutes. Please request a new one to continue.",
-      "key_already_used": "Oops! It seems that your verification key has already been used. Please request a new one to continue.",
-      "key_verified": "You can now log in to your account.",
-      "change_verified": "You can see your new email address in your profile settings.",
-      "request_password": "If you forgot your password, please enter your email address below to request a password reset link.",
-      "already_know_password": "Are you knowing your password?",
-      "request_password_sent": "Please check your inbox for a password reset link. If you don't see it, check your spam folder.",
-      "password_change_success": "Your password has been successfully changed. You can now log in with your new password.",
-      "success_logout": "You have successfully logged out. See you soon!",
-      "form_legal_name": "Please enter your legal name as it appears on your official documents.",
-      "profile_data_updated": "Your profile data has been successfully updated.",
-      "form_username": "Please choose a unique username that will be visible to other users.",
-      "form_birthdate": "This information is required for account verification and security purposes.",
-      "form_biography": "This will help other users get to know you better.",
-      "form_email": "This will be used for account verification and password recovery.",
-      "check_email_to_confirm": "Please check your email inbox for a confirmation link. If you don't see it, check your spam folder.",
-      "pending_to_confirm": "{email} is pending to be confirmed",
-      "email_change_cancelled": "Email change has been cancelled. The previous email address is still active.",
-      "form_avatar": "Please upload a clear and recent photo of yourself. This will help other users recognize you.",
-      "form_password": "This will be used to log in to your account. Please choose a strong password.",
-      "success_add_institute": "Your institute has been successfully added. Thank you for contributing to EduRankCR!",
-      "see_all_reviews": "See all reviews",
-      "overall_quality": "Overall quality",
-      "reputation": "Reputation",
-      "opportunities": "Opportunities",
-      "happiness": "Happiness",
-      "location": "Location",
-      "facilities": "Facilities",
-      "social": "Social",
-      "clubs": "Clubs",
-      "internet": "Internet",
-      "security": "Security",
-      "food": "Food"
-    },
-    "Input": {
       "Avatar": {
-        "placeholder_bold": "Click to upload a new avatar",
-        "placeholder": "or drag and drop"
-      },
-      "Search": {
-        "placeholder": "Search for teachers, universities or institutes...",
-        "placeholder_sm": "Search..."
-      },
-      "Identifier": {
-        "placeholder": "Email address or username"
-      },
-      "Password": {
-        "placeholder": "Password"
-      },
-      "NewPassword": {
-        "placeholder": "New password"
-      },
-      "ConfirmPassword": {
-        "placeholder": "Confirm password"
-      },
-      "Email": {
-        "placeholder": "Email address"
-      },
-      "NewEmail": {
-        "placeholder": "New email address"
-      },
-      "UserName": {
-        "placeholder": "Username"
+        "title": "Avatar",
+        "description": "Please upload a clear and recent photo of yourself. This will help other users recognize you."
       },
       "Name": {
-        "placeholder": "First name"
+        "title": "Name",
+        "description": "Please enter your legal name as it appears on your official documents."
       },
-      "LastName": {
-        "placeholder": "Last name"
+      "UserName": {
+        "title": "Username",
+        "description": "Please choose a unique username that will be visible to other users."
       },
       "BirthDate": {
-        "placeholder": "Date of birth"
+        "title": "Date of Birth",
+        "description": "This information is required for account verification and security purposes."
       },
       "Biography": {
-        "placeholder": "Tell us about yourself..."
+        "title": "Biography",
+        "description": "This will help other users get to know you better."
       },
-      "CurrentPassword": {
-        "placeholder": "Current password"
+      "Email": {
+        "title": "Email Address",
+        "description": "This will be used for account verification and password recovery."
       },
-      "InstituteName": {
-        "placeholder": "Institute name"
-      },
-      "Url": {
-        "placeholder": "Website URL"
+      "Password": {
+        "title": "Change Password",
+        "description": "This will be used to log in to your account. Please choose a strong password."
       }
     },
-    "Helpers": {
+    "Errors": {
+      "fetch_data": "An error occurred while fetching data. Please try again later.",
+      "fetch_server": "This error is on our end — we're sorry for the inconvenience. It's been reported, and we're working to fix it as quickly as possible.",
+      "send_email": "An error occurred while sending the email. Please try again later.",
+      "user_not_found": "We couldn’t find an account matching the information you provided. Please check your details and try again.",
+      "user_email_not_confirmed": "Your email address hasn’t been verified yet. Please check your inbox or spam folder and verify it to proceed. If you haven't received or expired, please <link>request a new verification email</link>.",
+      "user_invalid_credentials": "The email address or password you entered is incorrect. Please check your details and try again.",
+      "user_email_current_in_use": "Seriously? This email address is already in use. Please use a different one.",
+      "user_email_taken": "Email already taken. Please use a different email address or log in.",
+      "user_username_taken": "Username already taken. Please choose a different username.",
+      "user_email_already_confirmed": "This email address has already been verified. You can go ahead and log in.",
+      "user_not_confirmed": "Your account is not confirmed. Please check your email inbox or spam folder and verify it to proceed.",
+      "user_same_username": "This is your current username. Please choose a different one.",
+      "user_email_verification_already_sent": "A verification email has already been sent to this address. Please check your inbox or spam folder.",
+      "user_email_duplicate": "This email address is already associated with another account. Please use a different email address.",
+      "token_expired": "The verification key has expired. Please <link>request a new one</link>.",
+      "token_already_used": "The verification key has already been used. Please <link>request a new one</link>.",
+      "token_not_found": "We couldn't find the verification key. Maybe it was already used or expired. Please request a new one.",
+      "token_invalid": "It's very strange, and also a bit suspicious, but your verification key is invalid. If you think this is a mistake, please contact support.",
+      "token_already_exists": "A valid link has already been sent. Please check your inbox before requesting another, or try again in 30 minutes.",
+      "login_required": "You need to log in to access this feature."
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "{greeting}, <b>{name}</b>! {email} · <link>Go to my profile</link>",
+      "Security": {
+        "title": "Security Settings",
+        "description": "Manage your account security settings. Update your password, enable two-factor authentication, and review your recent activity."
+      },
+      "Menu": {
+        "personal_info": "Personal Information",
+        "security": "Security"
+      }
+    },
+    "Form": {
+      "Login": {
+        "title": "Welcome back.",
+        "subtitle": "Log in and start exploring.",
+        "forgot_password": "Forgot your password?",
+        "dont_have_account": "Don't have an account?",
+        "sign_up": "Sign up now"
+      },
+      "Register": {
+        "title": "Sign up today it's free for everyone",
+        "already_have_an_account": "Already have an account?"
+      },
+      "ForgotPassword": {
+        "title": "Request a password reset",
+        "paragraph": "If you forgot your password, please enter your email address below to request a password reset link.",
+        "already_know_password": "Are you knowing your password?"
+      },
+      "ForgotPasswordSent": {
+        "title": "Yeey! A password reset email has been sent to your inbox",
+        "paragraph": "Please check your inbox for a password reset link. If you don't see it, check your spam folder.",
+        "already_confirmed": "Already confirmed your email?"
+      },
+      "ResetPassword": {
+        "title": "Reset your password",
+        "password_change_success": "Your password has been successfully changed. You can now log in with your new password.",
+        "alert_error": "Oops! Something went wrong"
+      },
+      "VerifyEmail": {
+        "title": "Wait... we're verifying your email address",
+        "need_new_verification_email": "Need a new verification email?",
+        "email_verified_success": "Yeey! Your email address has been verified You can now log in to your account.",
+        "email_change_success": "Your email address has been successfully changed. You can now log in with your new email address."
+      },
+      "VerifyEmailRequest": {
+        "title": "Request a new verification email",
+        "paragraph": "If you haven't received a verification email or it has expired, please enter your email address below to request a new one.",
+        "already_verified": "Already verified your email?"
+      },
+      "VerifyEmailSent": {
+        "title": "Yeey! A verification email has been sent to your inbox",
+        "paragraph": "Please check your email inbox for a confirmation link. If you don't see it, check your spam folder.",
+        "already_verified": "Already verified your email?"
+      },
+      "VerifyEmailChange": {
+        "title": "Wait... we're verifying your email address"
+      },
+      "Avatar": {
+        "update_success": "Your avatar has been successfully updated"
+      },
+      "FullName": {
+        "update_success": "Your name has been successfully updated"
+      },
+      "UserName": {
+        "update_success": "Your username has been successfully updated"
+      },
+      "BirthDate": {
+        "update_success": "Your date of birth has been successfully updated"
+      },
+      "Biography": {
+        "update_success": "Your biography has been successfully updated"
+      },
+      "Email": {
+        "update_success": "Confirmation email has been sent to your new email address. Please check your inbox to confirm the change.",
+        "email_change_cancelled": "Email change has been cancelled. The previous email address is still active."
+      },
+      "footer": "By continuing to use EduRankCR, you agree to our <b>Terms of Service</b> and <b>Privacy Policy</b>.",
+      "footer_email": "If you don’t see the email in your inbox, be sure to check your spam, promotions or junk folder. Please note that only one email can be sent <b>every 30 minutes</b>."
+    },
+    "Global": {
       "Province": {
         "1": "San José",
         "2": "Alajuela",
@@ -353,146 +204,183 @@
         "6": "Puntarenas",
         "7": "Limón"
       },
-      "Settings": {
-        "About": {
-          "title": "Account Settings",
-          "description": "{greeting}, <b>{name}</b>! {email} · <link>Go to my profile</link>"
-        },
-        "Menu": {
-          "personal_info": "Personal Information",
-          "security": "Security",
-          "privacy": "Privacy",
-          "notifications": "Notifications",
-          "preferences": "Preferences",
-          "help": "Help"
+      "Institute": {
+        "0": "School",
+        "1": "College",
+        "2": "University",
+        "3": "Institute"
+      },
+      "Vote": {
+        "reputation": "Reputation",
+        "opportunities": "Opportunities",
+        "happiness": "Happiness",
+        "location": "Location",
+        "facilities": "Facilities",
+        "social": "Social",
+        "clubs": "Clubs",
+        "internet": "Internet",
+        "security": "Security",
+        "food": "Food"
+      }
+    },
+    "Input": {
+      "Search": {
+        "placeholder": "Search for teachers, universities or institutes...",
+        "Results": {
+          "empty_title": "Oops! No results found",
+          "empty_desc": "Try searching for something else or check your spelling.",
+          "institute_desc": "{type} in {province}",
+          "teacher_desc": ""
         }
+      },
+      "Identifier": {
+        "placeholder": "Email address or username"
+      },
+      "Password": {
+        "placeholder": "Password"
+      },
+      "Name": {
+        "placeholder": "First name"
+      },
+      "LastName": {
+        "placeholder": "Last name"
+      },
+      "UserName": {
+        "placeholder": "Username"
+      },
+      "Email": {
+        "placeholder": "Email address"
+      },
+      "BirthDate": {
+        "placeholder": "Date of birth"
+      },
+      "NewPassword": {
+        "placeholder": "New password"
+      },
+      "ConfirmPassword": {
+        "placeholder": "Confirm password"
+      },
+      "Avatar": {
+        "placeholder_bold": "Click to upload a new avatar",
+        "placeholder": "or drag and drop"
+      },
+      "NewEmail": {
+        "placeholder": "New email address"
+      },
+      "Biography": {
+        "placeholder": "Tell us about yourself..."
+      },
+      "CurrentPassword": {
+        "placeholder": "Current password"
+      }
+    },
+    "Hero": {
+      "Home": {
+        "title": "Find Trusted Educational Reviews in Costa Rica",
+        "link": "Explore Rankings"
+      }
+    },
+    "Card": {
+      "Review": {
+        "wrote": "<link>{userFullName}</link> <b>wrote a review</b>"
+      }
+    },
+    "Section": {
+      "Activity": {
+        "title": "Last Activity on EduRankCR"
       },
       "Institute": {
-        "Type": {
-          "0": "School",
-          "1": "College",
-          "2": "University",
-          "3": "Institute"
-        }
-      },
-      "Form": {
-        "check_spam": "If you don’t see the email in your inbox, be sure to check your spam, promotions or junk folder. Please note that only one email can be sent every 30 minutes.",
-        "by_continuing": "By continuing to use EduRankCR, you agree to our",
-        "terms_of_service": "Terms of Service",
-        "and": "and",
-        "privacy_policy": "Privacy Policy"
-      },
-      "User": {
-        "action_review": "wrote a review",
-        "action_read_more": "Read more"
-      },
-      "Footer": {
-        "copyright_brand": "© {year} EduRankCR, www.edurankcr.com.",
-        "copyright_text": " All rights reserved.",
-        "privacy_policy": "Privacy Policy",
-        "terms_of_service": "Terms of Service",
-        "cookie_policy": "Cookie Policy"
-      },
-      "Navigation": {
-        "Explore": {
-          "label": "Explore",
-          "label_emoji": "\uD83E\uDDED Explore",
-          "Items": {
-            "Institutions": {
-              "label": "Institutions"
-            },
-            "Professors": {
-              "label": "Professors"
-            },
-            "Reviews": {
-              "label": "Reviews"
-            },
-            "Compare": {
-              "label": "Compare"
-            },
-            "Tags": {
-              "label": "Tags"
-            },
-            "ProvincesAndCantons": {
-              "label": "Provinces & Cantons"
-            }
-          }
-        },
-        "Saved": {
-          "label": "\uD83D\uDCCC Saved",
-          "Items": {
-            "MyFavorites": {
-              "label": "My Favorites"
-            },
-            "MyReviews": {
-              "label": "My Reviews"
-            },
-            "MyInstitutions": {
-              "label": "My Institutions"
-            },
-            "Bookmarks": {
-              "label": "Bookmarks"
-            }
-          }
-        },
-        "MyAccount": {
-          "label": "My Account",
-          "Items": {
-            "Profile": {
-              "label": "Profile"
-            },
-            "Favorites": {
-              "label": "Favorites"
-            },
-            "MyReviews": {
-              "label": "My Reviews"
-            },
-            "SupportTickets": {
-              "label": "Support Tickets"
-            },
-            "Settings": {
-              "label": "Settings"
-            }
-          }
-        },
-        "About": {
-          "label": "About",
-          "Items": {
-            "WhatIsEduRankCR": {
-              "label": "What is EduRankCR?"
-            },
-            "OurMission": {
-              "label": "Our Mission"
-            },
-            "TheTeam": {
-              "label": "The Team"
-            },
-            "Press": {
-              "label": "Press"
-            },
-            "Partners": {
-              "label": "Partners"
-            }
-          }
-        },
-        "Community": {
-          "label": "Community",
-          "Items": {
-            "HelpCenter": {
-              "label": "Help Center"
-            },
-            "BecomeModerator": {
-              "label": "Become a Moderator"
-            },
-            "JoinAmbassadors": {
-              "label": "Join the Ambassadors"
-            },
-            "ContactUs": {
-              "label": "Contact Us"
-            }
-          }
-        }
+        "overview_title": "About of {name}",
+        "overview_quality_title": "Overall Quality",
+        "reviews": "{total} reviews",
+        "reviews_title": "Reviews",
+        "reviews_quantity": "{total} reviews",
+        "avg_quality": "Quality",
+        "avg_social": "Life",
+        "reviews_reputation": "Reputation {value}",
+        "reviews_opportunities": "Opportunities {value}",
+        "reviews_happiness": "Happiness {value}",
+        "reviews_location": "Location {value}",
+        "reviews_facilities": "Facilities {value}",
+        "reviews_social": "Social {value}",
+        "reviews_clubs": "Clubs {value}",
+        "reviews_internet": "Internet {value}",
+        "reviews_security": "Security {value}",
+        "reviews_food": "Food {value}"
       }
+    },
+    "Button": {
+      "log_in": "Log In",
+      "learn_more": "Learn more",
+      "send_email": "Send email",
+      "go_to_home": "Go to Home",
+      "change_password": "Change Password",
+      "update": "Update",
+      "cancel": "Cancel",
+      "remove": "Remove",
+      "overview": "Overview",
+      "reviews": "Reviews",
+      "write_review": "Write a Review",
+      "report": "Report",
+      "cancel_verification": "Cancel Verification"
+    },
+    "Navbar": {
+      "Community": {
+        "title": "Community",
+        "help_center": "Help Center",
+        "become_moderator": "Become a Moderator"
+      },
+      "About": {
+        "title": "About",
+        "company": "About EduRankCR",
+        "mission": "Our Mission",
+        "contact": "Contact Us"
+      },
+      "Account": {
+        "title": "My Account",
+        "favorites": "My Favorites",
+        "reviews": "My Reviews",
+        "support": "Support Tickets",
+        "settings": "Settings",
+        "profile": "Profile",
+        "see_my_profile": "See my profile",
+        "help_center": "Help Center",
+        "logout": "Log Out",
+        "logout_success": "Have a great day! You have successfully logged out."
+      },
+      "Explore": {
+        "title": "Explore",
+        "universities": "Universities",
+        "professors": "Professors",
+        "rankings": "Rankings",
+        "advanced_search": "Advanced Search",
+        "provinces": "Provinces"
+      },
+      "Saved": {
+        "title": "Saved",
+        "professors": "Saved Professors",
+        "universities": "Saved Universities",
+        "searches": "Saved Searches"
+      },
+      "Reviews": {
+        "title": "Reviews",
+        "write": "Write a Review",
+        "mine": "My Reviews",
+        "pending": "Pending Reviews"
+      },
+      "Personal": {
+        "title": "Personal Information"
+      },
+      "Security": {
+        "title": "Security"
+      }
+    },
+    "Footer": {
+      "copyright": "© {year} <b>EduRankCR</b>, www.edurankcr.com. This project is for <b>educational purposes</b> only. All content is used under fair use and no copyright infringement is intended.",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "cookie": "Cookie Policy",
+      "creators": "Creators"
     }
   }
 }

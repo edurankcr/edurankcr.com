@@ -42,7 +42,7 @@ export const GuidSchema = z
 
 export const NameSchema = z
   .string()
-  .nonempty()
+  .nonempty({ message: 'Name is required.' })
   .max(64);
 
 export const InstituteNameSchema = z
@@ -81,12 +81,12 @@ export const UrlSchema = z
 
 export const LastNameSchema = z
   .string()
-  .nonempty()
+  .nonempty({ message: 'Last name is required.' })
   .max(96);
 
 export const UserNameSchema = z
   .string()
-  .nonempty()
+  .nonempty({ message: 'Username is required.' })
   .min(3)
   .max(20)
   .refine(isValidUsername, {
@@ -95,7 +95,7 @@ export const UserNameSchema = z
 
 export const BirthDateSchema = z
   .string()
-  .nonempty()
+  .nonempty({ message: 'Birth date is required.' })
   .refine(isValidAge, {
     message: 'You must be at least 18 years old and at most 100 years old.',
   });
@@ -110,3 +110,9 @@ export const AvatarSchema = z
   .refine(file => file.size <= 2 * 1024 * 1024, {
     message: 'Avatar file size must be less than 2MB.',
   });
+
+export const SearchNameSchema = z
+  .string()
+  .nonempty({ message: 'Search name is required.' })
+  .max(100, { message: 'Search name must be at most 100 characters long.' })
+  .regex(/^[a-z0-9\s.,'"-]+$/i, 'Invalid characters in search name. Only letters, numbers, and spaces are allowed.');

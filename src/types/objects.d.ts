@@ -1,12 +1,45 @@
-type Institute = {
+type Teacher = {
+  teacherId: string;
   name: string;
-  type: string;
+  lastName: string;
+  fullName: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
+type Institute = {
+  instituteId: string;
+  name: string;
+  type: number;
   province: number;
-  url: string;
+  url?: string;
+  createdAt: string;
+  updatedAt: string;
 };
 
 type InstituteProps = {
   institute: Institute;
+};
+
+type InstituteSummary = {
+  instituteId: string;
+  totalReviews: number;
+  totalAverageScore: number;
+  reputation: number;
+  opportunities: number;
+  happiness: number;
+  location: number;
+  facilities: number;
+  social: number;
+  clubs: number;
+  internet: number;
+  security: number;
+  food: number;
+  updatedAt: string;
+};
+
+type InstituteSummaryProps = {
+  instituteSummary: InstituteSummary;
 };
 
 type ReviewTeacher = {
@@ -28,11 +61,7 @@ type ReviewTeacher = {
   userFirstName: string;
   userLastName: string;
   userName: string;
-  avatarUrl?: string;
-};
-
-type ReviewTeacherProps = {
-  review: ReviewTeacher;
+  avatarUrl: string | null;
 };
 
 type ReviewInstitute = {
@@ -55,11 +84,9 @@ type ReviewInstitute = {
   userFirstName: string;
   userLastName: string;
   userName: string;
-  avatarUrl?: string;
+  avatarUrl: string | null;
 };
 
-type ReviewInstituteProps = {
-  review: ReviewInstitute;
-};
+type IInstituteDetails = InstituteProps & InstituteSummaryProps;
 
-export { InstituteProps, ReviewInstituteProps, ReviewTeacherProps };
+export { IInstituteDetails, Institute, InstituteSummary, InstituteSummaryProps, ReviewInstitute, ReviewTeacher, Teacher };

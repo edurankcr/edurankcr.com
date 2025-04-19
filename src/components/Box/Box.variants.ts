@@ -42,6 +42,7 @@ export const boxVariants = cva('', {
     flexDirection: {
       column: 'flex-col',
       row: 'flex-row',
+      rowRes: 'flex-col md:flex-row',
     },
     flexGrow: { true: 'flex-grow' },
     flexWrap: {
@@ -84,13 +85,14 @@ export const boxVariants = cva('', {
       'xl': 'gap-5',
       'xs': 'gap-1',
       'section': 'gap-4 md:gap-8',
+      'content': 'gap-8 md:gap-24',
     },
     height: {
       auto: 'h-auto',
       fit: 'h-fit',
       dvh: 'h-dvh',
       full: 'h-full',
-      md: 'h-12',
+      md: 'h-10',
       lg: 'h-18',
       carouselLinear: 'h-4/5',
       navbar: 'h-[80px] max-h-[80px]',
@@ -112,7 +114,7 @@ export const boxVariants = cva('', {
     maxWidth: {
       auto: 'max-w-auto',
       full: 'max-w-full',
-      form: 'max-w-[524px]',
+      form: 'md:max-w-[524px]',
       item: 'max-w-1/4',
     },
     minHeight: {

@@ -4,11 +4,39 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { cx } from 'class-variance-authority';
 import type { ComponentPropsWithoutRef, Ref } from 'react';
 
+import { Icons } from '@/components';
+
 import { Link as RouterLink } from '../Navigation/Navigation';
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
+type DropdownMenuTriggerProps = ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Trigger> & {
+  ref?: Ref<HTMLButtonElement> | null;
+  hasIcon?: boolean;
+};
+
+const DropdownMenuTrigger = ({
+  ref,
+  hasIcon = true,
+  className,
+  ...props
+}: DropdownMenuTriggerProps) => (
+  <DropdownMenuPrimitive.Trigger
+    ref={ref}
+    className={cx(
+      'cursor-pointer group',
+      className,
+    )}
+    {...props}
+  >
+    <div className="flex justify-center items-center gap-2">
+      {props.children}
+      {hasIcon && (
+        <Icons iconName="chevronDown" size={18} className="transition-transform duration-200 ease-in-out group-data-[state=open]:rotate-180" />
+      )}
+    </div>
+  </DropdownMenuPrimitive.Trigger>
+);
 
 const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 
