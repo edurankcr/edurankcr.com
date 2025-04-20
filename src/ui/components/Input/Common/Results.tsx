@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getSearch } from '@/services';
-import type { GlobalSearchContentResponse, ITranslations } from '@/types';
+import type { ITranslations, SearchResponse } from '@/types';
 
 import { GlobalSearchInputResultsContent } from './Results.content';
 import { GlobalSearchInputResultsError } from './Results.error';
@@ -14,13 +14,13 @@ type GlobalSearchInputResultsProps = {
 const GlobalSearchInputResults = (params: GlobalSearchInputResultsProps) => {
   const { query, dictionary } = params;
 
-  const { data, isLoading, error } = useQuery<GlobalSearchContentResponse>({
+  const { data, isLoading, error } = useQuery<SearchResponse>({
     queryKey: ['global-search', query],
     queryFn: async () => {
       if (!query) {
         return null;
       }
-      const response = await getSearch({ Type: 'all', Name: query });
+      const response = await getSearch(query);
       return response.data;
     },
     staleTime: 1000 * 60 * 5,
@@ -36,8 +36,8 @@ const GlobalSearchInputResults = (params: GlobalSearchInputResultsProps) => {
 
   return (
     <GlobalSearchInputResultsContent
-      institutes={data.institutes}
-      teachers={data.teachers}
+      meta={data.meta}
+      results={data.results}
       dictionary={dictionary}
     />
   );

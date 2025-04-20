@@ -114,5 +114,6 @@ export const AvatarSchema = z
 export const SearchNameSchema = z
   .string()
   .nonempty({ message: 'Search name is required.' })
+  .min(3, { message: 'Search name must be at least 3 characters long.' })
   .max(100, { message: 'Search name must be at most 100 characters long.' })
   .regex(/^[a-z0-9\s.,'"-]+$/i, 'Invalid characters in search name. Only letters, numbers, and spaces are allowed.');

@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useFormatter, useTranslations } from 'next-intl';
 
 import { fetchLastActivity } from '@/services';
-import type { ActivityReviewContentResponse } from '@/types';
+import type { LatestReviewsResponse } from '@/types';
 
 import { ActivityReviewContent, ActivityReviewError, ActivityReviewSkeleton } from './Common';
 
@@ -12,7 +12,7 @@ const SectionActivityReviews = () => {
   const dictionary = useTranslations('Base');
   const formatter = useFormatter();
 
-  const { data, isLoading, error } = useQuery<ActivityReviewContentResponse>({
+  const { data, isLoading, error } = useQuery<LatestReviewsResponse>({
     queryKey: ['last-activity'],
     queryFn: async () => {
       const response = await fetchLastActivity();
@@ -33,8 +33,8 @@ const SectionActivityReviews = () => {
     <ActivityReviewContent
       dictionary={dictionary}
       formatter={formatter}
-      instituteReviews={data.result.instituteReviews}
-      teacherReviews={data.result.teacherReviews}
+      institutionReviews={data.institutionReviews}
+      teacherReviews={data.teacherReviews}
     />
   );
 };

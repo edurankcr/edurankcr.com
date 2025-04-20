@@ -2,13 +2,13 @@ import React, { useMemo } from 'react';
 
 import { Stack } from '@/components';
 import { AppRoutes } from '@/constants';
-import type { IFormatter, ITranslations, ReviewInstitute } from '@/types';
+import type { IFormatter, InstitutionReview, ITranslations } from '@/types';
 import { getExperienceAverage, getRelativeTime } from '@/utils';
 
 import { ReviewCardContent, ReviewCardFooter, ReviewCardHeader } from './Commons';
 
 type ReviewCardInstituteProps = {
-  review: ReviewInstitute;
+  review: InstitutionReview;
 } & ITranslations & IFormatter;
 
 const ReviewCardInstitute = (props: ReviewCardInstituteProps) => {
@@ -16,28 +16,28 @@ const ReviewCardInstitute = (props: ReviewCardInstituteProps) => {
   const relativeTime = useMemo(() => getRelativeTime(formatter, review.createdAt), [formatter, review.createdAt]);
 
   return (
-    <Stack rounded="lg" width="full" className="review-card" justifyContent="start" height="fit">
+    <Stack rounded="lg" width="full" className="review-card shadow-200" justifyContent="start" height="fit">
       <ReviewCardHeader
         user={{
-          avatarUrl: review.avatarUrl,
-          userName: review.userName,
-          lastName: review.userLastName,
-          name: review.userFirstName,
+          name: review.user.name,
+          lastName: review.user.lastName,
+          avatarUrl: review.user.avatarUrl,
+          userName: review.user.userName,
         }}
         createdAt={relativeTime}
         dictionary={dictionary}
       />
       <ReviewCardContent
-        experienceText={review.experienceText}
+        experienceText={review.testimony}
       />
       <ReviewCardFooter
-        href={AppRoutes.Global.Institutes.Profile(review.instituteId)}
+        href={AppRoutes.Global.Institutes.Profile(review.institutionId)}
         averageRating={getExperienceAverage(5, [
           review.reputation,
           review.happiness,
           review.facilities,
           review.clubs,
-          review.security,
+          review.safety,
           review.opportunities,
           review.location,
           review.social,

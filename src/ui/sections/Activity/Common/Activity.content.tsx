@@ -1,26 +1,26 @@
-import type { ActivityReviewContentResponse, IFormatter, ITranslations } from '@/types';
+import type { IFormatter, ITranslations, LatestReviewsResponse } from '@/types';
 import { ReviewCardInstitute, ReviewCardTeacher } from '@/ui';
 
 import { ActivityReviewContainer } from './Activity.container';
 
-type ActivityReviewContentProps = ITranslations & ActivityReviewContentResponse['result'] & IFormatter;
+type ActivityReviewContentProps = ITranslations & LatestReviewsResponse & IFormatter;
 
 const ActivityReviewContent = (params: ActivityReviewContentProps) => {
-  const { dictionary, formatter, instituteReviews, teacherReviews } = params;
+  const { dictionary, formatter, institutionReviews, teacherReviews } = params;
 
   return (
     <ActivityReviewContainer dictionary={dictionary}>
-      {teacherReviews.map(review => (
-        <ReviewCardTeacher
-          key={review.reviewId}
+      {institutionReviews && institutionReviews.map(review => (
+        <ReviewCardInstitute
+          key={review.institutionRatingId}
           review={review}
           dictionary={dictionary}
           formatter={formatter}
         />
       ))}
-      {instituteReviews.map(review => (
-        <ReviewCardInstitute
-          key={review.instituteId}
+      {teacherReviews && teacherReviews.map(review => (
+        <ReviewCardTeacher
+          key={review.teacherId}
           review={review}
           dictionary={dictionary}
           formatter={formatter}

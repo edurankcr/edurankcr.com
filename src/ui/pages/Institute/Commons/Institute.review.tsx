@@ -1,9 +1,9 @@
 import { IconStarFilled } from '@tabler/icons-react';
 
 import { Button, Group, Progress, Stack, Text } from '@/components';
-import type { IDictionary, IFormatter, IInstituteDetails } from '@/types';
-
-import { InstituteReviewList } from './Institute.reviewList';
+import type { IDictionary, InstitutionDetailsResponse } from '@/types';
+import { SectionInstituteReviews } from '@/ui';
+import { getExperienceAverage } from '@/utils';
 
 type InstituteReviewItemProps = {
   title: string;
@@ -13,19 +13,22 @@ type InstituteReviewItemProps = {
 const InstituteReviewItem = ({ title, value }: InstituteReviewItemProps) => {
   return (
     <Group preventGrowOverflow={false} flexGrow justifyContent="between" flexWrap="nowrap">
-      <Text size="sm" className="w-[70px] min-w-[70px]">{title}</Text>
+      <Text size="sm" className="w-[70px] min-w-[70px]" wrap="nowrap" truncate>{title}</Text>
       <Group preventGrowOverflow={false} flexGrow flexWrap="nowrap" className="text-brand-neon">
         <IconStarFilled size={16} className="min-w-[16px]" />
-        <Progress value={Math.floor(value * 10)} bgColor="neon" />
+        <Progress value={Math.floor(value * 10)} bgColor="neon" height="sm" />
       </Group>
     </Group>
   );
 };
 
-type InstituteReviewProps = IInstituteDetails & IDictionary & IFormatter;
+type InstituteReviewProps = {
+  institutionId: string;
+  instituteSummary: InstitutionDetailsResponse['aggregateRatings'];
+} & IDictionary;
 
 const InstituteReview = (params: InstituteReviewProps) => {
-  const { dictionary, formatter, instituteSummary } = params;
+  const { dictionary, instituteSummary, institutionId } = params;
   return (
     <Group flexDirection="rowRes" preventGrowOverflow={false} flexGrow gap="content" flexWrap="nowrap" position="relative" alignItems="start">
       <Stack className="w-full md:w-3/12" gap="section">
@@ -35,24 +38,32 @@ const InstituteReview = (params: InstituteReviewProps) => {
         <Group preventGrowOverflow={false} flexGrow flexWrap="nowrap" alignItems="end" justifyContent="start" gap="lg">
           <Group preventGrowOverflow={false} flexWrap="nowrap" alignItems="end" justifyContent="start">
             <Text weight="semibold" className="text-[80px] leading-[0.75]">
-              4.8
+              {instituteSummary.overallAverage}
             </Text>
             <IconStarFilled size={32} className="text-brand-neon" />
           </Group>
           <Text size="sm" color="secondary" underline weight="semibold">
-            {dictionary('Section.Institute.reviews_quantity', { total: instituteSummary.totalReviews })}
+            {dictionary('Section.Institute.reviews_quantity', { total: instituteSummary.reviewCount })}
           </Text>
         </Group>
         <Stack gap="xs">
-          <InstituteReviewItem title={dictionary('Section.Institute.avg_quality')} value={3.8} />
-          <InstituteReviewItem title={dictionary('Section.Institute.avg_social')} value={2.8} />
+          <InstituteReviewItem
+            title={dictionary('Section.Institute.community')}
+            value={getExperienceAverage(5, [instituteSummary.happiness, instituteSummary.social, instituteSummary.clubs, instituteSummary.reputation, instituteSummary.opportunities])}
+          />
+          <InstituteReviewItem
+            title={dictionary('Section.Institute.environment')}
+            value={getExperienceAverage(5, [instituteSummary.location, instituteSummary.safety, instituteSummary.internet, instituteSummary.facilities, instituteSummary.food])}
+          />
         </Stack>
         <Button bgColor="interactivePrimary" height="lg">
           {dictionary('Button.write_review')}
         </Button>
       </Stack>
       <Stack className="w-full md:w-9/12" gap="section">
-        <InstituteReviewList formatter={formatter} dictionary={dictionary} />
+        {instituteSummary.reviewCount > 0 && (
+          <SectionInstituteReviews instituteId={institutionId} />
+        )}
       </Stack>
     </Group>
   );

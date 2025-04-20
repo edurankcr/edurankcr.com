@@ -1,23 +1,27 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
+import { useFormatter, useTranslations } from 'next-intl';
 
-import { fetchLastActivity } from '@/services';
-import type { ActivityReviewContentResponse, ITranslations } from '@/types';
+import { getInstitutionRatings } from '@/services';
+import type { InstitutionReviewsResponse } from '@/types';
 
 import { InstituteReviewContent, InstituteReviewError, InstituteReviewSkeleton } from './Common';
 
 type SectionInstituteReviewsProps = {
   instituteId: string;
-} & ITranslations;
+};
 
 const SectionInstituteReviews = (params: SectionInstituteReviewsProps) => {
-  const { instituteId, dictionary } = params;
+  const { instituteId } = params;
 
-  const { data, isLoading, error } = useQuery<ActivityReviewContentResponse>({
+  const dictionary = useTranslations('Base');
+  const formatter = useFormatter();
+
+  const { data, isLoading, error } = useQuery<InstitutionReviewsResponse>({
     queryKey: ['institute-reviews', instituteId],
     queryFn: async () => {
-      const response = await fetchLastActivity();
+      const response = await getInstitutionRatings(instituteId);
       return response.data;
     },
     staleTime: 1000 * 60 * 5,
@@ -28,15 +32,14 @@ const SectionInstituteReviews = (params: SectionInstituteReviewsProps) => {
   }
 
   if ((!error && isLoading) || !data) {
-    return <InstituteReviewSkeleton dictionary={dictionary} />;
+    return <InstituteReviewSkeleton />;
   }
 
   return (
     <InstituteReviewContent
       dictionary={dictionary}
       formatter={formatter}
-      instituteReviews={data.result.instituteReviews}
-      teacherReviews={data.result.teacherReviews}
+      response={data}
     />
   );
 };

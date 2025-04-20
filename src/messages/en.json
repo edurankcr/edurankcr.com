@@ -230,7 +230,8 @@
           "empty_title": "Oops! No results found",
           "empty_desc": "Try searching for something else or check your spelling.",
           "institute_desc": "{type} in {province}",
-          "teacher_desc": ""
+          "teacher_desc": "",
+          "overall": "{overall} ({total} reviews)"
         }
       },
       "Identifier": {
@@ -297,6 +298,8 @@
         "reviews_quantity": "{total} reviews",
         "avg_quality": "Quality",
         "avg_social": "Life",
+        "community": "Community",
+        "environment": "Environment",
         "reviews_reputation": "Reputation {value}",
         "reviews_opportunities": "Opportunities {value}",
         "reviews_happiness": "Happiness {value}",

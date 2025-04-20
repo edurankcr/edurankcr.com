@@ -6,10 +6,11 @@ type GlobalSearchInputResultsContentItemProps = {
   title: string;
   subtitle: string;
   href: string;
+  overall: string;
 } & ICons;
 
 const GlobalSearchInputResultsContentItem = (params: GlobalSearchInputResultsContentItemProps) => {
-  const { iconName, title, subtitle, href } = params;
+  const { iconName, title, subtitle, overall, href } = params;
   return (
     <Link href={href}>
       <Group preventGrowOverflow={false} flexWrap="nowrap" flexGrow>
@@ -20,9 +21,20 @@ const GlobalSearchInputResultsContentItem = (params: GlobalSearchInputResultsCon
           <Text weight="semibold" truncate>
             {title}
           </Text>
-          <Text color="secondary" size="sm">
-            {subtitle}
-          </Text>
+          <Group preventGrowOverflow={false} flexWrap="nowrap" overflow="hidden" justifyContent="start" gap="xs">
+            <Text color="secondary" size="sm" truncate>
+              {subtitle}
+            </Text>
+            <Text color="secondary" className="hidden md:inline-block" size="sm">
+              &#183;
+            </Text>
+            <Group preventGrowOverflow={false} flexWrap="nowrap" overflow="hidden" justifyContent="start" gap="xs" flexGrow>
+              <Icons iconName="starFilled" size={14} className="text-text-secondary min-w-[14px]" />
+              <Text color="secondary" size="sm" wrap="nowrap" truncate>
+                {overall}
+              </Text>
+            </Group>
+          </Group>
         </Stack>
       </Group>
     </Link>

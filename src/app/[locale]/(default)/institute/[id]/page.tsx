@@ -2,8 +2,8 @@ import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
 import { AppRoutes } from '@/constants';
-import { getInstitute } from '@/services';
-import type { IIdMeta } from '@/types';
+import { getInstituteSummary } from '@/services';
+import type { IIdMeta, InstitutionDetailsResponse } from '@/types';
 import { PageInstitute } from '@/ui/pages/Institute';
 import { GuidValidation } from '@/validations';
 
@@ -12,12 +12,12 @@ export async function generateMetadata({ params }: IIdMeta) {
   const t = await getTranslations({ locale, namespace: 'Meta.Institute' });
 
   try {
-    const response = await getInstitute(id);
-    const data = response.data;
+    const response = await getInstituteSummary(id);
+    const data = response.data as InstitutionDetailsResponse;
 
     return {
-      title: t('title', { name: data.institute.name }) || '',
-      description: t('description', { name: data.institute.name }) || '',
+      title: t('title', { name: data.institution.name }) || '',
+      description: t('description', { name: data.institution.name }) || '',
     };
   } catch {
     return {
@@ -37,10 +37,10 @@ export default async function Page({ params }: IIdMeta) {
   }
 
   try {
-    const response = await getInstitute(id);
-    const data = response.data;
+    const response = await getInstituteSummary(id);
+    const data = response.data as InstitutionDetailsResponse;
     const dictionary = await getTranslations({ locale, namespace: 'Base' });
-    return <PageInstitute dictionary={dictionary} institute={data.institute} instituteSummary={data.summary} />;
+    return <PageInstitute dictionary={dictionary} {...data} />;
   } catch {
     redirect(AppRoutes.Global.Home);
   }

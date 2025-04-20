@@ -7,12 +7,14 @@ import {
   BreadcrumbSeparator,
 } from '@/components';
 import { AppRoutes } from '@/constants';
-import type { IDictionary, IInstituteDetails } from '@/types';
+import type { IDictionary, InstitutionDetailsResponse } from '@/types';
 
-type InstituteBreadcrumbProps = IInstituteDetails & IDictionary;
+type InstituteBreadcrumbProps = {
+  institution: InstitutionDetailsResponse['institution'];
+} & IDictionary;
 
 const InstituteBreadcrumb = (props: InstituteBreadcrumbProps) => {
-  const { institute, dictionary } = props;
+  const { institution, dictionary } = props;
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -29,14 +31,14 @@ const InstituteBreadcrumb = (props: InstituteBreadcrumbProps) => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href={AppRoutes.Global.Institutes.Search('province', institute.province.toString())}>
-            {dictionary(`Global.Province.${institute.province}` as any)}
+          <BreadcrumbLink href={AppRoutes.Global.Institutes.Search('province', institution.province.toString())}>
+            {dictionary(`Global.Province.${institution.province}` as any)}
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem className="overflow-hidden">
           <BreadcrumbPage>
-            {institute.name}
+            {institution.name}
           </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>

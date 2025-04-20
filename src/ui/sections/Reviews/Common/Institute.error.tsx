@@ -1,16 +1,16 @@
 import type { ITranslations } from '@/types';
 import { AlertApiError } from '@/ui';
 
-import { ActivityReviewContainer } from './Activity.container';
+import { InstituteReviewContainer } from './Institute.container';
 
 type InstituteReviewErrorProps = ITranslations;
 
 const InstituteReviewError = (props: InstituteReviewErrorProps) => {
   const { dictionary } = props;
   return (
-    <ActivityReviewContainer dictionary={dictionary}>
+    <InstituteReviewContainer>
       <AlertApiError message={dictionary('Errors.fetch_data')} />
-    </ActivityReviewContainer>
+    </InstituteReviewContainer>
   );
 };
 

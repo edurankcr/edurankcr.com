@@ -2,13 +2,13 @@ import React, { useMemo } from 'react';
 
 import { Stack } from '@/components';
 import { AppRoutes } from '@/constants';
-import type { IFormatter, ITranslations, ReviewTeacher } from '@/types';
-import { getRelativeTime } from '@/utils';
+import type { IFormatter, ITranslations, TeacherReview } from '@/types';
+import { getExperienceAverage, getRelativeTime } from '@/utils';
 
 import { ReviewCardContent, ReviewCardFooter, ReviewCardHeader } from './Commons';
 
 type ReviewCardTeacherProps = {
-  review: ReviewTeacher;
+  review: TeacherReview;
 } & ITranslations & IFormatter;
 
 const ReviewCardTeacher = (props: ReviewCardTeacherProps) => {
@@ -16,23 +16,30 @@ const ReviewCardTeacher = (props: ReviewCardTeacherProps) => {
   const relativeTime = useMemo(() => getRelativeTime(formatter, review.createdAt), [formatter, review.createdAt]);
 
   return (
-    <Stack rounded="lg" width="full" className="review-card" justifyContent="start" height="fit">
+    <Stack rounded="lg" width="full" className="review-card shadow-200" justifyContent="start" height="fit">
       <ReviewCardHeader
         user={{
-          avatarUrl: review.avatarUrl,
-          userName: review.userName,
-          lastName: review.userLastName,
-          name: review.userFirstName,
+          name: review.user.name,
+          lastName: review.user.lastName,
+          avatarUrl: review.user.avatarUrl,
+          userName: review.user.userName,
         }}
         createdAt={relativeTime}
         dictionary={dictionary}
       />
       <ReviewCardContent
-        experienceText={review.experienceText}
+        experienceText={review.testimony}
       />
       <ReviewCardFooter
         href={AppRoutes.Global.Teachers.Profile(review.teacherId)}
-        averageRating={review.professorRating}
+        averageRating={getExperienceAverage(5, [
+          review.clarity,
+          review.knowledge,
+          review.respect,
+          review.fairness,
+          review.punctuality,
+          review.motivation,
+        ])}
         dictionary={dictionary}
       />
     </Stack>

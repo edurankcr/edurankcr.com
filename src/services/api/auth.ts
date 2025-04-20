@@ -125,23 +125,20 @@ export async function postAddInstitute(
   });
 }
 
-export async function getInstitute(id: string) {
-  return await api.get('/institute/search', {
-    params: { InstituteId: id },
-  });
+export async function getInstituteSummary(id: string) {
+  return await api.get(`/institutions/${id}/summary`);
 }
 
 export async function fetchLastActivity() {
-  return await api.get('/reviews');
+  return await api.get('/activity/latest');
 }
 
-export async function getSearch({ Type, TypeFilter, Province, Name }: { Type?: 'all' | 'teachers' | 'institutes'; TypeFilter?: number; Province?: number; Name: string }) {
+export async function getSearch(name: string) {
   return await api.get('/search', {
-    params: {
-      Type,
-      TypeFilter,
-      Province,
-      Name,
-    },
+    params: { Name: name },
   });
+}
+
+export async function getInstitutionRatings(id: string) {
+  return await api.get(`/institutions/${id}/ratings`);
 }

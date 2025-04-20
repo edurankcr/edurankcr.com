@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { Box, Group, Icons, Stars, Text } from '@/components';
-import type { IDictionary, InstituteSummaryProps } from '@/types';
+import type { IDictionary, InstitutionDetailsResponse } from '@/types';
 
 import styles from './Institute.module.css';
 
@@ -30,7 +30,9 @@ const InstituteOverallItem = ({ icon, title, value }: InstituteOverallItemProps)
   );
 };
 
-type InstituteOverallProps = InstituteSummaryProps & IDictionary;
+type InstituteOverallProps = {
+  instituteSummary: InstitutionDetailsResponse['aggregateRatings'];
+} & IDictionary;
 
 const InstituteOverall = (params: InstituteOverallProps) => {
   const { dictionary, instituteSummary } = params;
@@ -44,7 +46,7 @@ const InstituteOverall = (params: InstituteOverallProps) => {
       <InstituteOverallItem icon={<Icons iconName="usersGroup" />} title={dictionary('Global.Vote.social')} value={instituteSummary.social} />
       <InstituteOverallItem icon={<Icons iconName="heartHandshake" />} title={dictionary('Global.Vote.clubs')} value={instituteSummary.clubs} />
       <InstituteOverallItem icon={<Icons iconName="wifi" />} title={dictionary('Global.Vote.internet')} value={instituteSummary.internet} />
-      <InstituteOverallItem icon={<Icons iconName="shieldCheck" />} title={dictionary('Global.Vote.security')} value={instituteSummary.security} />
+      <InstituteOverallItem icon={<Icons iconName="shieldCheck" />} title={dictionary('Global.Vote.security')} value={instituteSummary.safety} />
       <InstituteOverallItem icon={<Icons iconName="salad" />} title={dictionary('Global.Vote.food')} value={instituteSummary.food} />
     </Box>
   );
