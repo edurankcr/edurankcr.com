@@ -33,7 +33,7 @@ export async function postRegister(
   password: string,
   birthDate: Date,
 ) {
-  return await api.post('/register', {
+  return await api.post('/auth/register', {
     Name: name,
     LastName: lastName,
     UserName: userName,
@@ -44,24 +44,19 @@ export async function postRegister(
 }
 
 export async function postRequestEmailVerification(email: string) {
-  return await api.post('/email/request', { Email: email });
+  return await api.post('/auth/email/send-verification', { Email: email });
 }
 
 export async function getVerifyEmail(token: string) {
-  return await api.get('/email/verify', {
-    params: { TokenId: token },
-  });
+  return await api.post('/auth/email/confirm-verification', { Token: token });
 }
 
 export async function postForgotPassword(identifier: string) {
-  return await api.post('/password/forgot', { Identifier: identifier });
+  return await api.post('/auth/password/reset-request', { Identifier: identifier });
 }
 
 export async function postResetPassword(tokenId: string, newPassword: string) {
-  return await api.post('/password/reset', {
-    TokenId: tokenId,
-    NewPassword: newPassword,
-  });
+  return await api.post('/auth/password/reset', { Token: tokenId, NewPassword: newPassword });
 }
 
 export async function putUserProfile({
@@ -77,27 +72,25 @@ export async function putUserProfile({
   BirthDate?: Date;
   Biography?: string;
 }) {
-  return await api.put('/profile/update', {
+  return await api.put('/account/profile', {
     Name,
     LastName,
     UserName,
-    BirthDate,
+    DateOfBirth: BirthDate,
     Biography,
   });
 }
 
 export async function putRequestEmailChange(NewEmail: string) {
-  return await api.put('/profile/change-email', { NewEmail });
+  return await api.put('/account/email', { NewEmail });
 }
 
 export async function deleteRequestEmailChange() {
-  return await api.delete('/profile/change-email');
+  return await api.delete('/account/email');
 }
 
 export async function getVerifyEmailChange(token: string) {
-  return await api.get('/profile/verify-change-email', {
-    params: { token },
-  });
+  return await api.post('/account/email/verify', { Token: token });
 }
 
 export async function putUserAvatar(Avatar: File) {
@@ -132,12 +125,20 @@ export async function postAddInstitute(
   });
 }
 
-export async function getInstitute(id: string) {
-  return await api.get('/institute/search', {
-    params: { InstituteId: id },
-  });
+export async function getInstituteSummary(id: string) {
+  return await api.get(`/institutions/${id}/summary`);
 }
 
 export async function fetchLastActivity() {
-  return await api.get('/reviews');
+  return await api.get('/activity/latest');
+}
+
+export async function getSearch(name: string) {
+  return await api.get('/search', {
+    params: { Name: name },
+  });
+}
+
+export async function getInstitutionRatings(id: string) {
+  return await api.get(`/institutions/${id}/ratings`);
 }

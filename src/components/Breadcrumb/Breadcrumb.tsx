@@ -22,7 +22,7 @@ const BreadcrumbList = ({ ref, className, ...props }: BreadcrumbListProps) => (
   <ol
     ref={ref}
     className={cx(
-      'flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5',
+      'flex items-center gap-2 break-words text-sm md:gap-2 overflow-hidden flex-nowrap',
       className,
     )}
     {...props}
@@ -38,7 +38,7 @@ type BreadcrumbItemProps = {
 const BreadcrumbItem = ({ ref, className, ...props }: BreadcrumbItemProps) => (
   <li
     ref={ref}
-    className={cx('inline-flex items-center gap-1.5', className)}
+    className={cx('inline-flex items-center', className)}
     {...props}
   />
 );
@@ -59,7 +59,7 @@ const BreadcrumbLink = ({ ref, asHome, asChild, className, ...props }: Breadcrum
       ref={ref}
       className={cx(
         asHome && 'text-primary font-semibold underline',
-        'transition-colors hover:text-text-secondary hover:underline',
+        'transition-colors hover:text-text-secondary hover:underline text-nowrap',
         className,
       )}
       {...props}
@@ -79,7 +79,7 @@ const BreadcrumbPage = ({ ref, className, ...props }: BreadcrumbPageProps) => (
     role="link"
     aria-disabled="true"
     aria-current="page"
-    className={cx('font-semibold', className)}
+    className={cx('font-semibold truncate', className)}
     {...props}
   />
 );

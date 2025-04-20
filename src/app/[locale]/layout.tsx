@@ -2,13 +2,16 @@ import '@/styles/globals.css';
 
 import clsx from 'clsx';
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 import { Toaster } from '@/components';
 import { Providers } from '@/providers';
 import { fontMono, fontSans } from '@/styles';
 import type { IRootLayout } from '@/types';
-import { AuthGuard, getBaseUrl, getLocales, isLocale } from '@/utils';
+import { AuthGuard, getBaseUrl, getLocales } from '@/utils';
+
+export function generateStaticParams() {
+  return getLocales();
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),
@@ -34,16 +37,8 @@ export const metadata: Metadata = {
   },
 };
 
-export function generateStaticParams() {
-  return getLocales();
-}
-
-export default async function RootLayout({ children, params }: Readonly<IRootLayout>) {
+const RootLayout = async ({ children, params }: Readonly<IRootLayout>) => {
   const { locale } = await params;
-
-  if (!isLocale({ locale })) {
-    return notFound();
-  }
 
   return (
     <html lang={locale} className={clsx(fontSans.variable, fontMono.variable)}>
@@ -56,4 +51,6 @@ export default async function RootLayout({ children, params }: Readonly<IRootLay
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

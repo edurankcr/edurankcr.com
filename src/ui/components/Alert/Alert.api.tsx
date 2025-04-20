@@ -5,7 +5,7 @@ type AlertApiErrorProps = {
   message: string;
 };
 
-export const AlertApiError = ({
+const AlertApiError = ({
   title = 'Oops! Something went wrong',
   message,
 }: AlertApiErrorProps) => {
@@ -20,3 +20,5 @@ export const AlertApiError = ({
     </Alert>
   );
 };
+
+export { AlertApiError };

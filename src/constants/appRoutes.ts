@@ -22,6 +22,9 @@ export const AppRoutes = {
     Users: {
       Profile: (userName: string) => `/community/${userName}`,
     },
+    Email: {
+      VerifyChange: '/verify-email/change',
+    },
   },
   Auth: {
     Settings: {
@@ -31,9 +34,6 @@ export const AppRoutes = {
       Notifications: '/settings/notifications',
       Preferences: '/settings/preferences',
       Help: '/settings/help',
-    },
-    Email: {
-      VerifyChange: '/verify-email/change',
     },
     Add: {
       Institute: '/add/institute',

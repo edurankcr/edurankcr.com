@@ -1,6 +1,7 @@
 export * from './Accordion';
 export * from './Alert';
 export * from './Avatar';
+export * from './Badge';
 export * from './Box';
 export * from './Breadcrumb';
 export * from './Button';
@@ -9,6 +10,8 @@ export * from './Dialog';
 export * from './Dropdown';
 export * from './Form';
 export * from './Group';
+export * from './Heading';
+export * from './Icons';
 export * from './Image';
 export * from './Input';
 export * from './Label';

@@ -1,2 +1,2 @@
-export * from './PersonalInformation';
-export * from './Security';
+export * from './Settings';
+export * from './Settings.security';

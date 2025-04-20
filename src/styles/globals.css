@@ -350,6 +350,10 @@
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent);
   }
 
+  #activity {
+    @apply space-y-4 md:space-y-8;
+  }
+
   .grid-reviews {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -357,8 +361,12 @@
     width: 100%;
   }
 
+  .grid-reviews div[role='alert'] {
+    @apply col-span-12;
+  }
+
   .review-card {
-    @apply col-span-12 md:col-span-4 p-4 md:p-6 shadow-200;
+    @apply col-span-12 md:col-span-4 p-4 md:p-6 rounded-md;
   }
 
   .input--modern input,

@@ -73,13 +73,13 @@ const AccordionTriggerForm = ({
     <Group preventGrowOverflow={false} flexWrap="nowrap" className="group" alignItems="start">
       <Stack gap="none" flexGrow>
         <Text as="h3" color="primary" weight="semibold">
-          {dictionary(`Heading.${keyLocalization}` as any)}
+          {dictionary(`Accordion.${keyLocalization}.title` as any)}
         </Text>
         <Text color="secondary" size="sm" className="group-data-[state=open]:hidden">
           {keyValue}
         </Text>
         <Text color="secondary" size="sm" className="hidden group-data-[state=open]:block">
-          {dictionary(`Paragraph.${keyLocalization}` as any)}
+          {dictionary(`Accordion.${keyLocalization}.description` as any)}
         </Text>
       </Stack>
       <AccordionPrimitive.Trigger
@@ -88,10 +88,10 @@ const AccordionTriggerForm = ({
         {...props}
       >
         <Text color="primary" weight="semibold" size="sm" underline wrap="nowrap" className="hidden group-data-[state=open]:block">
-          {dictionary('Heading.cancel')}
+          {dictionary('Accordion.cancel')}
         </Text>
         <Text color="primary" weight="semibold" size="sm" underline className="group-data-[state=open]:hidden">
-          {dictionary('Heading.edit')}
+          {dictionary('Accordion.edit')}
         </Text>
       </AccordionPrimitive.Trigger>
     </Group>

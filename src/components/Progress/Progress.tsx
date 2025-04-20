@@ -7,12 +7,14 @@ import { memo } from 'react';
 
 type ProgressProps = {
   bgColor?: 'neon' | 'primary';
+  height?: 'sm' | 'md';
 } & ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>;
 
-const Progress: FC<ProgressProps> = memo(({ className, bgColor = 'primary', value, ...props }) => (
+const Progress: FC<ProgressProps> = memo(({ className, bgColor = 'primary', height = 'md', value, ...props }) => (
   <ProgressPrimitive.Root
     className={cx(
-      'relative h-3 w-full overflow-hidden rounded-full bg-background-secondary',
+      'relative w-full overflow-hidden rounded-full bg-background-secondary',
+      height === 'sm' ? 'h-[8px]' : 'h-3',
       className,
     )}
     {...props}

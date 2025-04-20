@@ -21,7 +21,7 @@ export type User = {
   isEmailConfirmed: boolean;
   newEmail: string | null;
   birthDate: string;
-  avatarUrl: string;
+  avatarUrl: string | null;
   biography: string;
   createdAt: string;
   updatedAt: string;

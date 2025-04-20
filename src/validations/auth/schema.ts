@@ -13,6 +13,7 @@ import {
   NameSchema,
   PasswordSchema,
   ProvinceSchema,
+  SearchNameSchema,
   UrlSchema,
   UserNameSchema,
 } from './fields';
@@ -67,7 +68,7 @@ export const UsernameValidation = z.object({
 });
 
 export const BirthDateValidation = z.object({
-  BirthDate: BirthDateSchema,
+  DateOfBirth: BirthDateSchema,
 });
 
 export const BiographyValidation = z.object({
@@ -107,4 +108,8 @@ export const AddInstituteValidation = z.object({
   Type: InstituteTypeSchema,
   Province: ProvinceSchema,
   Url: UrlSchema,
+});
+
+export const SearchValidation = z.object({
+  Query: SearchNameSchema,
 });

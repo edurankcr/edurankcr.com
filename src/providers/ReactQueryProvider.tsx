@@ -9,20 +9,22 @@ import type { IChildren } from '@/types';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5, // cache 5 minutos
+      staleTime: 5 * 60 * 1000,
       refetchOnWindowFocus: false,
       retry: 1,
     },
   },
 });
 
-type Props = {} & IChildren;
-
-export function ReactQueryProvider({ children }: Props) {
+const ReactQueryProvider = ({ children }: IChildren) => {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      {Env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
+      {Env.NODE_ENV === 'development' && (
+        <ReactQueryDevtools initialIsOpen={false} />
+      )}
     </QueryClientProvider>
   );
-}
+};
+
+export { ReactQueryProvider };

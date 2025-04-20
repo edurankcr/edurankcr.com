@@ -19,11 +19,11 @@ async function getMessagesForLocale({ locale }: GetMessagesForLocale.Params): Pr
     notFound();
   }
 
-  return await getMessages();
+  return getMessages();
 }
 
 function isLocale({ locale }: IsLocale.Params): IsLocale.Response {
-  return routing.locales.includes(locale as any);
+  return routing.locales.includes(locale as typeof routing.locales[number]);
 }
 
 function getLocales(): GetLocales.Response {

@@ -2,6 +2,9 @@ import type { getTranslations } from 'next-intl/server';
 import type { ReactNode } from 'react';
 import type { createFormatter, useTranslations } from 'use-intl';
 
+import type { AppIcons } from '@/constants';
+import type { User } from '@/types/store';
+
 import type en from '../messages/en.json';
 import type { formats } from './@theme/i18n';
 
@@ -63,23 +66,39 @@ type IComponent = {
   dictionary?: Awaited<ReturnType<typeof getTranslations>>;
 };
 
-type IPathName = {
+type ICons = {
+  iconName: keyof typeof AppIcons;
+};
+
+type IUserAbstractComponent = {
+  isLoading?: boolean;
+  user: User | null;
+};
+
+type IUserComponent = {
+  user: User;
+};
+
+type IPathname = {
   pathname: string;
 };
 
 export {
   IChildren,
   IComponent,
+  ICons,
   IDictionary,
   IFormatter,
   IIdMeta,
   ILayout,
   IMeta,
   IPageLayout,
-  IPathName,
+  IPathname,
   IProviders,
   IRootLayout,
   ITranslations,
+  IUserAbstractComponent,
+  IUserComponent,
   Locale,
   Messages,
 };

@@ -1,10 +1,11 @@
 'use client';
 
-import { IconLoader2 } from '@tabler/icons-react';
 import type { VariantProps } from 'class-variance-authority';
 import { cx } from 'class-variance-authority';
 import type { ComponentProps, ReactNode } from 'react';
 import { memo } from 'react';
+
+import { Icons } from '@/components';
 
 import { Link as RouterLink } from '../Navigation/Navigation';
 // noinspection ES6PreferShortImport
@@ -48,7 +49,7 @@ const Button = memo<ButtonProps>(({
 
   const contentLoading = (
     <>
-      <IconLoader2 className="spinner animate-spin" />
+      <Icons iconName="loader" className="spinner animate-spin" />
     </>
   );
 
