@@ -22,7 +22,7 @@ import {
   Stack,
   Text,
 } from '@/components';
-import { putUserAvatar } from '@/services';
+import { deleteUserAvatar, putUserAvatar } from '@/services';
 import { useUserStore } from '@/stores';
 import type { ITranslations, IUser } from '@/types';
 import { AvatarValidation } from '@/validations';
@@ -75,6 +75,34 @@ const FormAvatar = (params: FormAvatarProps) => {
     form.setValue('Avatar', file);
   }
 
+  function handleCancel() {
+    setPreviewUrl(null);
+    form.clearErrors('Avatar');
+    form.reset();
+  }
+
+  async function handleRemove() {
+    const setUser = useUserStore.getState().setUser;
+
+    if (!user) {
+      toast.error(dictionary('Errors.login_required'));
+      return;
+    }
+
+    try {
+      await deleteUserAvatar();
+      setUser({ ...user, avatarUrl: null });
+      toast.success(dictionary('Form.Avatar.remove_success'));
+      setPreviewUrl(null);
+    } catch (error: any) {
+      const { response } = error;
+      switch (response.data.code) {
+        default:
+          toast.error(dictionary('Errors.fetch_server'));
+      }
+    }
+  }
+
   async function onSubmit(values: z.infer<typeof AvatarValidation>) {
     const { Avatar } = values;
     const setUser = useUserStore.getState().setUser;
@@ -113,9 +141,11 @@ const FormAvatar = (params: FormAvatarProps) => {
                 height={128}
                 className="rounded-full min-w-[128px] min-h-[128px] max-w-[128px] max-h-[128px]"
               />
-              <Text color="danger" weight="semibold" size="sm" className="cursor-pointer hover:underline">
-                {dictionary('Button.remove')}
-              </Text>
+              {user && user.avatarUrl && (
+                <Text color="danger" weight="semibold" size="sm" className="cursor-pointer hover:underline" onClick={handleRemove}>
+                  {dictionary('Button.remove')}
+                </Text>
+              )}
             </Stack>
             <Box flexGrow>
               <FormField
@@ -142,7 +172,8 @@ const FormAvatar = (params: FormAvatarProps) => {
             <Button
               bgColor="ghostInteractiveSecondary"
               className="cursor-pointer"
-              onClick={() => setPreviewUrl(null)}
+              onClick={() => handleCancel()}
+              disabled={previewUrl === null}
               type="button"
             >
               {dictionary('Button.cancel')}

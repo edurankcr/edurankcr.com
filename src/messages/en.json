@@ -107,6 +107,7 @@
       "user_same_username": "This is your current username. Please choose a different one.",
       "user_email_verification_already_sent": "A verification email has already been sent to this address. Please check your inbox or spam folder.",
       "user_email_duplicate": "This email address is already associated with another account. Please use a different email address.",
+      "user_current_password_incorrect": "The current password you entered is incorrect. Please try again.",
       "token_expired": "The verification key has expired. Please <link>request a new one</link>.",
       "token_already_used": "The verification key has already been used. Please <link>request a new one</link>.",
       "token_not_found": "We couldn't find the verification key. Maybe it was already used or expired. Please request a new one.",
@@ -173,7 +174,8 @@
         "title": "Wait... we're verifying your email address"
       },
       "Avatar": {
-        "update_success": "Your avatar has been successfully updated"
+        "update_success": "Your avatar has been successfully updated",
+        "remove_success": "Your avatar has been successfully removed"
       },
       "FullName": {
         "update_success": "Your name has been successfully updated"
@@ -190,6 +192,9 @@
       "Email": {
         "update_success": "Confirmation email has been sent to your new email address. Please check your inbox to confirm the change.",
         "email_change_cancelled": "Email change has been cancelled. The previous email address is still active."
+      },
+      "Password": {
+        "update_success": "Your password has been successfully updated"
       },
       "footer": "By continuing to use EduRankCR, you agree to our <b>Terms of Service</b> and <b>Privacy Policy</b>.",
       "footer_email": "If you don’t see the email in your inbox, be sure to check your spam, promotions or junk folder. Please note that only one email can be sent <b>every 30 minutes</b>."

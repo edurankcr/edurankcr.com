@@ -95,33 +95,23 @@ export async function getVerifyEmailChange(token: string) {
 
 export async function putUserAvatar(Avatar: File) {
   const formData = new FormData();
-  formData.append('Avatar', Avatar);
+  formData.append('File', Avatar);
 
-  return await api.put('/profile/change-avatar', formData, {
+  return await api.post('/account/avatar', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
   });
 }
 
-export async function postChangePassword(currentPassword: string, newPassword: string) {
-  return await api.post('/password/change', {
-    CurrentPassword: currentPassword,
-    NewPassword: newPassword,
-  });
+export async function deleteUserAvatar() {
+  return await api.delete('/account/avatar');
 }
 
-export async function postAddInstitute(
-  Name: string,
-  Type: number,
-  Province: number,
-  Url?: string,
-) {
-  return await api.post('/institute', {
-    Name,
-    Type,
-    Province,
-    Url,
+export async function postChangePassword(currentPassword: string, newPassword: string) {
+  return await api.put('/account/password', {
+    CurrentPassword: currentPassword,
+    NewPassword: newPassword,
   });
 }
 

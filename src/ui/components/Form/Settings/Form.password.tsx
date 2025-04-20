@@ -50,10 +50,10 @@ const FormPassword = (params: FormPasswordProps) => {
     } catch (error: any) {
       const { response } = error;
       switch (response.data.code) {
-        case 'Auth.InvalidCred':
+        case 'User.InvalidPassword':
           form.setError('CurrentPassword', {
             type: 'manual',
-            message: dictionary('Errors.user_invalid'),
+            message: dictionary('Errors.user_current_password_incorrect'),
           });
           break;
         default:
