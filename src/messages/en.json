@@ -56,7 +56,9 @@
       "add_review": "Add a rating for {name} | EduRankCR",
       "add_review_description": "Share your experience and rate {name} on EduRankCR. Help others make informed decisions about their education.",
       "add_review_generic": "Add a rating | EduRankCR",
-      "add_review_generic_description": "Share your experience and rate an institution on EduRankCR. Help others make informed decisions about their education."
+      "add_review_generic_description": "Share your experience and rate an institution on EduRankCR. Help others make informed decisions about their education.",
+      "edit_review": "Edit your review for {name} | EduRankCR",
+      "edit_review_description": "Update your review for {name} on EduRankCR. Share your insights and help others make informed decisions about their education."
     }
   },
   "Base": {
@@ -204,7 +206,8 @@
       "Review": {
         "institute_title": "Rate {name}",
         "advise": "<b>Be honest, respectful, and specific.</b> Institutions can’t pay to change or remove reviews. Avoid offensive language and take a moment to proofread. <link>View guidelines</link>.",
-        "submit_success": "Your review has been successfully submitted. It will be reviewed by our team before being published."
+        "submit_success": "Your review has been successfully submitted. It will be reviewed by our team before being published.",
+        "update_success": "Your review has been successfully updated."
       },
       "footer": "By continuing to use EduRankCR, you agree to our <b>Terms of Service</b> and <b>Privacy Policy</b>.",
       "footer_email": "If you don’t see the email in your inbox, be sure to check your spam, promotions or junk folder. Please note that only one email can be sent <b>every 30 minutes</b>.",
@@ -289,7 +292,7 @@
           "institute_desc": "{type} in {province}",
           "teacher_desc": "",
           "overall": "{overall} ({total} reviews)",
-          "link": "<linkTeacher>Create a new Teacher</linkTeacher> or <linkInstitute>Create a new Institute</linkInstitute>"
+          "link": "Create a new <linkTeacher>Teacher</linkTeacher> or <linkInstitute>Institute</linkInstitute>"
         }
       },
       "Identifier": {

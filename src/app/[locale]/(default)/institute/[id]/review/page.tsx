@@ -2,9 +2,12 @@ import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
 import { AppRoutes } from '@/constants';
-import { getInstituteBasicInfo } from '@/services';
-import type { IIdMeta, InstitutionDetails, InstitutionDetailsResponse } from '@/types';
-import { PageInstituteAddReview } from '@/ui';
+import { getSummaryUserRating } from '@/services';
+import type {
+  IIdMeta,
+  InstitutionRatingWithInstitutionResponse,
+} from '@/types';
+import { PageInstituteDynamicReview } from '@/ui';
 import { GuidValidation } from '@/validations';
 
 export async function generateMetadata({ params }: IIdMeta) {
@@ -12,8 +15,15 @@ export async function generateMetadata({ params }: IIdMeta) {
   const t = await getTranslations({ locale, namespace: 'Meta.Institute' });
 
   try {
-    const response = await getInstituteBasicInfo(id);
-    const data = response.data as InstitutionDetailsResponse;
+    const response = await getSummaryUserRating(id);
+    const data = response.data as InstitutionRatingWithInstitutionResponse;
+
+    if (data.hasRating) {
+      return {
+        title: t('edit_review', { name: data.institution.name }) || '',
+        description: t('edit_review_description', { name: data.institution.name }) || '',
+      };
+    }
 
     return {
       title: t('add_review', { name: data.institution.name }) || '',
@@ -37,10 +47,10 @@ export default async function Page({ params }: IIdMeta) {
   }
 
   try {
-    const response = await getInstituteBasicInfo(id);
-    const data = response.data as InstitutionDetails;
+    const response = await getSummaryUserRating(id);
+    const data = response.data as InstitutionRatingWithInstitutionResponse;
     const dictionary = await getTranslations({ locale, namespace: 'Base' });
-    return <PageInstituteAddReview dictionary={dictionary} {...data} />;
+    return <PageInstituteDynamicReview dictionary={dictionary} {...data} />;
   } catch {
     redirect(AppRoutes.Global.Home);
   }

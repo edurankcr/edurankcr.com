@@ -3,14 +3,16 @@
 import { useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 
-import { useRouter } from '@/components';
+import { usePathname, useRouter } from '@/components';
 import { AppRoutes } from '@/constants';
 import { getTokenFromCookie } from '@/services';
 import { useUserStore } from '@/stores';
+import { isAuthRoute } from '@/utils';
 
 export const AuthGuard = () => {
   const { user, hasHydrated, clearUser } = useUserStore();
   const hasChecked = useRef(false);
+  const pathName = usePathname();
   const router = useRouter();
 
   useEffect(() => {
@@ -22,12 +24,17 @@ export const AuthGuard = () => {
 
     getTokenFromCookie().then((token) => {
       if (!token && user) {
-        toast.error('Session expired. Please log in again.');
         clearUser();
-        router.push(AppRoutes.Guest.Login);
+        toast.error('Session expired. Please log in again.');
+
+        if (isAuthRoute(pathName)) {
+          return router.push(AppRoutes.Guest.Login);
+        }
+
+        router.refresh();
       }
     });
-  }, [hasHydrated, user, clearUser, router]);
+  }, [hasHydrated, user, clearUser, router, pathName]);
 
   return null;
 };

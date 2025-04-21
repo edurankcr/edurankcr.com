@@ -138,7 +138,7 @@ export async function getInstitutionRatings(id: string) {
 }
 
 export async function postInstituteReview(
-  institutionId: string,
+  InstitutionId: string,
   Location: number,
   Happiness: number,
   Safety: number,
@@ -151,7 +151,7 @@ export async function postInstituteReview(
   Clubs: number,
   Testimony: string,
 ) {
-  return await api.post(`/institutions/${institutionId}/ratings`, {
+  return await api.post(`/institutions/${InstitutionId}/ratings`, {
     Location,
     Happiness,
     Safety,
@@ -164,4 +164,50 @@ export async function postInstituteReview(
     Clubs,
     Testimony,
   });
+}
+
+export async function putInstituteReview({
+  InstitutionId,
+  Location,
+  Happiness,
+  Safety,
+  Reputation,
+  Opportunities,
+  Internet,
+  Food,
+  Social,
+  Facilities,
+  Clubs,
+  Testimony,
+}: {
+  InstitutionId: string;
+  Location: number;
+  Happiness: number;
+  Safety: number;
+  Reputation: number;
+  Opportunities: number;
+  Internet: number;
+  Food: number;
+  Social: number;
+  Facilities: number;
+  Clubs: number;
+  Testimony: string;
+}) {
+  return await api.put(`/institutions/${InstitutionId}/ratings`, {
+    Location,
+    Happiness,
+    Safety,
+    Reputation,
+    Opportunities,
+    Internet,
+    Food,
+    Social,
+    Facilities,
+    Clubs,
+    Testimony,
+  });
+}
+
+export async function getSummaryUserRating(institutionId: string) {
+  return await api.get(`/institutions/${institutionId}/ratings/me`);
 }

@@ -172,11 +172,36 @@ type InstitutionDetails = {
   status: number;
 };
 
+type InstitutionRatingWithInstitutionResponse = {
+  hasRating: boolean;
+  rating: {
+    institutionRatingId: string;
+    institutionId: string;
+    userId: string;
+    location: number;
+    happiness: number;
+    safety: number;
+    reputation: number;
+    opportunities: number;
+    internet: number;
+    food: number;
+    social: number;
+    facilities: number;
+    clubs: number;
+    testimony: string;
+    createdAt: string;
+    updatedAt: string | null;
+    status: number;
+  } | null;
+  institution: Institution;
+};
+
 export type {
   AggregateRatings,
   Institution,
   InstitutionDetails,
   InstitutionDetailsResponse,
+  InstitutionRatingWithInstitutionResponse,
   InstitutionReview,
   InstitutionReviewItem,
   InstitutionReviewsResponse,

@@ -24,16 +24,18 @@ import {
 } from '@/components';
 import { Advise } from '@/components/Advise/Advise';
 import { AppRoutes } from '@/constants';
-import { postInstituteReview } from '@/services';
-import type { InstitutionDetails } from '@/types';
+import { postInstituteReview, putInstituteReview } from '@/services';
+import type { InstitutionDetails, InstitutionRatingWithInstitutionResponse } from '@/types';
 import { InstituteReviewValidation } from '@/validations';
 
 type FormInstituteReviewProps = {
-  InstitutionId: InstitutionDetails['institutionId'];
+  institutionId: InstitutionDetails['institutionId'];
+  hasRating: InstitutionRatingWithInstitutionResponse['hasRating'];
+  rating: InstitutionRatingWithInstitutionResponse['rating'];
 };
 
 const FormInstituteReview = (params: FormInstituteReviewProps) => {
-  const { InstitutionId } = params;
+  const { institutionId, hasRating, rating } = params;
 
   const dictionary = useTranslations('Base');
   const router = useRouter();
@@ -43,26 +45,41 @@ const FormInstituteReview = (params: FormInstituteReviewProps) => {
     reValidateMode: 'onSubmit',
     shouldFocusError: true,
     defaultValues: {
-      Location: 0,
-      Happiness: 0,
-      Safety: 0,
-      Reputation: 0,
-      Opportunities: 0,
-      Internet: 0,
-      Food: 0,
-      Social: 0,
-      Facilities: 0,
-      Clubs: 0,
-      Testimony: '',
+      Location: rating?.location || 0,
+      Happiness: rating?.happiness || 0,
+      Safety: rating?.safety || 0,
+      Reputation: rating?.reputation || 0,
+      Opportunities: rating?.opportunities || 0,
+      Internet: rating?.internet || 0,
+      Food: rating?.food || 0,
+      Social: rating?.social || 0,
+      Facilities: rating?.facilities || 0,
+      Clubs: rating?.clubs || 0,
+      Testimony: rating?.testimony || '',
     },
   });
 
   async function onSubmit(values: z.infer<typeof InstituteReviewValidation>) {
     const { Location, Happiness, Safety, Reputation, Opportunities, Internet, Food, Social, Facilities, Clubs, Testimony } = values;
     try {
-      await postInstituteReview(InstitutionId, Location, Happiness, Safety, Reputation, Opportunities, Internet, Food, Social, Facilities, Clubs, Testimony);
-      toast.success(dictionary('Form.Review.submit_success'));
-      router.push(AppRoutes.Global.Home);
+      hasRating
+        ? await putInstituteReview({
+          InstitutionId: institutionId,
+          Location,
+          Happiness,
+          Safety,
+          Reputation,
+          Opportunities,
+          Internet,
+          Food,
+          Social,
+          Facilities,
+          Clubs,
+          Testimony,
+        })
+        : await postInstituteReview(institutionId, Location, Happiness, Safety, Reputation, Opportunities, Internet, Food, Social, Facilities, Clubs, Testimony);
+      hasRating ? toast.success(dictionary('Form.Review.update_success')) : toast.success(dictionary('Form.Review.submit_success'));
+      router.push(AppRoutes.Global.Institutes.Profile(institutionId));
     } catch (error: any) {
       const { response } = error;
       switch (response.data.code) {
@@ -78,7 +95,7 @@ const FormInstituteReview = (params: FormInstituteReviewProps) => {
     }
   }
 
-  if (!InstitutionId) {
+  if (!institutionId) {
     return redirect(AppRoutes.Global.Home);
   }
 
