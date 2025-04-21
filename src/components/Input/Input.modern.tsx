@@ -69,7 +69,7 @@ export const Textarea = ({ ref, value = '', id, placeholder, disabled, rows, ...
         rows={rows}
         data-active={getMemoIsActive}
         disabled={disabled}
-        className="peer block h-[140px] max-h-[166px] min-h-[66px] w-full rounded-lg bg-transparent px-3 py-[0.32rem] leading-[1.6] text-text-primary outline-none read-only:cursor-not-allowed hover:placeholder:opacity-100 focus:placeholder:opacity-100 disabled:cursor-not-allowed disabled:grayscale peer-focus:text-primary-foreground aria-[invalid=true]:bg-background-error-weak data-[active=true]:placeholder:opacity-100 disabled:cursor-not-allowed disabled:grayscale disabled:bg-background-secondary"
+        className="peer block h-[140px] max-h-[166px] min-h-[66px] w-full rounded-lg bg-transparent px-3 pb-[0.32rem] pt-2 leading-[1.6] text-text-primary outline-none read-only:cursor-not-allowed hover:placeholder:opacity-100 focus:placeholder:opacity-100 disabled:cursor-not-allowed disabled:grayscale peer-focus:text-primary-foreground aria-[invalid=true]:bg-background-error-weak data-[active=true]:placeholder:opacity-100 disabled:cursor-not-allowed disabled:grayscale disabled:bg-background-secondary"
         {...props}
       />
       <label

@@ -159,9 +159,23 @@ type InstitutionReviewItem = {
 
 type InstitutionReviewsResponse = InstitutionReviewItem[];
 
+type InstitutionDetails = {
+  institutionId: string;
+  name: string;
+  description: string;
+  province: number;
+  type: number;
+  websiteUrl: string;
+  aiReviewSummary: string;
+  createdAt: string;
+  updatedAt: string;
+  status: number;
+};
+
 export type {
   AggregateRatings,
   Institution,
+  InstitutionDetails,
   InstitutionDetailsResponse,
   InstitutionReview,
   InstitutionReviewItem,

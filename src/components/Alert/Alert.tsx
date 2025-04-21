@@ -19,7 +19,6 @@ const Alert: FC<AlertProps> = memo(({
   ref?: RefObject<HTMLDivElement | null>;
 }) => {
   return (
-
     <div
       ref={ref}
       role="alert"

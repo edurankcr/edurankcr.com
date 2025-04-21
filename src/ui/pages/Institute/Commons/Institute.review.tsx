@@ -1,6 +1,7 @@
 import { IconStarFilled } from '@tabler/icons-react';
 
 import { Button, Group, Progress, Stack, Text } from '@/components';
+import { AppRoutes } from '@/constants';
 import type { IDictionary, InstitutionDetailsResponse } from '@/types';
 import { SectionInstituteReviews } from '@/ui';
 import { getExperienceAverage } from '@/utils';
@@ -56,7 +57,7 @@ const InstituteReview = (params: InstituteReviewProps) => {
             value={getExperienceAverage(5, [instituteSummary.location, instituteSummary.safety, instituteSummary.internet, instituteSummary.facilities, instituteSummary.food])}
           />
         </Stack>
-        <Button bgColor="interactivePrimary" height="lg">
+        <Button bgColor="interactivePrimary" height="lg" href={AppRoutes.Auth.Institutes.Review.replace('[id]', institutionId)}>
           {dictionary('Button.write_review')}
         </Button>
       </Stack>

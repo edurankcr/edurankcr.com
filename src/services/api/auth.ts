@@ -115,6 +115,10 @@ export async function postChangePassword(currentPassword: string, newPassword: s
   });
 }
 
+export async function getInstituteBasicInfo(id: string) {
+  return await api.get(`/institutions/${id}`);
+}
+
 export async function getInstituteSummary(id: string) {
   return await api.get(`/institutions/${id}/summary`);
 }
@@ -131,4 +135,33 @@ export async function getSearch(name: string) {
 
 export async function getInstitutionRatings(id: string) {
   return await api.get(`/institutions/${id}/ratings`);
+}
+
+export async function postInstituteReview(
+  institutionId: string,
+  Location: number,
+  Happiness: number,
+  Safety: number,
+  Reputation: number,
+  Opportunities: number,
+  Internet: number,
+  Food: number,
+  Social: number,
+  Facilities: number,
+  Clubs: number,
+  Testimony: string,
+) {
+  return await api.post(`/institutions/${institutionId}/ratings`, {
+    Location,
+    Happiness,
+    Safety,
+    Reputation,
+    Opportunities,
+    Internet,
+    Food,
+    Social,
+    Facilities,
+    Clubs,
+    Testimony,
+  });
 }

@@ -39,6 +39,9 @@ export const AppRoutes = {
       Institute: '/add/institute',
       Teacher: '/add/teacher',
     },
+    Institutes: {
+      Review: '/institute/[id]/review',
+    },
   },
   Guest: {
     Login: '/login',

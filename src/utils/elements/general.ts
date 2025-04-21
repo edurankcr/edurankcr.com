@@ -13,7 +13,7 @@ export function getMainType(pathname: string): { type: 'largeForm' | 'form' | 'd
     };
   }
 
-  if ([
+  const staticFormPaths = [
     '/forgot-password',
     '/forgot-password/sent',
     '/reset-password',
@@ -21,7 +21,13 @@ export function getMainType(pathname: string): { type: 'largeForm' | 'form' | 'd
     '/verify-email/request',
     '/verify-email/sent',
     '/verify-email/change',
-  ].includes(pathname)) {
+  ];
+
+  const dynamicFormPatterns = [
+    /^\/institute\/[0-9a-fA-F-]{36}\/review$/,
+  ];
+
+  if (staticFormPaths.includes(pathname) || dynamicFormPatterns.some(pattern => pattern.test(pathname))) {
     return {
       type: 'form',
       background: 'static',

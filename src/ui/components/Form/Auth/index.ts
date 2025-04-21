@@ -1,5 +1,6 @@
 export * from './Form.forgotPassword';
 export * from './Form.forgotPasswordSent';
+export * from './Form.instituteReview';
 export * from './Form.login';
 export * from './Form.register';
 export * from './Form.resetPassword';

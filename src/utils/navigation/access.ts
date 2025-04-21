@@ -4,15 +4,22 @@ type AppRoutesType = typeof AppRoutes;
 type RouteGroup = keyof AppRoutesType;
 
 const SUPPORTED_LOCALES = ['en', 'es'];
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 export const sanitizePath = (pathname: string): string => {
-  const segments = pathname.split('/');
+  const segments = pathname?.split('/') ?? [];
+
   const noLocale
-    = segments.length > 1 && segments[1] && SUPPORTED_LOCALES.includes(segments[1])
+    = segments.length > 1 && SUPPORTED_LOCALES.includes(segments[1] || '')
       ? `/${segments.slice(2).join('/')}`
       : pathname;
 
-  return noLocale.endsWith('/') && noLocale !== '/' ? noLocale.slice(0, -1) : noLocale;
+  const sanitized = noLocale
+    .split('/')
+    .map(segment => (segment && UUID_REGEX.test(segment) ? '[id]' : segment))
+    .join('/');
+
+  return sanitized.endsWith('/') && sanitized !== '/' ? sanitized.slice(0, -1) : sanitized;
 };
 
 const flattenRoutes = (group: RouteGroup): string[] => {

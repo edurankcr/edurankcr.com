@@ -10,7 +10,7 @@ const Providers = async ({ children, params }: IProviders) => {
   const messages = await getMessagesForLocale({ locale });
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <ReactQueryProvider>
         {children}
       </ReactQueryProvider>

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Icons, Stack, Text } from '@/components';
+import { Group, Icons, Link, Stack, Text } from '@/components';
+import { AppRoutes } from '@/constants';
 import type { ITranslations } from '@/types';
 
 import { GlobalSearchInputResultsContainer } from './Results.container';
@@ -21,6 +22,26 @@ const GlobalSearchInputResultsEmpty = (params: GlobalSearchInputResultsEmptyProp
             {dictionary('Input.Search.Results.empty_desc')}
           </Text>
         </Stack>
+        <Group preventGrowOverflow={false} gap="sm" fontColor="secondary" fontSize="sm">
+          {dictionary.rich('Input.Search.Results.link', {
+            linkTeacher: (chunks: any) => (
+              <Link
+                href={AppRoutes.Auth.Add.Institute}
+                text={{ weight: 'medium', color: 'neon' }}
+              >
+                {chunks}
+              </Link>
+            ),
+            linkInstitute: (chunks: any) => (
+              <Link
+                href={AppRoutes.Auth.Add.Institute}
+                text={{ weight: 'medium', color: 'neon' }}
+              >
+                {chunks}
+              </Link>
+            ),
+          })}
+        </Group>
       </Stack>
     </GlobalSearchInputResultsContainer>
   );

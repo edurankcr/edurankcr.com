@@ -117,3 +117,11 @@ export const SearchNameSchema = z
   .min(3, { message: 'Search name must be at least 3 characters long.' })
   .max(100, { message: 'Search name must be at most 100 characters long.' })
   .regex(/^[a-z0-9\s.,'"-]+$/i, 'Invalid characters in search name. Only letters, numbers, and spaces are allowed.');
+
+export const ReviewScaleSchema = z
+  .number()
+  .min(1, { message: 'Scale must be at least 1.' })
+  .max(5, { message: 'Scale must be at most 5.' })
+  .refine(val => Number.isInteger(val), {
+    message: 'Scale must be an integer.',
+  });

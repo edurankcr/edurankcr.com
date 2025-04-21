@@ -59,6 +59,7 @@ export const boxVariants = cva('', {
       primary: 'text-primary',
       black: 'text-black',
       white: 'text-white',
+      secondary: 'text-text-secondary',
     },
     fontSize: {
       300: 'text-300',

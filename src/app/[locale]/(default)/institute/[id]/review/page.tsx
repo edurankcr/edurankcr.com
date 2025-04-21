@@ -2,9 +2,9 @@ import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
 import { AppRoutes } from '@/constants';
-import { getInstituteSummary } from '@/services';
-import type { IIdMeta, InstitutionDetailsResponse } from '@/types';
-import { PageInstitute } from '@/ui';
+import { getInstituteBasicInfo } from '@/services';
+import type { IIdMeta, InstitutionDetails, InstitutionDetailsResponse } from '@/types';
+import { PageInstituteAddReview } from '@/ui';
 import { GuidValidation } from '@/validations';
 
 export async function generateMetadata({ params }: IIdMeta) {
@@ -12,17 +12,17 @@ export async function generateMetadata({ params }: IIdMeta) {
   const t = await getTranslations({ locale, namespace: 'Meta.Institute' });
 
   try {
-    const response = await getInstituteSummary(id);
+    const response = await getInstituteBasicInfo(id);
     const data = response.data as InstitutionDetailsResponse;
 
     return {
-      title: t('title', { name: data.institution.name }) || '',
-      description: t('description', { name: data.institution.name }) || '',
+      title: t('add_review', { name: data.institution.name }) || '',
+      description: t('add_review_description', { name: data.institution.name }) || '',
     };
   } catch {
     return {
-      title: t('generic_title'),
-      description: t('generic_description'),
+      title: t('add_review_generic'),
+      description: t('add_review_generic_description'),
     };
   }
 }
@@ -37,10 +37,10 @@ export default async function Page({ params }: IIdMeta) {
   }
 
   try {
-    const response = await getInstituteSummary(id);
-    const data = response.data as InstitutionDetailsResponse;
+    const response = await getInstituteBasicInfo(id);
+    const data = response.data as InstitutionDetails;
     const dictionary = await getTranslations({ locale, namespace: 'Base' });
-    return <PageInstitute dictionary={dictionary} {...data} />;
+    return <PageInstituteAddReview dictionary={dictionary} {...data} />;
   } catch {
     redirect(AppRoutes.Global.Home);
   }

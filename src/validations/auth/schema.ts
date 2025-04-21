@@ -13,6 +13,7 @@ import {
   NameSchema,
   PasswordSchema,
   ProvinceSchema,
+  ReviewScaleSchema,
   SearchNameSchema,
   UrlSchema,
   UserNameSchema,
@@ -112,4 +113,21 @@ export const AddInstituteValidation = z.object({
 
 export const SearchValidation = z.object({
   Query: SearchNameSchema,
+});
+
+export const InstituteReviewValidation = z.object({
+  Location: ReviewScaleSchema,
+  Happiness: ReviewScaleSchema,
+  Safety: ReviewScaleSchema,
+  Reputation: ReviewScaleSchema,
+  Opportunities: ReviewScaleSchema,
+  Internet: ReviewScaleSchema,
+  Food: ReviewScaleSchema,
+  Social: ReviewScaleSchema,
+  Facilities: ReviewScaleSchema,
+  Clubs: ReviewScaleSchema,
+  Testimony: z
+    .string()
+    .max(2000, 'Testimony is too long, maximum 2000 characters.')
+    .min(85, 'Testimony is too short, minimum 85 characters.'),
 });
